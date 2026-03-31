@@ -68,10 +68,11 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:16px 40px; di
 .hero { min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding:clamp(80px,10vh,140px) 40px clamp(60px,8vh,100px); position:relative; overflow:hidden; }
 .hero-glow { position:absolute; top:-15%; right:-10%; width:55vw; height:55vw; background:radial-gradient(ellipse,rgba(255,45,45,.1) 0%,transparent 70%); pointer-events:none; }
 .hero-glow2 { position:absolute; bottom:-15%; left:-5%; width:35vw; height:35vw; background:radial-gradient(ellipse,rgba(255,229,59,.07) 0%,transparent 70%); pointer-events:none; }
-.hero-badge { display:flex; align-items:center; gap:10px; border:1px solid rgba(255,45,45,.28); border-radius:100px; padding:7px 16px 7px 9px; margin-bottom:40px; width:fit-content; animation:fadeUp .7s both; }
+.hero-badge { display:inline-flex; align-items:center; gap:10px; background:rgba(255,45,45,.09); border:1px solid rgba(255,45,45,.28); border-radius:100px; padding:7px 16px 7px 9px; margin-bottom:40px; width:fit-content; animation:fadeUp .7s both; }
 .badge-dot { display:none; }
-/* .badge-yt { opacity:1 !important; cursor:pointer; transition:transform .2s; display:inline-flex !important; } */
-/* .badge-yt:hover { transform:scale(1.15); } */
+.badge-yt { opacity:1 !important; cursor:pointer; transition:transform .2s; display:-webkit-inline-flex !important; display:inline-flex !important; width:20px !important; height:20px !important; min-width:20px; -webkit-align-items:center; align-items:center; visibility:visible !important; }
+.badge-yt svg { width:20px; height:14px; display:block; overflow:visible; }
+.badge-yt:hover { transform:scale(1.15); }
 .hero-badge span { font-size:12px; font-weight:600; letter-spacing:.04em; }
 @keyframes pulse { 0%,100%{ box-shadow:0 0 0 0 rgba(255,45,45,.45); } 50%{ box-shadow:0 0 0 6px rgba(255,45,45,0); } }
 .hero-h { font-family:'Unbounded',sans-serif; font-weight:900; font-size:clamp(44px,7.5vw,140px); line-height:1.0; letter-spacing:-.03em; margin-bottom:32px; animation:fadeUp .7s .08s both; }
@@ -615,15 +616,15 @@ footer { background:var(--dark); border-top:1px solid var(--border); padding:30p
 .btn-x:hover { border-color: rgba(255,255,255,.5); color: #fff; }
 
 /* ─ HIDDEN YOUTUBE LOGOS (Easter hunt) ─ */
-.spark {
-  display: inline-flex; align-items: center; justify-content: center;
+.spark:not(.badge-yt) {
+  display: -webkit-inline-flex; display: inline-flex; -webkit-align-items: center; align-items: center; justify-content: center;
   opacity: 0.09; cursor: pointer;
   transition: opacity .2s, transform .2s;
   position: relative; z-index: 2;
   -webkit-tap-highlight-color: transparent;
 }
-.spark:hover { opacity: 0.35; transform: scale(1.15); }
-.spark.found  { opacity: 0.6 !important; pointer-events: none; }
+.spark:not(.badge-yt):hover { opacity: 0.35; transform: scale(1.15); }
+.spark.found:not(.badge-yt) { opacity: 0.6 !important; pointer-events: none; }
 .spark.found svg { filter: drop-shadow(0 0 8px rgba(255,45,45,.7)); }
 
 @keyframes fxFound {
@@ -1142,7 +1143,7 @@ if (document.fonts && document.fonts.ready) {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-glow"></div><div class="hero-glow2"></div>
-  <div class="hero-badge"><div class="spark" id="sp1" onclick="activateSpark(1)" style="width:20px;height:14px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></div><span>Креативний YouTube продюсер</span></div>
+  <div class="hero-badge"><span class="spark badge-yt" id="sp1" onclick="activateSpark(1)" style="width:20px;height:20px;flex-shrink:0;display:-webkit-inline-flex;display:inline-flex;-webkit-align-items:center;align-items:center;visibility:visible;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span><span>Креативний YouTube продюсер</span></div>
   <h1 class="hero-h">YOUTUBE<br><span class="g">ЩО РЕАЛЬНО</span><br><span class="dim">ПРАЦЮЄ</span></h1>
   <p class="hero-desc">Працюю з тими, хто хоче залишити слід, а не просто заповнювати стрічку.</p>
   <div class="hero-btns">

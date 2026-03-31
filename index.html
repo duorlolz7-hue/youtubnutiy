@@ -533,98 +533,98 @@ footer { background:var(--dark); border-top:1px solid var(--border); padding:30p
 .nav-logo { cursor: pointer; user-select: none; transition: transform .15s; }
 .nav-logo:active { transform: scale(.95); }
 
-@keyframes ytExplosion {
+@keyframes fxBurst {
   0%   { transform: scale(1); }
   15%  { transform: scale(1.18) rotate(-2deg); }
   30%  { transform: scale(.95) rotate(1deg); }
   50%  { transform: scale(1.1); }
   100% { transform: scale(1); }
 }
-.nav-logo.egg-pop { animation: ytExplosion .55s ease both; }
+.nav-logo.nav-pop { animation: fxBurst .55s ease both; }
 
 @keyframes logoGlow {
   0%,100% { text-shadow: 0 0 0px rgba(255,229,59,0); }
   50%     { text-shadow: 0 0 18px rgba(255,229,59,0.55), 0 0 6px rgba(255,92,46,0.3); }
 }
-.nav-logo.egg-hint em {
+.nav-logo.nav-hint em {
   animation: logoGlow 2.4s ease-in-out infinite;
   -webkit-text-fill-color: transparent;
 }
 
 /* ─ EASTER EGG OVERLAY ─ */
-#egg-overlay {
+#panel-x {
   position: fixed; inset: 0; z-index: 10000;
   background: rgba(0,0,0,.92);
   display: none; align-items: center; justify-content: center; flex-direction: column;
   gap: 28px; text-align: center; padding: 40px;
 }
-#egg-overlay.open { display: flex; }
+#panel-x.open { display: flex; }
 
-@keyframes eggIn {
+@keyframes fxIn {
   from { opacity:0; transform: scale(.8) translateY(30px); }
   to   { opacity:1; transform: scale(1) translateY(0); }
 }
-.egg-content { animation: eggIn .5s cubic-bezier(.34,1.56,.64,1) both; }
+.panel-inner { animation: fxIn .5s cubic-bezier(.34,1.56,.64,1) both; }
 
-.egg-yt-anim {
+.ring-fx {
   width: 90px; height: 90px; margin: 0 auto 16px;
   position: relative;
 }
-.egg-yt-anim svg { width: 100%; height: 100%; }
+.ring-fx svg { width: 100%; height: 100%; }
 
-@keyframes ytPulse {
+@keyframes fxPulse {
   0%,100% { transform: scale(1); filter: drop-shadow(0 0 0px #FF2D2D); }
   50%      { transform: scale(1.12); filter: drop-shadow(0 0 18px rgba(255,45,45,.8)); }
 }
-.egg-yt-anim svg { animation: ytPulse 1.2s ease-in-out infinite; }
+.ring-fx svg { animation: fxPulse 1.2s ease-in-out infinite; }
 
-@keyframes playBtn {
+@keyframes fxPlay {
   0%   { transform: scale(1); }
   25%  { transform: scale(1.3); }
   50%  { transform: scale(1); }
   75%  { transform: scale(1.15); }
   100% { transform: scale(1); }
 }
-.egg-yt-anim .play-tri { animation: playBtn .6s ease-in-out both; }
+.ring-fx .play-tri { animation: fxPlay .6s ease-in-out both; }
 
-.egg-title {
+.hdr-x {
   font-family: 'Unbounded', sans-serif; font-size: clamp(24px,5vw,48px);
   font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 8px;
 }
-.egg-title span { background: linear-gradient(135deg,#FF2D2D,#FF5C2E,#FFE53B);
+.hdr-x span { background: linear-gradient(135deg,#FF2D2D,#FF5C2E,#FFE53B);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.egg-sub { font-size: 16px; color: rgba(255,255,255,.65); line-height: 1.65; max-width: 420px; }
-.egg-close {
+.sub-x { font-size: 16px; color: rgba(255,255,255,.65); line-height: 1.65; max-width: 420px; }
+.btn-x {
   margin-top: 10px; background: transparent;
   border: 1px solid rgba(255,255,255,.2); color: rgba(255,255,255,.5);
   font-family: 'Unbounded', sans-serif; font-size: 10px; font-weight: 700;
   letter-spacing: .1em; padding: 12px 28px; cursor: pointer;
   transition: all .2s;
 }
-.egg-close:hover { border-color: rgba(255,255,255,.5); color: #fff; }
+.btn-x:hover { border-color: rgba(255,255,255,.5); color: #fff; }
 
 /* ─ HIDDEN YOUTUBE LOGOS (Easter hunt) ─ */
-.yt-egg {
+.spark {
   display: inline-flex; align-items: center; justify-content: center;
   opacity: 0.09; cursor: pointer;
   transition: opacity .2s, transform .2s;
   position: relative; z-index: 2;
   -webkit-tap-highlight-color: transparent;
 }
-.yt-egg:hover { opacity: 0.35; transform: scale(1.15); }
-.yt-egg.found  { opacity: 0.6 !important; pointer-events: none; }
-.yt-egg.found svg { filter: drop-shadow(0 0 8px rgba(255,45,45,.7)); }
+.spark:hover { opacity: 0.35; transform: scale(1.15); }
+.spark.found  { opacity: 0.6 !important; pointer-events: none; }
+.spark.found svg { filter: drop-shadow(0 0 8px rgba(255,45,45,.7)); }
 
-@keyframes eggFound {
+@keyframes fxFound {
   0%   { transform: scale(1); }
   40%  { transform: scale(1.5); }
   70%  { transform: scale(.9); }
   100% { transform: scale(1); }
 }
-.yt-egg.found { animation: eggFound .45s cubic-bezier(.34,1.56,.64,1) both; }
+.spark.found { animation: fxFound .45s cubic-bezier(.34,1.56,.64,1) both; }
 
 /* ─ HUNT COUNTER ─ */
-#hunt-counter {
+#score-bar {
   position: fixed; bottom: 24px; right: 24px; z-index: 9000;
   background: rgba(12,12,12,.95); border: 1px solid rgba(255,45,45,.3);
   padding: 10px 16px; display: none; align-items: center; gap: 10px;
@@ -637,9 +637,9 @@ footer { background:var(--dark); border-top:1px solid var(--border); padding:30p
   from { opacity:0; transform: translateY(20px) scale(.9); }
   to   { opacity:1; transform: translateY(0) scale(1); }
 }
-#hunt-counter .hunt-icon { font-size: 16px; }
-#hunt-counter .hunt-nums { color: var(--y); }
-#hunt-counter .hunt-tip  { font-size: 8px; color: rgba(255,255,255,.35);
+#score-bar .hunt-icon { font-size: 16px; }
+#score-bar .hunt-nums { color: var(--y); }
+#score-bar .hunt-tip  { font-size: 8px; color: rgba(255,255,255,.35);
   display: block; margin-top: 2px; letter-spacing: .08em; font-weight: 400;
   font-family: 'Manrope', sans-serif; }
 
@@ -651,14 +651,14 @@ footer { background:var(--dark); border-top:1px solid var(--border); padding:30p
 #hunt-nums.pop { animation: counterPop .35s ease both; }
 
 /* ─ HUNT WIN OVERLAY ─ */
-#hunt-win {
+#win-panel {
   position: fixed; inset: 0; z-index: 10001;
   background: rgba(0,0,0,.96);
   display: none; align-items: center; justify-content: center;
   flex-direction: column; gap: 24px; text-align: center; padding: 40px;
 }
-#hunt-win.open { display: flex; }
-.win-content { animation: eggIn .55s cubic-bezier(.34,1.56,.64,1) .1s both; }
+#win-panel.open { display: flex; }
+.win-inner { animation: fxIn .55s cubic-bezier(.34,1.56,.64,1) .1s both; }
 .win-title {
   font-family: 'Unbounded', sans-serif; font-size: clamp(28px,6vw,64px);
   font-weight: 900; color: #fff; line-height: 1.05; margin-bottom: 12px;
@@ -667,18 +667,18 @@ footer { background:var(--dark); border-top:1px solid var(--border); padding:30p
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .win-sub { font-size: clamp(14px,1.8vw,18px); color: rgba(255,255,255,.7);
   line-height: 1.7; max-width: 500px; margin: 0 auto 8px; }
-.win-video-wrap {
+.media-wrap {
   width: 100%; max-width: 560px; margin: 0 auto;
   aspect-ratio: 16/9; background: #000; border: 1px solid rgba(255,45,45,.3);
   display: flex; align-items: center; justify-content: center;
   position: relative; overflow: hidden;
 }
-.win-video-placeholder {
+.media-ph {
   display: flex; flex-direction: column; align-items: center; gap: 14px;
   color: rgba(255,255,255,.5);
 }
-.win-video-placeholder svg { width: 64px; height: 64px; opacity: .7; }
-.win-video-placeholder p { font-size: 13px; line-height: 1.6; max-width: 300px; }
+.media-ph svg { width: 64px; height: 64px; opacity: .7; }
+.media-ph p { font-size: 13px; line-height: 1.6; max-width: 300px; }
 .win-cta {
   display: inline-block; background: linear-gradient(135deg,#FF2D2D,#FF5C2E,#FFE53B);
   color: #fff; font-family: 'Unbounded', sans-serif; font-size: 13px; font-weight: 700;
@@ -990,28 +990,28 @@ if (document.fonts && document.fonts.ready) {
 <div id="scroll-progress"></div>
 
 <!-- EASTER EGG OVERLAY (3x click on logo) -->
-<div id="egg-overlay">
-  <div class="egg-content">
-    <div class="egg-yt-anim">
+<div id="panel-x">
+  <div class="panel-inner">
+    <div class="ring-fx">
       <svg viewBox="0 0 90 63" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/>
         <polygon class="play-tri" points="36,20 36,43 59,31.5" fill="white"/>
       </svg>
     </div>
-    <div class="egg-title">Ти знайшов<br><span>секретну гру</span> 🎮</div>
-    <div class="egg-sub" style="max-width:480px;">
+    <div class="hdr-x">Ти знайшов<br><span>секретну гру</span> 🎮</div>
+    <div class="sub-x" style="max-width:480px;">
       По всьому сайту заховано <strong style="color:#FFE53B;">9 логотипів YouTube</strong>.<br><br>
       <strong style="color:#FF2D2D;">Збери всі 9 — і отримаєш особисте повідомлення від мене.</strong><br><br>
-      До речі, один вже тут — <span class="yt-egg" id="ytEgg2" onclick="foundEgg(2)" style="width:16px;height:16px;vertical-align:middle;margin-left:4px;opacity:0.7;cursor:pointer;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span> натисни щоб отримати його
+      До речі, один вже тут — <span class="spark" id="sp2" onclick="activateSpark(2)" style="width:16px;height:16px;vertical-align:middle;margin-left:4px;opacity:0.7;cursor:pointer;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span> натисни щоб отримати його
     </div>
     <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:4px;">
-      <button class="egg-close" onclick="startHunt()" style="background:linear-gradient(135deg,#FF2D2D,#FF5C2E,#FFE53B);border:none;color:#fff;">Шукати →</button>
+      <button class="btn-x" onclick="beginGame()" style="background:linear-gradient(135deg,#FF2D2D,#FF5C2E,#FFE53B);border:none;color:#fff;">Шукати →</button>
     </div>
   </div>
 </div>
 
 <!-- HUNT COUNTER -->
-<div id="hunt-counter">
+<div id="score-bar">
   <span class="hunt-icon" style="display:flex;align-items:center;">
     <svg width="28" height="20" viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg>
   </span>
@@ -1022,12 +1022,12 @@ if (document.fonts && document.fonts.ready) {
 </div>
 
 <!-- HUNT WIN OVERLAY -->
-<div id="hunt-win">
-  <div class="win-content">
+<div id="win-panel">
+  <div class="win-inner">
     <div class="win-title">Ого<br><span>Ти знайшов всі 9</span></div>
     <div class="win-sub">Слухай, я сховав їх досить добре. Ти або дуже уважний, або дуже впертий — і те й інше мені подобається в людях з якими я працюю. Тримай відео і продовжуй творити</div>
-    <div class="win-video-wrap" id="winVideoWrap">
-      <div class="win-video-placeholder">
+    <div class="media-wrap" id="winVideoWrap">
+      <div class="media-ph">
         <svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg>
         <p>Вставте посилання на YouTube відео в код (id="winVideoWrap")</p>
       </div>
@@ -1114,7 +1114,7 @@ if (document.fonts && document.fonts.ready) {
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo" id="navLogo" onclick="eggClick()"><em id="navLogoText">МИХАЙЛО ТЕПЛЕНКО</em></div>
+  <div class="nav-logo" id="navLogo" onclick="logoPress()"><em id="navLogoText">МИХАЙЛО ТЕПЛЕНКО</em></div>
   <div class="nav-links">
     <a href="#about">Про мене</a>
     <a href="#navigator">Послуги</a>
@@ -1134,7 +1134,7 @@ if (document.fonts && document.fonts.ready) {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-glow"></div><div class="hero-glow2"></div>
-  <div class="hero-badge"><span class="yt-egg badge-yt" id="ytEgg1" onclick="foundEgg(1)" style="width:20px;height:14px;flex-shrink:0;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span><span>Креативний YouTube продюсер</span></div>
+  <div class="hero-badge"><span class="spark badge-yt" id="sp1" onclick="activateSpark(1)" style="width:20px;height:14px;flex-shrink:0;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span><span>Креативний YouTube продюсер</span></div>
   <h1 class="hero-h">YOUTUBE<br><span class="g">ЩО РЕАЛЬНО</span><br><span class="dim">ПРАЦЮЄ</span></h1>
   <p class="hero-desc">Працюю з тими, хто хоче залишити слід, а не просто заповнювати стрічку.</p>
   <div class="hero-btns">
@@ -1180,7 +1180,7 @@ if (document.fonts && document.fonts.ready) {
           </div>
           <div class="tl-row">
             <div class="tl-y">2015–2019</div>
-            <div class="tl-b"><strong>🎮 Gameost — перший YouTube успіх</strong><p>Запустили з нуля — без бюджету, без досвіду, тільки на органіці. За 4 роки: <strong style="color:var(--y)">500 000 підписників · 200 млн переглядів</strong>. Тоді переконався: система будується. <span class="yt-egg" id="ytEgg3" onclick="foundEgg(3)" style="width:13px;height:13px;vertical-align:middle;margin-left:4px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></p></div>
+            <div class="tl-b"><strong>🎮 Gameost — перший YouTube успіх</strong><p>Запустили з нуля — без бюджету, без досвіду, тільки на органіці. За 4 роки: <strong style="color:var(--y)">500 000 підписників · 200 млн переглядів</strong>. Тоді переконався: система будується. <span class="spark" id="sp3" onclick="activateSpark(3)" style="width:13px;height:13px;vertical-align:middle;margin-left:4px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></p></div>
           </div>
         </div>
 
@@ -1284,7 +1284,7 @@ if (document.fonts && document.fonts.ready) {
 <section class="reviews-section" id="reviews">
   <div class="wrap">
     <span class="eye reveal">Відгуки</span>
-    <h2 class="sec-h reveal">Що кажуть люди <span class="yt-egg" id="ytEgg6" onclick="foundEgg(6)" style="width:16px;height:16px;vertical-align:middle;margin-left:4px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></h2>
+    <h2 class="sec-h reveal">Що кажуть люди <span class="spark" id="sp6" onclick="activateSpark(6)" style="width:16px;height:16px;vertical-align:middle;margin-left:4px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></h2>
   </div>
   <div class="belt-wrap" style="margin-top:40px;">
 <div class="belt" id="reviewsBelt" style="animation-duration:36s;animation-direction:reverse;">
@@ -1319,7 +1319,7 @@ if (document.fonts && document.fonts.ready) {
         <div class="nf-row"><span style="color:#4ADE80;font-size:16px;">✓</span><span>Амбітних і відкритих людей</span></div>
         <div class="nf-row"><span style="color:#4ADE80;font-size:16px;">✓</span><span>Бізнеси що готові експериментувати і створювати</span></div>
         <div class="nf-row"><span style="color:#4ADE80;font-size:16px;">✓</span><span>Тих хто хоче будувати медіа-актив — а не просто «спробувати»</span></div>
-        <div class="nf-row"><span style="color:#4ADE80;font-size:16px;">✓</span><span>Людей що розуміють: якість — це марафон, а не спринт <span class="yt-egg" id="ytEgg4" onclick="foundEgg(4)" style="width:13px;height:10px;vertical-align:middle;margin-left:4px;display:inline-flex;align-items:center;opacity:0.12;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></span></div>
+        <div class="nf-row"><span style="color:#4ADE80;font-size:16px;">✓</span><span>Людей що розуміють: якість — це марафон, а не спринт <span class="spark" id="sp4" onclick="activateSpark(4)" style="width:13px;height:10px;vertical-align:middle;margin-left:4px;display:inline-flex;align-items:center;opacity:0.12;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></span></div>
       </div>
     </div>
   </div>
@@ -1460,7 +1460,7 @@ if (document.fonts && document.fonts.ready) {
       <div class="calc-left">
         <span class="calc-tag">📈 КАЛЬКУЛЯТОР ДЛЯ БІЗНЕСУ</span>
         <h2 class="calc-h">YouTube як<br><span class="ty">канал продажів</span></h2>
-        <p class="calc-desc">Реклама дорожчає щокварталу. YouTube-відео працює роками. Порахуй скільки клієнтів і грошей приносить канал при твоїх показниках. <span class="yt-egg" id="ytEgg5" onclick="foundEgg(5)" style="width:13px;height:13px;vertical-align:middle;margin-left:4px;display:inline-flex;align-items:center;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></p>
+        <p class="calc-desc">Реклама дорожчає щокварталу. YouTube-відео працює роками. Порахуй скільки клієнтів і грошей приносить канал при твоїх показниках. <span class="spark" id="sp5" onclick="activateSpark(5)" style="width:13px;height:13px;vertical-align:middle;margin-left:4px;display:inline-flex;align-items:center;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></p>
 
         <div class="calc-row">
           <div class="calc-lbl"><span>ПЕРЕГЛЯДИ НА МІСЯЦЬ</span><span class="calc-val" id="cB_Views">10 000</span></div>
@@ -1571,7 +1571,7 @@ if (document.fonts && document.fonts.ready) {
 </section>
 
 <footer>
-  <span class="yt-egg" id="ytEgg7" onclick="foundEgg(7)" style="width:14px;height:14px;" title=""><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span>
+  <span class="spark" id="sp7" onclick="activateSpark(7)" style="width:14px;height:14px;" title=""><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span>
   <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
     <a href="javascript:void(0)" onclick="openModal('impressum')" style="font-size:11px;color:rgba(240,239,232,.3);text-decoration:underline;">Правова інформація</a>
     <a href="javascript:void(0)" onclick="openModal('datenschutz')" style="font-size:11px;color:rgba(240,239,232,.3);text-decoration:underline;">Політика конфіденційності</a>
@@ -1688,6 +1688,11 @@ function sendFinalLead() {
           + '💬 ' + selectedContactType + ': ' + soc + '\n'
           + (svc ? '📦 Послуга: ' + svc + '\n' : '📦 Послуга: не обрано\n');
 
+  var formFields = document.getElementById('finalFormFields');
+  var success2  = document.getElementById('finalSuccess');
+  var text3     = document.getElementById('finalSuccessText');
+  var svcMsg    = svc ? ' Послуга: ' + svc + '.' : '';
+
   fetch(WORKER_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -1695,29 +1700,48 @@ function sendFinalLead() {
   })
   .then(function(r){ return r.json(); })
   .then(function(data){
-    if (data.reason === 'limit') {
-      var formFields0 = document.getElementById('finalFormFields');
-      var success0 = document.getElementById('finalSuccess');
-      var text0 = document.getElementById('finalSuccessText');
-      if (formFields0) formFields0.style.display = 'none';
-      if (success0 && text0) {
-        text0.innerHTML = 'Ви вже залишили заявку. Михайло зв\'яжеться з вами найближчим часом 👋';
-        success0.style.display = 'block';
+    if (formFields) formFields.style.display = 'none';
+    if (success2 && text3) {
+      if (data.reason === 'limit') {
+        text3.innerHTML = 'Усі 3 заявки відправлено. Михайло зв\'яжеться з вами найближчим часом 👋';
+      } else {
+        text3.innerHTML = 'Дякую, <strong>' + n + '</strong>!' + svcMsg + ' Напишу найближчим часом 👋';
+        setTimeout(function() {
+          if (success2) success2.style.display = 'none';
+          if (formFields) formFields.style.display = 'flex';
+          name.value = '';
+          if (social) {
+            social.value = '';
+            social.style.borderColor = 'rgba(255,255,255,.1)';
+            social.disabled = true;
+            social.style.opacity = '.5';
+            social.style.cursor = 'not-allowed';
+            social.style.background = 'rgba(255,255,255,.04)';
+            social.placeholder = "Оберіть спосіб зв'язку вище";
+          }
+          document.querySelectorAll('.contact-type-btn').forEach(function(b){
+            b.classList.remove('active');
+            b.style.background = 'rgba(255,255,255,.06)';
+            b.style.borderColor = 'rgba(255,255,255,.15)';
+            b.style.color = 'rgba(240,239,232,.55)';
+          });
+          selectedContactType = '';
+          name.style.borderColor = 'rgba(255,255,255,.15)';
+          if (service) service.value = '';
+          var label = document.getElementById('serviceDropdownLabel');
+          if (label) label.textContent = 'Послуга?';
+          var arrow = document.getElementById('serviceDropdownArrow');
+          if (arrow) arrow.style.transform = 'rotate(0)';
+          var list = document.getElementById('serviceDropdownList');
+          if (list) list.style.display = 'none';
+          var btn = document.getElementById('serviceDropdownBtn');
+          if (btn) btn.style.color = 'rgba(240,239,232,.45)';
+        }, 10000);
       }
+      success2.style.display = 'block';
     }
   })
   .catch(function(e){ console.warn('Worker error:', e); });
-
-  /* ── ПОКАЗАТИ SUCCESS ── */
-  var formFields = document.getElementById('finalFormFields');
-  if (formFields) formFields.style.display = 'none';
-  var success2  = document.getElementById('finalSuccess');
-  var text3     = document.getElementById('finalSuccessText');
-  var svcMsg    = svc ? ' Послуга: ' + svc + '.' : '';
-  if (success2 && text3) {
-    text3.innerHTML = 'Дякую, <strong>' + n + '</strong>!' + svcMsg + ' Напишу найближчим часом 👋';
-    success2.style.display = 'block';
-  }
 }
 
 /* ── COOKIE BANNER ── */
@@ -1937,7 +1961,7 @@ document.addEventListener('DOMContentLoaded', function() {
 /* ══════════════════════════════════════════════
    EASTER EGG — 3x click on logo → "Привіт, Міша"
 ══════════════════════════════════════════════ */
-var eggClicks = 0;
+var logoPresss = 0;
 var eggTimer  = null;
 var eggDone   = false;
 
@@ -1945,67 +1969,67 @@ var eggPulseTimer = null;
 
 function stopLogoPulse() {
   var logo = document.getElementById('navLogo');
-  if (logo) logo.classList.remove('egg-hint');
+  if (logo) logo.classList.remove('nav-hint');
   clearTimeout(eggPulseTimer);
   eggPulseTimer = null;
 }
 
-function eggClick() {
-  eggClicks++;
+function logoPress() {
+  logoPresss++;
   var logo = document.getElementById('navLogo');
 
-  if (eggClicks === 1) {
+  if (logoPresss === 1) {
     // Перший клік — починає пульсувати 30 секунд
-    logo.classList.remove('egg-hint');
+    logo.classList.remove('nav-hint');
     void logo.offsetWidth;
-    logo.classList.add('egg-hint');
+    logo.classList.add('nav-hint');
     clearTimeout(eggPulseTimer);
     eggPulseTimer = setTimeout(function() {
       stopLogoPulse();
-      eggClicks = 0;
+      logoPresss = 0;
     }, 10000);
-  } else if (eggClicks === 2) {
+  } else if (logoPresss === 2) {
     // Другий клік — пульс продовжується, нічого зайвого
-  } else if (eggClicks >= 3) {
+  } else if (logoPresss >= 3) {
     // Третій клік — зупиняємо пульс, відкриваємо egg
     stopLogoPulse();
-    eggClicks = 0;
-    logo.classList.remove('egg-pop');
+    logoPresss = 0;
+    logo.classList.remove('nav-pop');
     void logo.offsetWidth;
-    logo.classList.add('egg-pop');
+    logo.classList.add('nav-pop');
     setTimeout(openEgg, 150);
     return;
   }
 
   clearTimeout(eggTimer);
   eggTimer = setTimeout(function() {
-    eggClicks = 0;
+    logoPresss = 0;
     stopLogoPulse();
   }, 10000);
 }
 
 function openEgg() {
-  var overlay = document.getElementById('egg-overlay');
+  var overlay = document.getElementById('panel-x');
   if (overlay) { overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
 }
 
 function closeEgg() {
-  var overlay = document.getElementById('egg-overlay');
+  var overlay = document.getElementById('panel-x');
   if (overlay) { overlay.classList.remove('open'); document.body.style.overflow = ''; }
 }
 
-function startHunt() {
+function beginGame() {
   closeEgg();
   // Activate counter immediately to show the hunt has begun
   huntActive = true;
-  var counter = document.getElementById('hunt-counter');
+  var counter = document.getElementById('score-bar');
   if (counter) {
     counter.style.display = 'flex';
     var nums = document.getElementById('hunt-nums');
     if (nums) nums.textContent = huntFound.length + ' / 9';
   }
   // Pulse all visible eggs briefly to hint they exist
-  document.querySelectorAll('.yt-egg:not(.found)').forEach(function(el) {
+  document.querySelectorAll('.spark:not(.found)').forEach(function(el) {
     el.style.opacity = '0.45';
     el.style.transition = 'opacity 0.4s';
     setTimeout(function() {
@@ -2015,7 +2039,7 @@ function startHunt() {
   });
 }
 
-document.getElementById('egg-overlay') && document.getElementById('egg-overlay').addEventListener('click', function(e){
+document.getElementById('panel-x') && document.getElementById('panel-x').addEventListener('click', function(e){
   if (e.target === this) closeEgg();
 });
 
@@ -2028,17 +2052,17 @@ var huntFound  = [];
 var HUNT_TOTAL = 9;
 var huntActive = false;
 
-function foundEgg(n) {
+function activateSpark(n) {
   if (huntFound.indexOf(n) !== -1) return; // already found
   huntFound.push(n);
 
   // Mark egg as found visually
-  var el = document.getElementById('ytEgg' + n);
+  var el = document.getElementById('sp' + n);
   if (el) { el.classList.add('found'); }
 
   // Show / update counter
   huntActive = true;
-  var counter = document.getElementById('hunt-counter');
+  var counter = document.getElementById('score-bar');
   if (counter) {
     counter.style.display = 'flex';
     var nums = document.getElementById('hunt-nums');
@@ -2057,9 +2081,9 @@ function foundEgg(n) {
 }
 
 function openHuntWin() {
-  var counter = document.getElementById('hunt-counter');
+  var counter = document.getElementById('score-bar');
   if (counter) counter.style.display = 'none';
-  var win = document.getElementById('hunt-win');
+  var win = document.getElementById('win-panel');
   if (win) { win.classList.add('open'); document.body.style.overflow = 'hidden'; }
   // Show "написати особисто" after 45 seconds
   var cta = document.getElementById('win-personal-cta');
@@ -2073,13 +2097,13 @@ function openHuntWin() {
 }
 
 function closeHuntWin() {
-  var win = document.getElementById('hunt-win');
+  var win = document.getElementById('win-panel');
   if (win) { win.classList.remove('open'); document.body.style.overflow = ''; }
-  var counter = document.getElementById('hunt-counter');
+  var counter = document.getElementById('score-bar');
   if (counter) counter.style.display = 'none';
 }
 
-// hunt-win closes only via button
+// win-panel closes only via button
 </script>
 
     </div>
@@ -2171,7 +2195,7 @@ function closeHuntWin() {
           <div class="ag"><div class="ag-n">01</div><div><strong>Аудит ситуації</strong><p>Чітко визначаємо що гальмує. І які наступні кроки принесуть результат.</p></div></div>
           <div class="ag"><div class="ag-n">02</div><div><strong>Генерація гіпотез</strong><p>2–3 вектори розвитку що спрацюють саме у твоїй ситуації.</p></div></div>
           <div class="ag"><div class="ag-n">03</div><div><strong>Валідація ідей</strong><p>Відмовлю від зйомки того, що ніхто не дивитиметься — це економить бюджет і час.</p></div></div>
-          <div class="ag"><div class="ag-n">🎯</div><div><strong>Виходиш з планом, а не натхненням</strong><p>Конкретний список кроків на наступний тиждень — не просто «подумай над цим». <span class="yt-egg" id="ytEgg8" onclick="foundEgg(8)" style="width:14px;height:14px;vertical-align:middle;margin-left:4px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></p></div></div>
+          <div class="ag"><div class="ag-n">🎯</div><div><strong>Виходиш з планом, а не натхненням</strong><p>Конкретний список кроків на наступний тиждень — не просто «подумай над цим». <span class="spark" id="sp8" onclick="activateSpark(8)" style="width:14px;height:14px;vertical-align:middle;margin-left:4px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></p></div></div>
         </div>
         <div class="box-y" style="margin-top:16px;"><strong>🎁 Бонус:</strong> якщо після сесії замовляєш Креативний концепт — ці 150 € вираховуються з ціни. Діагностика стає безкоштовною.</div>
     <div class="svc-price-card">
@@ -2208,7 +2232,7 @@ function closeHuntWin() {
               <div class="fi"><div class="fi-icon y">💬</div><div><strong>Розпаковка (3–5 сесії)</strong><p>Витягуємо твої сенси, цілі та експертність. Хто твій глядач і чому він обере саме тебе.</p></div></div>
               <div class="fi"><div class="fi-icon y">🎯</div><div><strong>Позиціювання + Tone of Voice</strong><p>Як ти говориш, виглядаєш, чим відрізняєшся від інших.</p></div></div>
               <div class="fi"><div class="fi-icon y">🎬</div><div><strong>Візуальна стратегія</strong><p>Референси по світлу, локаціях, монтажу — готове ТЗ для команди.</p></div></div>
-              <div class="fi"><div class="fi-icon y">📋</div><div><strong>План запуску</strong><p>Теми для перших 10 відео з урахуванням концепції. <span class="yt-egg" id="ytEgg9" onclick="foundEgg(9)" style="width:14px;height:14px;vertical-align:middle;margin-left:4px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></p></div></div>
+              <div class="fi"><div class="fi-icon y">📋</div><div><strong>План запуску</strong><p>Теми для перших 10 відео з урахуванням концепції. <span class="spark" id="sp9" onclick="activateSpark(9)" style="width:14px;height:14px;vertical-align:middle;margin-left:4px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></p></div></div>
             </div>
           </div>
           <div class="col dim">

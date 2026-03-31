@@ -1176,19 +1176,19 @@ if (document.fonts && document.fonts.ready) {
         <div class="tl">
           <div class="tl-row">
             <div class="tl-y">2024 →</div>
-            <div class="tl-b"><strong>📺 YouTube — і більше не відпускає</strong><p>«ПроРемесло», «Ella's healthy recipes», «Just Punk It», «Бізнес на Easy» та інші — кожен зі своїм характером. Будую не просто контент, а медіа-особистості що впізнають з першого кадру.</p></div>
+            <div class="tl-b"><strong>📺 YouTube — і більше не відпускає</strong> <p>«ПроРемесло», «Ютубнутий», «Ella's healthy recipes», «Just Punk It», «Бізнес на Easy» та інші — кожен зі своїм характером. Будую не просто контент, а медіа-особистості що впізнають з першого кадру.</p></div>
           </div>
           <div class="tl-row">
             <div class="tl-y">2022–2024</div>
-            <div class="tl-b"><strong>🏢 Студія Duor Production</strong><p>Власна моушн-анімаційна студія. Одна з робіт — на <strong style="color:var(--y)">найбільшому екрані України</strong> (ТРЦ Гулівер). Більшість проєктів для зарубіжного ринку — навчився думати як підприємець: ціль, ресурс, мінімальні кроки.</p></div>
+            <div class="tl-b"><strong>🏢 Студія Duor Production</strong> <p>Власна моушн-анімаційна студія. Одна з робіт — на <strong style="color:var(--y)">найбільшому екрані України</strong> (ТРЦ Гулівер). Більшість проєктів для зарубіжного ринку — навчився думати як підприємець: ціль, ресурс, мінімальні кроки.</p></div>
           </div>
           <div class="tl-row">
             <div class="tl-y">2017–2022</div>
-            <div class="tl-b"><strong>🎬 Кіно, мода, реклама</strong><p>Режисура, монтаж, оператор. Покази UFW, фешн-відео для брендів, кліпи, короткометражки — тут я вчився будувати історії, утримувати увагу і створювати контент що впливає.</p></div>
+            <div class="tl-b"><strong>🎬 Кіно, мода, реклама</strong> <p>Режисура, монтаж, оператор. Покази UFW, фешн-відео для брендів, кліпи, короткометражки — тут я вчився будувати історії, утримувати увагу і створювати контент що впливає.</p></div>
           </div>
           <div class="tl-row">
             <div class="tl-y">2015–2019</div>
-            <div class="tl-b"><strong>🎮 Gameost — перший YouTube успіх</strong><p>Запустили з нуля — без бюджету, без досвіду, тільки на органіці. За 4 роки: <strong style="color:var(--y)">500 000 підписників · 200 млн переглядів</strong>. Тоді переконався: система будується. <span class="spark" id="sp3" onclick="activateSpark(3)" style="width:13px;height:13px;vertical-align:middle;margin-left:4px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></p></div>
+            <div class="tl-b"><strong>🎮 Gameost — перший YouTube успіх</strong> <p>Запустили з нуля — без бюджету, без досвіду, тільки на органіці. За 4 роки: <strong style="color:var(--y)">500 000 підписників · 200 млн переглядів</strong>. Тоді переконався: система будується. <span class="spark" id="sp3" onclick="activateSpark(3)" style="width:13px;height:13px;vertical-align:middle;margin-left:4px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></p></div>
           </div>
         </div>
 
@@ -1667,9 +1667,12 @@ function initCarousels() {
 function updateCarousel(belt, animate) {
   var items = Array.prototype.slice.call(belt.querySelectorAll('.carousel-item'));
   var idx = parseInt(belt.getAttribute('data-idx'));
-  var cardW = items[0] ? items[0].offsetWidth + 16 : 400;
+  if (!items[idx]) return;
+  var gap = 16;
+  var cardW = items[idx].offsetWidth;
   var wrapW = belt.parentElement.offsetWidth;
-  var offset = idx * cardW - wrapW / 2 + cardW / 2;
+  // each item takes cardW + gap, except last
+  var offset = idx * (cardW + gap) - (wrapW / 2) + (cardW / 2);
   belt.style.transition = animate === false ? 'none' : 'transform .42s cubic-bezier(.4,0,.2,1)';
   belt.style.transform = 'translateX(-' + offset + 'px)';
   items.forEach(function(item, i) { item.classList.toggle('active', i === idx); });
@@ -1704,10 +1707,10 @@ window.addEventListener('resize', function() {
     var items = Array.prototype.slice.call(belt.querySelectorAll('.carousel-item'));
     if (!items.length) return;
     var idx = parseInt(belt.getAttribute('data-idx')) || 0;
-    var cardW = items[0].offsetWidth + 16;
+    var gap = 16; var cardW = items[0].offsetWidth;
     var wrapW = belt.parentElement.offsetWidth;
     belt.style.transition = 'none';
-    belt.style.transform = 'translateX(-' + (idx * cardW - wrapW / 2 + cardW / 2) + 'px)';
+    belt.style.transform = 'translateX(-' + (idx * (cardW + gap) - wrapW / 2 + cardW / 2) + 'px)';
   });
 });
 
@@ -2252,10 +2255,10 @@ function closeHuntWin() {
           <div class="col">
             <div class="col-eye">Що ти отримуєш</div>
             <div class="flist">
-              <div class="fi"><div class="fi-icon y">🧠</div><div><strong>Будь-яке питання</strong><p>Про канал, стратегію, дисципліну, творчість — все ок. Тут немає тупих питань.</p></div></div>
-              <div class="fi"><div class="fi-icon r">🎯</div><div><strong>Чесна розмова</strong><p>Я можу бути різким і навіть не приємним, але якщо я кажу, я щиро вважаю що тобі це потрібно.</p></div></div>
-              <div class="fi"><div class="fi-icon y">⚡</div><div><strong>Готуєш питання (або ні)</strong><p>Можеш прийти з конкретною проблемою, а можеш просто — поговорити. Обидва варіанти абсолютно ок.</p></div></div>
-              <div class="fi"><div class="fi-icon g">🔐</div><div><strong>Тільки ти і я</strong><p>Ніхто більше не знає що ти питаєш. Це абсолютно твій простір.</p></div></div>
+              <div class="fi"><div class="fi-icon y">🧠</div><div><strong>Будь-яке питання</strong> <p>Про канал, стратегію, дисципліну, творчість — все ок. Тут немає тупих питань.</p></div></div>
+              <div class="fi"><div class="fi-icon r">🎯</div><div><strong>Чесна розмова</strong> <p>Я можу бути різким і навіть не приємним, але якщо я кажу, я щиро вважаю що тобі це потрібно.</p></div></div>
+              <div class="fi"><div class="fi-icon y">⚡</div><div><strong>Готуєш питання (або ні)</strong> <p>Можеш прийти з конкретною проблемою, а можеш просто — поговорити. Обидва варіанти абсолютно ок.</p></div></div>
+              <div class="fi"><div class="fi-icon g">🔐</div><div><strong>Тільки ти і я</strong> <p>Ніхто більше не знає що ти питаєш. Це абсолютно твій простір.</p></div></div>
             </div>
             <div class="box-r" style="margin-top:16px;">
               <strong>💡 Чим відрізняється від консультації?</strong><br>
@@ -2305,11 +2308,11 @@ function closeHuntWin() {
         <h2 class="svc-h">Консультація</h2>
         <p style="font-size:15px;line-height:1.75;margin-top:12px;margin-bottom:20px;">Zoom-сесія 60 хвилин. Але є деталь: я <strong style="color:var(--y);">готуюсь до дзвінка заздалегідь</strong> — аналізую твій канал, метрики і нішу ще до зустрічі. Ти приходиш — а я вже знаю де у тебе болить.</p>
         <div class="agenda">
-          <div class="ag"><div class="ag-n">ДО</div><div><strong>Я готуюсь до тебе</strong><p>Аналізую канал, метрики, конкурентів і нішу — перед дзвінком.</p></div></div>
-          <div class="ag"><div class="ag-n">01</div><div><strong>Аудит ситуації</strong><p>Чітко визначаємо що гальмує. І які наступні кроки принесуть результат.</p></div></div>
-          <div class="ag"><div class="ag-n">02</div><div><strong>Генерація гіпотез</strong><p>2–3 вектори розвитку що спрацюють саме у твоїй ситуації.</p></div></div>
-          <div class="ag"><div class="ag-n">03</div><div><strong>Валідація ідей</strong><p>Відмовлю від зйомки того, що ніхто не дивитиметься — це економить бюджет і час.</p></div></div>
-          <div class="ag"><div class="ag-n">🎯</div><div><strong>Виходиш з планом, а не натхненням</strong><p>Конкретний список кроків на наступний тиждень — не просто «подумай над цим». <span class="spark" id="sp8" onclick="activateSpark(8)" style="width:14px;height:14px;vertical-align:middle;margin-left:4px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></p></div></div>
+          <div class="ag"><div class="ag-n">ДО</div><div><strong>Я готуюсь до тебе</strong> <p>Аналізую канал, метрики, конкурентів і нішу — перед дзвінком.</p></div></div>
+          <div class="ag"><div class="ag-n">01</div><div><strong>Аудит ситуації</strong> <p>Чітко визначаємо що гальмує. І які наступні кроки принесуть результат.</p></div></div>
+          <div class="ag"><div class="ag-n">02</div><div><strong>Генерація гіпотез</strong> <p>2–3 вектори розвитку що спрацюють саме у твоїй ситуації.</p></div></div>
+          <div class="ag"><div class="ag-n">03</div><div><strong>Валідація ідей</strong> <p>Відмовлю від зйомки того, що ніхто не дивитиметься — це економить бюджет і час.</p></div></div>
+          <div class="ag"><div class="ag-n">🎯</div><div><strong>Виходиш з планом, а не натхненням</strong> <p>Конкретний список кроків на наступний тиждень — не просто «подумай над цим». <span class="spark" id="sp8" onclick="activateSpark(8)" style="width:14px;height:14px;vertical-align:middle;margin-left:4px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></p></div></div>
         </div>
         <div class="box-y" style="margin-top:16px;"><strong>🎁 Бонус:</strong> якщо після сесії замовляєш Креативний концепт — ці 150 € вираховуються з ціни. Діагностика стає безкоштовною.</div>
     <div class="svc-price-card">
@@ -2343,10 +2346,10 @@ function closeHuntWin() {
           <div class="col">
             <div class="col-eye">Що входить</div>
             <div class="flist">
-              <div class="fi"><div class="fi-icon y">💬</div><div><strong>Розпаковка (3–5 сесії)</strong><p>Витягуємо твої сенси, цілі та експертність. Хто твій глядач і чому він обере саме тебе.</p></div></div>
-              <div class="fi"><div class="fi-icon y">🎯</div><div><strong>Позиціювання + Tone of Voice</strong><p>Як ти говориш, виглядаєш, чим відрізняєшся від інших.</p></div></div>
-              <div class="fi"><div class="fi-icon y">🎬</div><div><strong>Візуальна стратегія</strong><p>Референси по світлу, локаціях, монтажу — готове ТЗ для команди.</p></div></div>
-              <div class="fi"><div class="fi-icon y">📋</div><div><strong>План запуску</strong><p>Теми для перших 10 відео з урахуванням концепції. <span class="spark" id="sp9" onclick="activateSpark(9)" style="width:14px;height:14px;vertical-align:middle;margin-left:4px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></p></div></div>
+              <div class="fi"><div class="fi-icon y">💬</div><div><strong>Розпаковка (3–5 сесії)</strong> <p>Витягуємо твої сенси, цілі та експертність. Хто твій глядач і чому він обере саме тебе.</p></div></div>
+              <div class="fi"><div class="fi-icon y">🎯</div><div><strong>Позиціювання + Tone of Voice</strong> <p>Як ти говориш, виглядаєш, чим відрізняєшся від інших.</p></div></div>
+              <div class="fi"><div class="fi-icon y">🎬</div><div><strong>Візуальна стратегія</strong> <p>Референси по світлу, локаціях, монтажу — готове ТЗ для команди.</p></div></div>
+              <div class="fi"><div class="fi-icon y">📋</div><div><strong>План запуску</strong> <p>Теми для перших 10 відео з урахуванням концепції. <span class="spark" id="sp9" onclick="activateSpark(9)" style="width:14px;height:14px;vertical-align:middle;margin-left:4px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></p></div></div>
             </div>
           </div>
           <div class="col dim">
@@ -2378,9 +2381,9 @@ function closeHuntWin() {
         <h2 class="svc-h">Менторство —<br>особистий продюсер</h2>
         <p class="svc-desc" style="margin-bottom:20px;">Я особисто вчу тебе створювати контент — дзвінки кожного тижня.Про твою харизму, твій сторітелінг і твою особисту систему. Мінімум 3 місяці — менше часу просто немає сенсу. (Також це підходить нинішним, або майбутнім продюсерам.)</p>
         <div class="roadmap">
-          <div class="rm"><div class="rm-head"><div class="rm-icon">🚀</div><div><div class="rm-month">Місяць 1</div><div class="rm-goal">Швидкість та дія</div></div></div><div class="rm-weeks"><div class="rm-week"><strong>Тиждень 1</strong><p>Знайомство. Розпаковка особистості.</p></div><div class="rm-week"><strong>Тиждень 2</strong><p>Пошук формату. Шукаємо технічний мінімум — знімаємо на те що є.</p></div><div class="rm-week"><strong>Тиждень 3</strong><p>Зйомка. Монтаж і публікація першого відео.</p></div><div class="rm-week"><strong>Тиждень 4</strong><p>Розбір польотів. Аналіз перших метрик.</p></div></div></div>
-          <div class="rm"><div class="rm-head"><div class="rm-icon">🎨</div><div><div class="rm-month">Місяць 2</div><div class="rm-goal">Упаковка та глибина</div></div></div><div class="rm-weeks"><div class="rm-week"><strong>Тиждень 1</strong><p>Генератор ідей — як і де шукати теми, коли «нічого знімати».</p></div><div class="rm-week"><strong>Тиждень 2</strong><p>Психологія кліку. Секрети назв та обкладинок.</p></div><div class="rm-week"><strong>Тиждень 3</strong><p>Глибинний аналіз конкурентів. Вирішуємо з форматом.</p></div><div class="rm-week"><strong>Тиждень 4</strong><p>Фіналізація візуального стилю.</p></div></div></div>
-          <div class="rm"><div class="rm-head"><div class="rm-icon">💎</div><div><div class="rm-month">Місяць 3</div><div class="rm-goal">Структура та система</div></div></div><div class="rm-weeks"><div class="rm-week"><strong>Тиждень 1</strong><p>Сценарій що утримує глядача до кінця.</p></div><div class="rm-week"><strong>Тиждень 2</strong><p>Твоє УТП — у чому ти унікальний на ринку.</p></div><div class="rm-week"><strong>Тиждень 3</strong><p>Аналіз метрик і коригування курсу.</p></div><div class="rm-week"><strong>Тиждень 4</strong><p>Способи монетизації: спонсорство, цифрові продукти.</p></div></div></div>
+          <div class="rm"><div class="rm-head"><div class="rm-icon">🚀</div><div><div class="rm-month">Місяць 1</div><div class="rm-goal">Швидкість та дія</div></div></div><div class="rm-weeks"><div class="rm-week"><strong>Тиждень 1</strong> <p>Знайомство. Розпаковка особистості.</p></div><div class="rm-week"><strong>Тиждень 2</strong> <p>Пошук формату. Шукаємо технічний мінімум — знімаємо на те що є.</p></div><div class="rm-week"><strong>Тиждень 3</strong> <p>Зйомка. Монтаж і публікація першого відео.</p></div><div class="rm-week"><strong>Тиждень 4</strong> <p>Розбір польотів. Аналіз перших метрик.</p></div></div></div>
+          <div class="rm"><div class="rm-head"><div class="rm-icon">🎨</div><div><div class="rm-month">Місяць 2</div><div class="rm-goal">Упаковка та глибина</div></div></div><div class="rm-weeks"><div class="rm-week"><strong>Тиждень 1</strong> <p>Генератор ідей — як і де шукати теми, коли «нічого знімати».</p></div><div class="rm-week"><strong>Тиждень 2</strong> <p>Психологія кліку. Секрети назв та обкладинок.</p></div><div class="rm-week"><strong>Тиждень 3</strong> <p>Глибинний аналіз конкурентів. Вирішуємо з форматом.</p></div><div class="rm-week"><strong>Тиждень 4</strong> <p>Фіналізація візуального стилю.</p></div></div></div>
+          <div class="rm"><div class="rm-head"><div class="rm-icon">💎</div><div><div class="rm-month">Місяць 3</div><div class="rm-goal">Структура та система</div></div></div><div class="rm-weeks"><div class="rm-week"><strong>Тиждень 1</strong> <p>Сценарій що утримує глядача до кінця.</p></div><div class="rm-week"><strong>Тиждень 2</strong> <p>Твоє УТП — у чому ти унікальний на ринку.</p></div><div class="rm-week"><strong>Тиждень 3</strong> <p>Аналіз метрик і коригування курсу.</p></div><div class="rm-week"><strong>Тиждень 4</strong> <p>Способи монетизації: спонсорство, цифрові продукти.</p></div></div></div>
         </div>
         <div class="box-y" style="margin-top:16px;"><strong>Менторство також можливо у форматі партнерства</strong> — замість фіксованої оплати ми обговорюємо відсоток від продажів, спонсорства або інших монетизаційних джерел каналу.
  </div>
@@ -2411,21 +2414,21 @@ function closeHuntWin() {
           <div class="col">
             <div class="col-eye green">✓ Входить у вартість</div>
             <div class="flist">
-              <div class="fi"><div class="fi-icon g">📋</div><div><strong>Стратегія та контент-план</strong><p>Щомісячний план тем, заголовків і гачків — знаєш наперед що і навіщо знімаєш.</p></div></div>
-              <div class="fi"><div class="fi-icon g">🎯</div><div><strong>A/B тест заголовків</strong><p>Тестуємо що заходить краще — і одразу застосовуємо.</p></div></div>
-              <div class="fi"><div class="fi-icon g">🎨</div><div><strong>Дизайнер включений</strong><p>Обкладинки, шапка каналу, графіка — все закрито.</p></div></div>
-              <div class="fi"><div class="fi-icon g">📝</div><div><strong>Сценарна структура відео</strong><p>Гачок, утримання, заклик до дії — логіка що веде до покупки.</p></div></div>
-              <div class="fi"><div class="fi-icon g">🔗</div><div><strong>Комунікація з монтажером</strong><p>Постановка завдань, контроль якості — все на мені. Ти у процес не залучаєшся.</p></div></div>
-              <div class="fi"><div class="fi-icon g">📊</div><div><strong>SEO, публікація та звіт</strong><p>CTR, глибина перегляду, джерела заявок — завжди знаєш за що платиш.</p></div></div>
-              <div class="fi"><div class="fi-icon g">📱</div><div><strong>3 Shorts на 1 довге відео</strong><p>Більше охоплення без додаткових зйомок.</p></div></div>
+              <div class="fi"><div class="fi-icon g">📋</div><div><strong>Стратегія та контент-план</strong> <p>Щомісячний план тем, заголовків і гачків — знаєш наперед що і навіщо знімаєш.</p></div></div>
+              <div class="fi"><div class="fi-icon g">🎯</div><div><strong>A/B тест заголовків</strong> <p>Тестуємо що заходить краще — і одразу застосовуємо.</p></div></div>
+              <div class="fi"><div class="fi-icon g">🎨</div><div><strong>Дизайнер включений</strong> <p>Обкладинки, шапка каналу, графіка — все закрито.</p></div></div>
+              <div class="fi"><div class="fi-icon g">📝</div><div><strong>Сценарна структура відео</strong> <p>Гачок, утримання, заклик до дії — логіка що веде до покупки.</p></div></div>
+              <div class="fi"><div class="fi-icon g">🔗</div><div><strong>Комунікація з монтажером</strong> <p>Постановка завдань, контроль якості — все на мені. Ти у процес не залучаєшся.</p></div></div>
+              <div class="fi"><div class="fi-icon g">📊</div><div><strong>SEO, публікація та звіт</strong> <p>CTR, глибина перегляду, джерела заявок — завжди знаєш за що платиш.</p></div></div>
+              <div class="fi"><div class="fi-icon g">📱</div><div><strong>3 Shorts на 1 довге відео</strong> <p>Більше охоплення без додаткових зйомок.</p></div></div>
             </div>
           </div>
           <div class="col dim">
             <div class="col-eye red">↗ Оплачується окремо</div>
             <div class="flist" style="margin-bottom:16px;">
-              <div class="fi"><div class="fi-icon r">📹</div><div><strong>Зйомка</strong><p>Оператор, локація, реквізит — на стороні клієнта. Я надаю детальне ТЗ.</p></div></div>
-              <div class="fi"><div class="fi-icon r">✂️</div><div><strong>Монтаж</strong><p>Монтажер сплачується окремо — але всю комунікацію з ним беру на себе.</p></div></div>
-              <div class="fi"><div class="fi-icon r">✍️</div><div><strong>Сценарист (за бажанням)</strong><p> Якщо хочеться делегувати написання сценарія слово в слово. Я допоможу знайти і підібрати людину під проєкт.</p></div></div>
+              <div class="fi"><div class="fi-icon r">📹</div><div><strong>Зйомка</strong> <p>Оператор, локація, реквізит — на стороні клієнта. Я надаю детальне ТЗ.</p></div></div>
+              <div class="fi"><div class="fi-icon r">✂️</div><div><strong>Монтаж</strong> <p>Монтажер сплачується окремо — але всю комунікацію з ним беру на себе.</p></div></div>
+              <div class="fi"><div class="fi-icon r">✍️</div><div><strong>Сценарист (за бажанням)</strong> <p> Якщо хочеться делегувати написання сценарія слово в слово. Я допоможу знайти і підібрати людину під проєкт.</p></div></div>
             </div>
             <div class="box-y"><strong>YouTube — це інвестиція.</strong> Теплі клієнти приходять підготовленими. Твій канал стає медіа що зростає і генерує трафік роками, а не одни днем як інстаграм чи тік-ток.</div>
           </div>
@@ -2453,10 +2456,10 @@ function closeHuntWin() {
         <h2 class="svc-h">Контент-план</h2>
         <p style="font-size:15px;line-height:1.75;margin-top:12px;margin-bottom:16px;">Більше не думаєш що знімати. Відкриваєш файл — і знаєш: що, навіщо, і як назвати.</p>
         <div class="agenda" style="margin-bottom:16px;">
-          <div class="ag"><div class="ag-n">①</div><div><strong>Клікабельні заголовки</strong><p>2–3 варіанти: пошукові запити + психологія кліку.</p></div></div>
-          <div class="ag"><div class="ag-n">②</div><div><strong>Концепт обкладинки</strong><p>Ідея для обкладинки що продає клік ще до перегляду.</p></div></div>
-          <div class="ag"><div class="ag-n">③</div><div><strong>Текст гачка — дослівно</strong><p>Скрипт перших 30 секунд. Глядач не перемкне.</p></div></div>
-          <div class="ag"><div class="ag-n">④</div><div><strong>Тезисна структура</strong><p>Блоки оповіді: про що говорити, де пауза, де продаж.</p></div></div>
+          <div class="ag"><div class="ag-n">①</div><div><strong>Клікабельні заголовки</strong> <p>2–3 варіанти: пошукові запити + психологія кліку.</p></div></div>
+          <div class="ag"><div class="ag-n">②</div><div><strong>Концепт обкладинки</strong> <p>Ідея для обкладинки що продає клік ще до перегляду.</p></div></div>
+          <div class="ag"><div class="ag-n">③</div><div><strong>Текст гачка — дослівно</strong> <p>Скрипт перших 30 секунд. Глядач не перемкне.</p></div></div>
+          <div class="ag"><div class="ag-n">④</div><div><strong>Тезисна структура</strong> <p>Блоки оповіді: про що говорити, де пауза, де продаж.</p></div></div>
         </div>
         <div class="box-r"><strong>🔒 Важливо:</strong> доступно тільки після «концепт-буку» або «діагностики». Без правильного фундаменту — ця послуга не спрацює.</div>
         <span class="eye" style="margin-top:28px;display:block;">Оберіть пакет</span>

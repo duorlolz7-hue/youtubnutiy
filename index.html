@@ -184,6 +184,8 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:16px 40px; di
 .calc-sw:hover { border-color:rgba(255,255,255,.2); color:var(--text); background:rgba(255,255,255,.04); }
 .calc-sw.active { border-color:var(--y); color:var(--y); background:rgba(255,229,59,.06); }
 .calc-sw.active .calc-sw-icon { filter:drop-shadow(0 0 8px rgba(255,229,59,.5)); }
+#swCreator.active { border-color:#FF7A3D; color:#FF7A3D; background:rgba(255,122,61,.07); }
+#swCreator.active .calc-sw-icon { filter:drop-shadow(0 0 8px rgba(255,122,61,.5)); }
 
 
 
@@ -312,26 +314,26 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:16px 40px; di
 .reviews-section .belt-wrap::before { background:linear-gradient(to right,var(--card),transparent); }
 .reviews-section .belt-wrap::after { background:linear-gradient(to left,var(--card),transparent); }
 /* #10 — clickable edges */
-.belt-prev,.belt-next { position:absolute; top:50%; transform:translateY(-50%); width:48px; height:48px; z-index:3; cursor:pointer; background:rgba(12,12,12,.88); border:1px solid rgba(255,255,255,.14); display:flex; align-items:center; justify-content:center; font-size:22px; color:var(--text); transition:background .2s,border-color .2s; }
+.belt-prev,.belt-next { position:absolute; top:50%; transform:translateY(-50%); width:48px; height:48px; z-index:3; cursor:pointer; background:rgba(20,20,20,.92); border:1px solid rgba(255,255,255,.35); display:flex; align-items:center; justify-content:center; font-size:22px; color:#fff; transition:background .2s,border-color .2s; }
 .belt-prev { left:8px; }
 .belt-next { right:8px; }
-.belt-prev:hover,.belt-next:hover { background:rgba(255,45,45,.18); border-color:rgba(255,45,45,.45); }
+.belt-prev:hover,.belt-next:hover { background:rgba(255,255,255,.15); border-color:rgba(255,255,255,.6); }
 .belt-btn-inner { display:flex; align-items:center; justify-content:center; width:100%; height:100%; pointer-events:none; }
 .belt { display:flex; gap:16px; transition:transform .45s cubic-bezier(.4,0,.2,1); padding:20px 0; }
-.carousel-item { flex-shrink:0; transition:opacity .35s,filter .35s,transform .35s; opacity:.4; filter:blur(2px); transform:scale(.93); pointer-events:none; }
-.carousel-item.active { opacity:1; filter:none; transform:scale(1); pointer-events:auto; }
+.carousel-item { flex-shrink:0; transition:opacity .4s; opacity:.5; filter:blur(1.5px); transform:scale(.94); pointer-events:none; display:flex; align-self:stretch; }
+.carousel-item.active { opacity:1; filter:none; transform:scale(1); pointer-events:auto; transition:opacity .4s; }
 
 /* case card */
-.case-card { flex-shrink:0; width:480px; background:var(--card2); position:relative; overflow:hidden; }
+.case-card { flex-shrink:0; width:480px; background:var(--card2); position:relative; overflow:hidden; display:flex; flex-direction:column; }
 .cc-img { width:100%; aspect-ratio:16/9; background:var(--card); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; border-bottom:1px solid var(--border); position:relative; overflow:hidden; }
 .cc-img::before { content:''; position:absolute; inset:0; background:var(--grad); opacity:.00; }
 .cc-img span { font-size:26px; position:relative; }
 .cc-img small { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); position:relative; }
-.cc-body { padding:24px; }
+.cc-body { padding:24px; display:flex; flex-direction:column; flex:1; }
 .cc-tag { display:inline-block; background:rgba(255,45,45,.1); color:var(--r); font-family:'Unbounded',sans-serif; font-size:9px; font-weight:700; letter-spacing:.12em; padding:4px 10px; margin-bottom:10px; }
 .cc-name { font-family:'Unbounded',sans-serif; font-size:16px; font-weight:900; margin-bottom:3px; }
 .cc-niche { font-size:11px; color:var(--soft); margin-bottom:12px; }
-.cc-story { font-size:12px; line-height:1.7; padding-bottom:12px; border-bottom:1px solid var(--border); margin-bottom:12px; }
+.cc-story { font-size:12px; line-height:1.7; padding-bottom:12px; border-bottom:1px solid var(--border); margin-bottom:12px; flex:1; }
 .cc-stats { display:flex; flex-direction:column; gap:5px; }
 .cc-stat { font-size:12px; font-weight:700; color:var(--y); display:flex; align-items:center; gap:7px; }
 .cc-stat::before { content:'↑'; font-size:13px; }
@@ -339,7 +341,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:16px 40px; di
 .case-card:hover::after { transform:scaleX(1); }
 
 /* review card */
-.rv-card { flex-shrink:0; width:380px; background:var(--dark); padding:28px; border:1px solid var(--border); }
+.rv-card { flex-shrink:0; width:380px; background:var(--dark); padding:28px; border:1px solid var(--border); display:flex; flex-direction:column; }
 .reviews-section .rv-card { background:var(--card2); border-color:rgba(255,255,255,.06); }
 .rv-top { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
 .rv-av { width:44px; height:44px; border-radius:50%; background:var(--card2); border:2px solid var(--border); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:18px; position:relative; overflow:hidden; }
@@ -348,7 +350,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:16px 40px; di
 .rv-name { font-weight:700; font-size:13px; }
 .rv-meta { font-size:11px; color:var(--soft); margin-top:1px; }
 .rv-stars { color:var(--y); font-size:11px; letter-spacing:3px; margin-bottom:11px; }
-.rv-text { font-size:13px; line-height:1.78; font-style:italic; padding-left:12px; border-left:2px solid var(--r); }
+.rv-text { font-size:13px; line-height:1.78; font-style:italic; padding-left:12px; border-left:2px solid var(--r); flex:1; }
 
 /* ─ NOT FOR ─ */
 .notfor { padding:64px 0; border-top:1px solid var(--border); }
@@ -1275,22 +1277,22 @@ if (document.fonts && document.fonts.ready) {
 <div class="belt-wrap" style="margin-top:40px;">
     <div class="belt" id="casesBelt">
       
-      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%BF%D1%80%D0%BE_%D1%80%D0%B5%D0%BC%D0%B5%D1%81%D0%BB%D0%BE_123_rqheu3.jpg" alt="ПроРемесло" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-tag">Кейс 01</div><div class="cc-name">ПроРемесло</div><div class="cc-niche">Автентичні ремесла України · Повне ведення</div><p class="cc-story">Прийшли без досвіду і без каналу. Після першої консультації запросили на повне ведення. Разом запустили канал, побудували структуру і формат. Досі в активній співпраці.</p><div class="cc-stats"><div class="cc-stat">0 → 175 000 переглядів за 10 відео</div><div class="cc-stat">Випуск "Чорнодимлена кераміка" напопулярніший на всьому ютубі</div><div class="cc-stat">Повністю органічно</div></div></div></div></div>
+      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%BF%D1%80%D0%BE_%D1%80%D0%B5%D0%BC%D0%B5%D1%81%D0%BB%D0%BE_123_rqheu3.jpg" alt="ПроРемесло" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-name">ПроРемесло</div><div class="cc-niche">Автентичні ремесла України · Повне ведення</div><p class="cc-story">Прийшли без досвіду і без каналу. Після першої консультації запросили на повне ведення. Разом запустили канал, побудували структуру і формат. Досі в активній співпраці.</p><div class="cc-stats"><div class="cc-stat">0 → 175 000 переглядів за 10 відео</div><div class="cc-stat">Випуск "Чорнодимлена кераміка" напопулярніший на всьому ютубі</div><div class="cc-stat">Повністю органічно</div></div></div></div></div>
       
-      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%86%D0%BD%D0%BD%D0%B0_%D0%A8%D0%B5%D0%BC%D0%B5%D1%82_wn9lgo.jpg" alt="Інна Шемет" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-tag">Кейс 02</div><div class="cc-name">Інна Шемет</div><div class="cc-niche">Юридичні послуги · Португалія · Повне ведення</div><p class="cc-story">Канал не тримав глядача — утримання 2–3 хв. Розробили стиль, формат і контент-план що спрацював вже на другому відео.</p><div class="cc-stats"><div class="cc-stat">30 000 цільових переглядів за 5 місяців</div><div class="cc-stat">Утримання: 2–3 хв → 5–6 хв</div><div class="cc-stat">50–100 лідів з YouTube щомісяця</div></div></div></div></div>
+      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%86%D0%BD%D0%BD%D0%B0_%D0%A8%D0%B5%D0%BC%D0%B5%D1%82_wn9lgo.jpg" alt="Інна Шемет" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-name">Інна Шемет</div><div class="cc-niche">Юридичні послуги · Португалія · Повне ведення</div><p class="cc-story">Канал не тримав глядача — утримання 2–3 хв. Розробили стиль, формат і контент-план що спрацював вже на другому відео.</p><div class="cc-stats"><div class="cc-stat">30 000 цільових переглядів за 5 місяців</div><div class="cc-stat">Утримання: 2–3 хв → 5–6 хв</div><div class="cc-stat">50–100 лідів з YouTube щомісяця</div></div></div></div></div>
       
-      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%BA%D1%83%D0%BB%D1%96%D0%BD%D0%B0%D1%80%D0%BA%D0%B0_mjgsa8.jpg" alt="Корисні рецепти Елли" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-tag">Кейс 03</div><div class="cc-name">Корисні рецепти Елли</div><div class="cc-niche">Кулінарія · Менторинг 6 місяців</div><p class="cc-story">Старт з нуля без розуміння платформи. За 6 місяців налаштували графік, знайшли формат, вивели формулу назв і обкладинок.</p><div class="cc-stats"><div class="cc-stat">0 → 121 000 підписників за 1 рік (отримали срібну кнопку)</div><div class="cc-stat">10 млн. органічних переглядів (довгих відео)</div><div class="cc-stat">1 200% окупність інвестиції</div></div></div></div></div>
+      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%BA%D1%83%D0%BB%D1%96%D0%BD%D0%B0%D1%80%D0%BA%D0%B0_mjgsa8.jpg" alt="Корисні рецепти Елли" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-name">Корисні рецепти Елли</div><div class="cc-niche">Кулінарія · Менторинг 6 місяців</div><p class="cc-story">Старт з нуля без розуміння платформи. За 6 місяців налаштували графік, знайшли формат, вивели формулу назв і обкладинок.</p><div class="cc-stats"><div class="cc-stat">0 → 121 000 підписників за 1 рік (отримали срібну кнопку)</div><div class="cc-stat">10 млн. органічних переглядів (довгих відео)</div><div class="cc-stat">1 200% окупність інвестиції</div></div></div></div></div>
       
-      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%B4%D0%B6%D0%B0%D1%81%D1%82_%D0%BF%D0%B0%D0%BA%D0%BD_%D1%96%D1%82_eyqfut.jpg" alt="Just Punk It Podcast" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-tag">Кейс 04</div><div class="cc-name">Just Punk It Podcast</div><div class="cc-niche">Подкаст · Повне ведення · Перезапуск</div><p class="cc-story">Минулий канал вбили рекламою. Потрібна нова стратегія, унікальний стиль і сценарій для гостей. Запустили під ключ.</p><div class="cc-stats"><div class="cc-stat">Повний перезапуск з нуля</div><div class="cc-stat">0 → 16 000 органічних переглядів за 8 відео</div><div class="cc-stat">Унікальний стиль з другого відео</div></div></div></div></div>
+      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%B4%D0%B6%D0%B0%D1%81%D1%82_%D0%BF%D0%B0%D0%BA%D0%BD_%D1%96%D1%82_eyqfut.jpg" alt="Just Punk It Podcast" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-name">Just Punk It Podcast</div><div class="cc-niche">Подкаст · Повне ведення · Перезапуск</div><p class="cc-story">Минулий канал вбили рекламою. Потрібна нова стратегія, унікальний стиль і сценарій для гостей. Запустили під ключ.</p><div class="cc-stats"><div class="cc-stat">Повний перезапуск з нуля</div><div class="cc-stat">0 → 16 000 органічних переглядів за 8 відео</div><div class="cc-stat">Унікальний стиль з другого відео</div></div></div></div></div>
       <!-- duplicate for seamless loop -->
       
-      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%BF%D1%80%D0%BE_%D1%80%D0%B5%D0%BC%D0%B5%D1%81%D0%BB%D0%BE_123_rqheu3.jpg" alt="ПроРемесло" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-tag">Кейс 01</div><div class="cc-name">ПроРемесло</div><div class="cc-niche">Автентичні ремесла України · Повне ведення</div><p class="cc-story">Прийшли без досвіду і без каналу. Після першої консультації запросили на повне ведення. Разом запустили канал, побудували структуру і формат. Досі в активній співпраці.</p><div class="cc-stats"><div class="cc-stat">0 → 175 000 переглядів за 10 відео</div><div class="cc-stat">Випуск "Чорнодимлена кераміка" напопулярніший на всьому ютубі</div><div class="cc-stat">Повністю органічно</div></div></div></div></div>
+      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%BF%D1%80%D0%BE_%D1%80%D0%B5%D0%BC%D0%B5%D1%81%D0%BB%D0%BE_123_rqheu3.jpg" alt="ПроРемесло" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-name">ПроРемесло</div><div class="cc-niche">Автентичні ремесла України · Повне ведення</div><p class="cc-story">Прийшли без досвіду і без каналу. Після першої консультації запросили на повне ведення. Разом запустили канал, побудували структуру і формат. Досі в активній співпраці.</p><div class="cc-stats"><div class="cc-stat">0 → 175 000 переглядів за 10 відео</div><div class="cc-stat">Випуск "Чорнодимлена кераміка" напопулярніший на всьому ютубі</div><div class="cc-stat">Повністю органічно</div></div></div></div></div>
       
-      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%86%D0%BD%D0%BD%D0%B0_%D0%A8%D0%B5%D0%BC%D0%B5%D1%82_wn9lgo.jpg" alt="Інна Шемет" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-tag">Кейс 02</div><div class="cc-name">Інна Шемет</div><div class="cc-niche">Юридичні послуги · Португалія · Повне ведення</div><p class="cc-story">Канал не тримав глядача — утримання 2–3 хв. Розробили стиль, формат і контент-план що спрацював вже на другому відео.</p><div class="cc-stats"><div class="cc-stat">30 000 цільових переглядів за 5 місяців</div><div class="cc-stat">Утримання: 2–3 хв → 5–6 хв</div><div class="cc-stat">50–100 лідів з YouTube щомісяця</div></div></div></div></div>
+      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%86%D0%BD%D0%BD%D0%B0_%D0%A8%D0%B5%D0%BC%D0%B5%D1%82_wn9lgo.jpg" alt="Інна Шемет" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-name">Інна Шемет</div><div class="cc-niche">Юридичні послуги · Португалія · Повне ведення</div><p class="cc-story">Канал не тримав глядача — утримання 2–3 хв. Розробили стиль, формат і контент-план що спрацював вже на другому відео.</p><div class="cc-stats"><div class="cc-stat">30 000 цільових переглядів за 5 місяців</div><div class="cc-stat">Утримання: 2–3 хв → 5–6 хв</div><div class="cc-stat">50–100 лідів з YouTube щомісяця</div></div></div></div></div>
       
-      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%BA%D1%83%D0%BB%D1%96%D0%BD%D0%B0%D1%80%D0%BA%D0%B0_mjgsa8.jpg" alt="Корисні рецепти Елли" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-tag">Кейс 03</div><div class="cc-name">Корисні рецепти Елли</div><div class="cc-niche">Кулінарія · Менторинг 6 місяців</div><p class="cc-story">Старт з нуля без розуміння платформи. За 6 місяців налаштували графік, знайшли формат, вивели формулу назв і обкладинок.</p><div class="cc-stats"><div class="cc-stat">0 → 121 000 підписників за 1 рік (отримали срібну кнопку)</div><div class="cc-stat">10 млн. органічних переглядів (довгих відео)</div><div class="cc-stat">1 200% окупність інвестиції</div></div></div></div></div>
+      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%BA%D1%83%D0%BB%D1%96%D0%BD%D0%B0%D1%80%D0%BA%D0%B0_mjgsa8.jpg" alt="Корисні рецепти Елли" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-name">Корисні рецепти Елли</div><div class="cc-niche">Кулінарія · Менторинг 6 місяців</div><p class="cc-story">Старт з нуля без розуміння платформи. За 6 місяців налаштували графік, знайшли формат, вивели формулу назв і обкладинок.</p><div class="cc-stats"><div class="cc-stat">0 → 121 000 підписників за 1 рік (отримали срібну кнопку)</div><div class="cc-stat">10 млн. органічних переглядів (довгих відео)</div><div class="cc-stat">1 200% окупність інвестиції</div></div></div></div></div>
       
-      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%B4%D0%B6%D0%B0%D1%81%D1%82_%D0%BF%D0%B0%D0%BA%D0%BD_%D1%96%D1%82_eyqfut.jpg" alt="Just Punk It Podcast" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-tag">Кейс 04</div><div class="cc-name">Just Punk It Podcast</div><div class="cc-niche">Подкаст · Повне ведення · Перезапуск</div><p class="cc-story">Минулий канал вбили рекламою. Потрібна нова стратегія, унікальний стиль і сценарій для гостей. Запустили під ключ.</p><div class="cc-stats"><div class="cc-stat">Повний перезапуск з нуля</div><div class="cc-stat">0 → 16 000 органічних переглядів за 8 відео</div><div class="cc-stat">Унікальний стиль з другого відео</div></div></div></div></div>
+      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%B4%D0%B6%D0%B0%D1%81%D1%82_%D0%BF%D0%B0%D0%BA%D0%BD_%D1%96%D1%82_eyqfut.jpg" alt="Just Punk It Podcast" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-name">Just Punk It Podcast</div><div class="cc-niche">Подкаст · Повне ведення · Перезапуск</div><p class="cc-story">Минулий канал вбили рекламою. Потрібна нова стратегія, унікальний стиль і сценарій для гостей. Запустили під ключ.</p><div class="cc-stats"><div class="cc-stat">Повний перезапуск з нуля</div><div class="cc-stat">0 → 16 000 органічних переглядів за 8 відео</div><div class="cc-stat">Унікальний стиль з другого відео</div></div></div></div></div>
     </div>
     <button class="belt-prev" onclick="shiftBelt('cases',-1)" aria-label="Назад"><div class="belt-btn-inner">←</div></button>
     <button class="belt-next" onclick="shiftBelt('cases',1)" aria-label="Вперед"><div class="belt-btn-inner">→</div></button>
@@ -1637,25 +1639,40 @@ function initCarousels() {
   ['casesBelt','reviewsBelt'].forEach(function(beltId) {
     var belt = document.getElementById(beltId);
     if (!belt) return;
+
+    // Clone 4 items before and after for seamless loop
     var originals = Array.prototype.slice.call(belt.querySelectorAll('.carousel-item'));
     var n = originals.length;
     if (!n) return;
-    var cc = Math.min(n, 3);
-    for (var i = 0; i < cc; i++) {
-      var ce = originals[n-1-i].cloneNode(true);
+    var cc = n; // clone full set on each side
+
+    for (var i = n - 1; i >= 0; i--) {
+      var ce = originals[i].cloneNode(true);
       ce.setAttribute('data-clone','1');
       belt.insertBefore(ce, belt.firstChild);
     }
-    for (var j = 0; j < cc; j++) {
+    for (var j = 0; j < n; j++) {
       var cs = originals[j].cloneNode(true);
       cs.setAttribute('data-clone','1');
       belt.appendChild(cs);
     }
+
     belt.setAttribute('data-idx', cc);
     belt.setAttribute('data-n', n);
     belt.setAttribute('data-cc', cc);
     carouselLocked[beltId] = false;
+
+    // Recalc on scroll (fixes mobile shift during page scroll)
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) repositionCarousel(belt);
+      });
+    }, { threshold: 0.1 });
+    observer.observe(belt.parentElement);
+
     updateCarousel(belt, false);
+
+    // Touch swipe
     var sx = 0;
     belt.parentElement.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; }, {passive:true});
     belt.parentElement.addEventListener('touchend', function(e){
@@ -1665,16 +1682,40 @@ function initCarousels() {
   });
 }
 
+function repositionCarousel(belt) {
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
+      belt.style.transition = 'none';
+      var items = Array.prototype.slice.call(belt.querySelectorAll('.carousel-item'));
+      var idx = parseInt(belt.getAttribute('data-idx')) || 0;
+      if (!items[idx]) return;
+      var wrapW = belt.parentElement.offsetWidth;
+      var offset = items[idx].offsetLeft - (wrapW / 2) + (items[idx].offsetWidth / 2);
+      belt.style.transform = 'translateX(-' + offset + 'px)';
+    });
+  });
+}
+
 function updateCarousel(belt, animate) {
   var items = Array.prototype.slice.call(belt.querySelectorAll('.carousel-item'));
   var idx = parseInt(belt.getAttribute('data-idx'));
   if (!items[idx]) return;
-  var card = items[idx];
   var wrapW = belt.parentElement.offsetWidth;
-  var offset = card.offsetLeft - (wrapW / 2) + (card.offsetWidth / 2);
+  var offset = items[idx].offsetLeft - (wrapW / 2) + (items[idx].offsetWidth / 2);
   belt.style.transition = animate === false ? 'none' : 'transform .42s cubic-bezier(.4,0,.2,1)';
   belt.style.transform = 'translateX(-' + offset + 'px)';
-  items.forEach(function(item, i) { item.classList.toggle('active', i === idx); });
+  if (animate === false) {
+    // Suppress item transitions during teleport to avoid re-zoom flicker
+    items.forEach(function(item) { item.style.transition = 'none'; });
+    items.forEach(function(item, i) { item.classList.toggle('active', i === idx); });
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        items.forEach(function(item) { item.style.transition = ''; });
+      });
+    });
+  } else {
+    items.forEach(function(item, i) { item.classList.toggle('active', i === idx); });
+  }
 }
 
 function shiftBelt(id, dir) {
@@ -1685,31 +1726,52 @@ function shiftBelt(id, dir) {
   if (!belt) return;
   var n = parseInt(belt.getAttribute('data-n'));
   var cc = parseInt(belt.getAttribute('data-cc'));
+  var total = n + cc * 2;
   var idx = parseInt(belt.getAttribute('data-idx')) + dir;
   belt.setAttribute('data-idx', idx);
   updateCarousel(belt, true);
+
   setTimeout(function() {
     var cur = parseInt(belt.getAttribute('data-idx'));
-    var jumped = false;
-    if (cur >= n + cc) { belt.setAttribute('data-idx', cc); jumped = true; }
-    else if (cur < cc) { belt.setAttribute('data-idx', n + cc - 1); jumped = true; }
-    if (jumped) updateCarousel(belt, false);
-    carouselLocked[beltId] = false;
-  }, 450);
+    var newIdx = cur;
+    if (cur >= cc + n) {
+      newIdx = cc + (cur - (cc + n));
+    } else if (cur < cc) {
+      newIdx = cc + n - (cc - cur);
+    }
+    if (newIdx !== cur) {
+      belt.setAttribute('data-idx', newIdx);
+      // Use double rAF to ensure paint happens between transition removal and reposition
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          belt.style.transition = 'none';
+          var items = Array.prototype.slice.call(belt.querySelectorAll('.carousel-item'));
+          if (!items[newIdx]) { carouselLocked[beltId] = false; return; }
+          // suppress all item transitions before teleport
+          items.forEach(function(item) { item.style.transition = 'none'; item.style.opacity = ''; item.style.filter = ''; item.style.transform = ''; });
+          var wrapW = belt.parentElement.offsetWidth;
+          var offset = items[newIdx].offsetLeft - (wrapW / 2) + (items[newIdx].offsetWidth / 2);
+          belt.style.transform = 'translateX(-' + offset + 'px)';
+          items.forEach(function(item, i) { item.classList.toggle('active', i === newIdx); });
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+              items.forEach(function(item) { item.style.transition = ''; });
+              carouselLocked[beltId] = false;
+            });
+          });
+        });
+      });
+    } else {
+      carouselLocked[beltId] = false;
+    }
+  }, 430);
 }
 
 window.addEventListener('load', initCarousels);
 window.addEventListener('resize', function() {
   ['casesBelt','reviewsBelt'].forEach(function(beltId) {
     var belt = document.getElementById(beltId);
-    if (!belt) return;
-    var items = Array.prototype.slice.call(belt.querySelectorAll('.carousel-item'));
-    if (!items.length) return;
-    var idx = parseInt(belt.getAttribute('data-idx')) || 0;
-    var gap = 16; var cardW = items[0].offsetWidth;
-    var wrapW = belt.parentElement.offsetWidth;
-    belt.style.transition = 'none';
-    belt.style.transform = 'translateX(-' + (idx * (cardW + gap) - wrapW / 2 + cardW / 2) + 'px)';
+    if (belt) repositionCarousel(belt);
   });
 });
 

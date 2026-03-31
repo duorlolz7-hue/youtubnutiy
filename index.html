@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+<link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+<link rel="shortcut icon" href="./favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Михайло Тепленко — YouTube продюсування" />
+<link rel="manifest" href="./site.webmanifest" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Михайло Тепленко — YouTube продюсування</title>
+<title></title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Manrope:wght@400;500;600;700&display=swap">
@@ -47,6 +53,7 @@ body::before { content:''; position:fixed; inset:0; background-image:url("data:i
 .sec-h { font-family:'Unbounded',sans-serif; font-size:clamp(28px,3.8vw,72px); font-weight:900; line-height:1.05; letter-spacing:-.025em; }
 .ty { color:var(--y); } .tr { color:var(--r); }
 .g { background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.fi-icon.g { -webkit-text-fill-color:initial; }
 
 /* ─ NAV ─ */
 nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:16px 40px; display:flex; justify-content:space-between; align-items:center; background:rgba(12,12,12,.93); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); gap:12px; }
@@ -64,7 +71,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:16px 40px; di
 .hero-glow2 { position:absolute; bottom:-15%; left:-5%; width:35vw; height:35vw; background:radial-gradient(ellipse,rgba(255,229,59,.07) 0%,transparent 70%); pointer-events:none; }
 .hero-badge { display:inline-flex; align-items:center; gap:10px; background:rgba(255,45,45,.09); border:1px solid rgba(255,45,45,.28); border-radius:100px; padding:7px 16px 7px 9px; margin-bottom:40px; width:fit-content; animation:fadeUp .7s both; }
 .badge-dot { display:none; }
-.badge-yt { opacity:1 !important; cursor:pointer; transition:transform .2s; }
+.badge-yt { opacity:1 !important; cursor:pointer; transition:transform .2s; display:inline-flex !important; }
 .badge-yt:hover { transform:scale(1.15); }
 .hero-badge span { font-size:12px; font-weight:600; letter-spacing:.04em; }
 @keyframes pulse { 0%,100%{ box-shadow:0 0 0 0 rgba(255,45,45,.45); } 50%{ box-shadow:0 0 0 6px rgba(255,45,45,0); } }
@@ -402,7 +409,7 @@ footer { background:var(--dark); border-top:1px solid var(--border); padding:30p
 
   /* HERO */
   .hero { padding:80px 16px 44px; }
-  .hero-h { font-size:clamp(38px,11vw,56px); line-height:.92; margin-bottom:24px; }
+  .hero-h { font-size:clamp(32px,9vw,48px); line-height:1.0; margin-bottom:24px; }
   .hero-desc { font-size:15px; margin-bottom:36px; }
   .hero-btns { flex-direction:row; gap:10px; flex-wrap:wrap; }
   .btn-fire { padding:13px 22px; font-size:11px; }
@@ -1130,7 +1137,7 @@ if (document.fonts && document.fonts.ready) {
   <div class="hero-glow"></div><div class="hero-glow2"></div>
   <div class="hero-badge"><span class="yt-egg badge-yt" id="ytEgg1" onclick="foundEgg(1)" style="width:20px;height:14px;flex-shrink:0;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span><span>Креативний YouTube продюсер</span></div>
   <h1 class="hero-h">YOUTUBE<br><span class="g">ЩО РЕАЛЬНО</span><br><span class="dim">ПРАЦЮЄ</span></h1>
-  <p class="hero-desc">Працюю з тими, хто хоче залишити слід, а не заповнити стрічку.</p>
+  <p class="hero-desc">Працюю з тими, хто хоче залишити слід, а не просто заповнювати стрічку.</p>
   <div class="hero-btns">
     <a href="#navigator" class="btn-fire" onclick="event.preventDefault();document.getElementById('navigator').scrollIntoView({behavior:'smooth'})">Обрати послугу →</a>
     <a href="#about" class="btn-ghost" onclick="event.preventDefault();document.getElementById('about').scrollIntoView({behavior:'smooth'})">Моя місія</a>
@@ -1255,7 +1262,7 @@ if (document.fonts && document.fonts.ready) {
 <section style="padding:72px 0;" id="cases">
   <div class="wrap">
     <span class="eye reveal">Реальні проєкти</span>
-    <h2 class="sec-h reveal">Не слова. Цифри.</h2>
+    <h2 class="sec-h reveal">Мої результати в цифрах</h2>
   </div>
 <div class="belt-wrap" style="margin-top:40px;">
     <div class="belt" id="casesBelt">
@@ -1651,40 +1658,10 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-/* ── TELEGRAM CONFIG ── */
-/* ⬇️ ВСТАВТЕ СВОЇ ДАНІ ТУТ */
-var TG_BOT_TOKEN = '8734977416:AAHBZHHGCOQYNo43QBsj_uIQAAt7HFUUO6g';   // наприклад: 7412345678:AAFxxx...
-var TG_CHAT_ID   = '427002476';       // наприклад: 123456789
-
 /* ── LEAD FORM ── */
-var LEAD_MAX     = 999;             // максимум заявок з одного браузера
-var LEAD_RESET_MS = 7*24*60*60*1000; // 7 днів у мілісекундах
+var WORKER_URL = 'https://tg-proxy.duorlolz7.workers.dev';
 
 function sendFinalLead() {
-  /* ── ПЕРЕВІРКА 7-ДЕННОГО СКИДАННЯ ── */
-  try {
-    var firstTs = parseInt(localStorage.getItem('lead_first_ts') || '0', 10);
-    if (firstTs && (Date.now() - firstTs) > LEAD_RESET_MS) {
-      localStorage.removeItem('lead_count');
-      localStorage.removeItem('lead_first_ts');
-    }
-  } catch(e) {}
-
-  /* ── ПЕРЕВІРКА ЛІМІТУ ── */
-  var count = 0;
-  try { count = parseInt(localStorage.getItem('lead_count') || '0', 10); } catch(e) {}
-  if (count >= LEAD_MAX) {
-    var success = document.getElementById('finalSuccess');
-    var text2   = document.getElementById('finalSuccessText');
-    var formFields0 = document.getElementById('finalFormFields');
-    if (formFields0) formFields0.style.display = 'none';
-    if (success && text2) {
-      text2.innerHTML = 'Ви вже залишили заявку. Михайло зв\'яжеться з вами найближчим часом 👋';
-      success.style.display = 'block';
-    }
-    return;
-  }
-
   var name    = document.getElementById('finalName');
   var social  = document.getElementById('finalSocial');
   var service = document.getElementById('finalService');
@@ -1701,31 +1678,36 @@ function sendFinalLead() {
   }
   if (!soc) { if(social) { social.style.borderColor='rgba(255,45,45,.6)'; social.focus(); } return; }
 
-  /* ── ЗБІЛЬШИТИ ЛІЧИЛЬНИК + ЗБЕРЕГТИ ЧАС ПЕРШОЇ ЗАЯВКИ ── */
-  try {
-    if (count === 0) localStorage.setItem('lead_first_ts', String(Date.now()));
-    localStorage.setItem('lead_count', String(count + 1));
-  } catch(e) {}
-
-  /* ── ВІДПРАВКА В TELEGRAM ── */
+  /* ── ВІДПРАВКА ЧЕРЕЗ CLOUDFLARE WORKER ── */
   var now = new Date();
   var pad = function(x){ return x < 10 ? '0'+x : x; };
   var dateStr = pad(now.getDate())+'.'+pad(now.getMonth()+1)+'.'+now.getFullYear()
               + ', '+pad(now.getHours())+':'+pad(now.getMinutes());
-  var attemptStr = count + 1 > 1 ? ' (заявка #' + (count + 1) + ')' : '';
-  var msg = '📥 <b>НОВА ЗАЯВКА з сайту</b>' + attemptStr + '\n'
+  var msg = '📥 <b>НОВА ЗАЯВКА з сайту</b>\n'
           + '🕐 ' + dateStr + '\n'
           + '👤 Ім\'я: ' + n + '\n'
           + '💬 ' + selectedContactType + ': ' + soc + '\n'
           + (svc ? '📦 Послуга: ' + svc + '\n' : '📦 Послуга: не обрано\n');
 
-  if (TG_BOT_TOKEN !== 'ВСТАВТЕ_ТОКЕН_БОТА' && TG_CHAT_ID !== 'ВСТАВТЕ_CHAT_ID') {
-    fetch('https://api.telegram.org/bot' + TG_BOT_TOKEN + '/sendMessage', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: TG_CHAT_ID, text: msg, parse_mode: 'HTML' })
-    }).catch(function(e){ console.warn('Telegram send error:', e); });
-  }
+  fetch(WORKER_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: msg })
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(data){
+    if (data.reason === 'limit') {
+      var formFields0 = document.getElementById('finalFormFields');
+      var success0 = document.getElementById('finalSuccess');
+      var text0 = document.getElementById('finalSuccessText');
+      if (formFields0) formFields0.style.display = 'none';
+      if (success0 && text0) {
+        text0.innerHTML = 'Ви вже залишили заявку. Михайло зв\'яжеться з вами найближчим часом 👋';
+        success0.style.display = 'block';
+      }
+    }
+  })
+  .catch(function(e){ console.warn('Worker error:', e); });
 
   /* ── ПОКАЗАТИ SUCCESS ── */
   var formFields = document.getElementById('finalFormFields');
@@ -1733,37 +1715,9 @@ function sendFinalLead() {
   var success2  = document.getElementById('finalSuccess');
   var text3     = document.getElementById('finalSuccessText');
   var svcMsg    = svc ? ' Послуга: ' + svc + '.' : '';
-  var remaining = LEAD_MAX - (count + 1);
   if (success2 && text3) {
     text3.innerHTML = 'Дякую, <strong>' + n + '</strong>!' + svcMsg + ' Напишу найближчим часом 👋';
     success2.style.display = 'block';
-  }
-
-  /* ── СКИДАННЯ ФОРМИ ЧЕРЕЗ 10 СЕК (якщо ліміт не вичерпано) ── */
-  if (remaining > 0) {
-    setTimeout(function() {
-      if (success2) success2.style.display = 'none';
-      if (formFields) formFields.style.display = 'flex';
-      name.value = '';
-      if (social) { social.value = ''; social.style.borderColor = 'rgba(255,255,255,.1)'; social.disabled = true; social.style.opacity = '.5'; social.style.cursor = 'not-allowed'; social.style.background = 'rgba(255,255,255,.04)'; social.placeholder = "Оберіть спосіб зв'язку вище"; }
-      document.querySelectorAll('.contact-type-btn').forEach(function(b){
-        b.classList.remove('active');
-        b.style.background = 'rgba(255,255,255,.06)';
-        b.style.borderColor = 'rgba(255,255,255,.15)';
-        b.style.color = 'rgba(240,239,232,.55)';
-      });
-      selectedContactType = '';
-      name.style.borderColor = 'rgba(255,255,255,.15)';
-      if (service) service.value = '';
-      var label = document.getElementById('serviceDropdownLabel');
-      if (label) label.textContent = '\uD83D\uDCBC Яка послуга вас цікавить?';
-      var arrow = document.getElementById('serviceDropdownArrow');
-      if (arrow) arrow.style.transform = 'rotate(0)';
-      var list = document.getElementById('serviceDropdownList');
-      if (list) list.style.display = 'none';
-      var btn = document.getElementById('serviceDropdownBtn');
-      if (btn) btn.style.color = 'rgba(240,239,232,.45)';
-    }, 10000);
   }
 }
 

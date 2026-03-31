@@ -1036,7 +1036,7 @@ if (document.fonts && document.fonts.ready) {
 <div id="win-panel">
   <div class="win-inner">
     <div class="win-title">Ого<br><span>Ти знайшов всі 9</span></div>
-    <div class="win-sub">Слухай, я сховав їх досить добре. Ти або дуже уважний, або дуже впертий — і те й інше мені подобається в людях з якими я працюю. Тримай відео і продовжуй творити</div>
+    <div class="win-sub">Ти або дуже уважний, або дуже впертий — і те й інше мені подобається, тож дивись відео…</div>
     <div class="media-wrap" id="winVideoWrap" style="position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;" data-vid="tkweGgCMaus"></div>
     <a id="win-personal-cta" href="https://t.me/teplenkomykhailo" target="_blank" rel="noopener" class="win-cta" style="display:none;opacity:0;transition:opacity .6s ease;">Напиши мені особисто →</a>
     <button class="win-close" onclick="closeHuntWin()" style="background:transparent;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.45);font-family:'Unbounded',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;padding:10px 24px;cursor:pointer;transition:all .2s;margin-top:4px;">Закрити</button>
@@ -1589,8 +1589,8 @@ if (document.fonts && document.fonts.ready) {
     <p style="font-size:11px;color:rgba(240,239,232,.3);text-align:left;">Заповни ім'я та контакт для зв'язку.</p>
     <button onclick="sendFinalLead()" class="btn-fire" style="border:none;cursor:pointer;width:100%;text-align:center;display:block;">Залишити заявку →</button>
   </div>
-  <div id="finalSuccess" style="display:none;margin-top:20px;background:rgba(255,45,45,.07);border:1px solid rgba(255,45,45,.25);padding:20px 28px;max-width:400px;margin-left:auto;margin-right:auto;">
-    <p id="finalSuccessTitle" style="font-size:10px;font-weight:700;color:#FF2D2D;margin-bottom:8px;font-family:'Unbounded',sans-serif;letter-spacing:.1em;">ЗАЯВКУ ОТРИМАНО</p>
+  <div id="finalSuccess" style="display:none;margin-top:20px;background:rgba(74,222,128,.07);border:1px solid rgba(74,222,128,.22);padding:20px 28px;max-width:400px;margin-left:auto;margin-right:auto;">
+    <p id="finalSuccessTitle" style="font-size:10px;font-weight:700;color:#4ADE80;margin-bottom:8px;font-family:'Unbounded',sans-serif;letter-spacing:.1em;">ЗАЯВКУ ОТРИМАНО</p>
     <p style="font-size:13px;line-height:1.65;" id="finalSuccessText"></p>
   </div>
 </section>
@@ -1784,7 +1784,8 @@ function sendFinalLead() {
     if (formFields) formFields.style.display = 'none';
     if (success2 && text3) {
       if (data.reason === 'limit') {
-        var t0=document.getElementById('finalSuccessTitle');if(t0)t0.textContent='МІСЦЯ ВИЧЕРПАНО';
+        var t0=document.getElementById('finalSuccessTitle');if(t0){t0.textContent='МІСЦЯ ВИЧЕРПАНО';t0.style.color='#FF2D2D';}
+var fs=document.getElementById('finalSuccess');if(fs){fs.style.background='rgba(255,45,45,.07)';fs.style.borderColor='rgba(255,45,45,.25)';};
         text3.innerHTML = 'Ви вже надіслали 3 заявки — більше не потрібно. Михайло бачить їх і зв\'яжеться з вами особисто. Не хвилюйтесь. 🔒';
       } else {
         text3.innerHTML = 'Дякую, <strong>' + n + '</strong>!' + svcMsg + ' Напишу найближчим часом 👋';

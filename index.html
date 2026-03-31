@@ -485,9 +485,11 @@ footer { background:var(--dark); border-top:1px solid var(--border); padding:30p
   .pkg-price { font-size:22px; }
 
   /* BELTS */
-  .case-card { width:calc(100vw - 40px); min-width:260px; }
-  .rv-card { width:calc(100vw - 60px); min-width:240px; }
-  .belt-wrap::before, .belt-wrap::after { width:20px; }
+  .case-card { width:calc(100vw - 80px); min-width:260px; }
+  .rv-card { width:calc(100vw - 80px); min-width:240px; }
+  .belt-wrap::before, .belt-wrap::after { display:none; }
+  .belt-prev { left:4px; }
+  .belt-next { right:4px; }
   .belt { gap:10px; }
 
   /* NOT FOR */
@@ -1695,6 +1697,19 @@ function shiftBelt(id, dir) {
 }
 
 window.addEventListener('load', initCarousels);
+window.addEventListener('resize', function() {
+  ['casesBelt','reviewsBelt'].forEach(function(beltId) {
+    var belt = document.getElementById(beltId);
+    if (!belt) return;
+    var items = Array.prototype.slice.call(belt.querySelectorAll('.carousel-item'));
+    if (!items.length) return;
+    var idx = parseInt(belt.getAttribute('data-idx')) || 0;
+    var cardW = items[0].offsetWidth + 16;
+    var wrapW = belt.parentElement.offsetWidth;
+    belt.style.transition = 'none';
+    belt.style.transform = 'translateX(-' + (idx * cardW - wrapW / 2 + cardW / 2) + 'px)';
+  });
+});
 
 /* ── CHECKLIST ── */
 function sendChecklist() {

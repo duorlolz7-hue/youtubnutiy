@@ -8,21 +8,7 @@
 <link rel="manifest" href="./site.webmanifest" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ютубнутий | Михайло Тепленко — Креативний YouTube продюсер</title>
-<meta name="description" content="Михайло Тепленко — креативний YouTube продюсер з України. Ведення YouTube каналу, створення з нуля, просунення каналу, контент-план та органічне просування для бізнесу та авторів.">
-<meta name="keywords" content="ютубнутий, ютуб продюсер, креативний ютуб продюсер, ведення ютуб каналу, ютуб канал з нуля, створення ютуб каналу, ютуб канал для бізнесу, просунутись на ютубі, органічне просування ютуб, продюсування ютуб каналу, ютуб для бізнесу, контент-план ютуб, розкрутка ютуб каналу, ютуб для автора, відеомаркетинг, міхайло тепленко, україна">
-<meta name="author" content="Михайло Тепленко">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://youtubnutiy.com/">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://youtubnutiy.com/">
-<meta property="og:title" content="Ютубнутий | Михайло Тепленко — Креативний YouTube продюсер">
-<meta property="og:description" content="Ведення YouTube каналу, створення з нуля, просунення каналу та органічне просування для бізнесу та авторів в Україні.">
-<meta property="og:locale" content="uk_UA">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ютубнутий | Михайло Тепленко">
-<meta name="twitter:description" content="Креативний YouTube продюсер з України. Ведення каналу, контент-план, зрост з нуля.">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Михайло Тепленко","url":"https://youtubnutiy.com","jobTitle":"Креативний YouTube продюсер","address":{"@type":"PostalAddress","addressCountry":"UA"},"sameAs":[],"description":"Ведення YouTube каналу, створення каналу з нуля, органічне просування для бізнесу та авторів в Україні"}</script>
+<title></title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Manrope:wght@400;500;600;700&display=swap">
@@ -84,8 +70,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:16px 40px; di
 .hero-glow2 { position:absolute; bottom:-15%; left:-5%; width:35vw; height:35vw; background:radial-gradient(ellipse,rgba(255,229,59,.07) 0%,transparent 70%); pointer-events:none; }
 .hero-badge { display:inline-flex; align-items:center; gap:10px; background:rgba(255,45,45,.09); border:1px solid rgba(255,45,45,.28); border-radius:100px; padding:7px 16px 7px 9px; margin-bottom:40px; width:fit-content; animation:fadeUp .7s both; }
 .badge-dot { display:none; }
-.badge-yt { opacity:1 !important; cursor:pointer; transition:transform .2s; display:inline-flex !important; width:20px !important; height:14px !important; min-width:20px; }
-.badge-yt svg { width:20px; height:14px; display:block; }
+.badge-yt { opacity:1 !important; cursor:pointer; transition:transform .2s; display:inline-flex !important; }
 .badge-yt:hover { transform:scale(1.15); }
 .hero-badge span { font-size:12px; font-weight:600; letter-spacing:.04em; }
 @keyframes pulse { 0%,100%{ box-shadow:0 0 0 0 rgba(255,45,45,.45); } 50%{ box-shadow:0 0 0 6px rgba(255,45,45,0); } }
@@ -326,15 +311,14 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:16px 40px; di
 .reviews-section .belt-wrap::before { background:linear-gradient(to right,var(--card),transparent); }
 .reviews-section .belt-wrap::after { background:linear-gradient(to left,var(--card),transparent); }
 /* #10 — clickable edges */
-.belt-prev,.belt-next { position:absolute; top:0; bottom:0; width:80px; z-index:3; cursor:pointer; background:transparent; border:none; display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .2s; }
-.belt-prev { left:0; }
-.belt-next { right:0; }
-.belt-wrap:hover .belt-prev,
-.belt-wrap:hover .belt-next { opacity:1; }
-.belt-btn-inner { width:40px; height:40px; background:rgba(12,12,12,.7); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:18px; color:var(--text); }
-.belt { display:flex; gap:2px; width:max-content; animation:belt 44s linear infinite; will-change:transform; }
-.belt:hover { animation-play-state:paused; }
-@keyframes belt { from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+.belt-prev,.belt-next { position:absolute; top:50%; transform:translateY(-50%); width:48px; height:48px; z-index:3; cursor:pointer; background:rgba(12,12,12,.88); border:1px solid rgba(255,255,255,.14); display:flex; align-items:center; justify-content:center; font-size:22px; color:var(--text); transition:background .2s,border-color .2s; }
+.belt-prev { left:8px; }
+.belt-next { right:8px; }
+.belt-prev:hover,.belt-next:hover { background:rgba(255,45,45,.18); border-color:rgba(255,45,45,.45); }
+.belt-btn-inner { display:flex; align-items:center; justify-content:center; width:100%; height:100%; pointer-events:none; }
+.belt { display:flex; gap:16px; transition:transform .45s cubic-bezier(.4,0,.2,1); padding:20px 0; }
+.carousel-item { flex-shrink:0; transition:opacity .35s,filter .35s,transform .35s; opacity:.4; filter:blur(2px); transform:scale(.93); pointer-events:none; }
+.carousel-item.active { opacity:1; filter:none; transform:scale(1); pointer-events:auto; }
 
 /* case card */
 .case-card { flex-shrink:0; width:480px; background:var(--card2); position:relative; overflow:hidden; }
@@ -1053,9 +1037,7 @@ if (document.fonts && document.fonts.ready) {
   <div class="win-inner">
     <div class="win-title">Ого<br><span>Ти знайшов всі 9</span></div>
     <div class="win-sub">Слухай, я сховав їх досить добре. Ти або дуже уважний, або дуже впертий — і те й інше мені подобається в людях з якими я працюю. Тримай відео і продовжуй творити</div>
-    <div class="media-wrap" id="winVideoWrap" style="position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;">
-      <iframe src="https://www.youtube.com/embed/AA0xyXh5uPg?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
+    <div class="media-wrap" id="winVideoWrap" style="position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;" data-vid="tkweGgCMaus"></div>
     <a id="win-personal-cta" href="https://t.me/teplenkomykhailo" target="_blank" rel="noopener" class="win-cta" style="display:none;opacity:0;transition:opacity .6s ease;">Напиши мені особисто →</a>
     <button class="win-close" onclick="closeHuntWin()" style="background:transparent;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.45);font-family:'Unbounded',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;padding:10px 24px;cursor:pointer;transition:all .2s;margin-top:4px;">Закрити</button>
   </div>
@@ -1084,7 +1066,7 @@ if (document.fonts && document.fonts.ready) {
     Mühltorweg 9<br>
     63450 Hanau, Deutschland</p>
     <h3>Контакти</h3>
-    <p>Email: <a href="mailto:duorupwork@gmail.com">duorupwork@gmail.com</a><br></p>
+    <p>Email: <a href="/cdn-cgi/l/email-protection#89edfce6fbfcf9fee6fbe2c9eee4e8e0e5a7eae6e4"><span class="__cf_email__" data-cfemail="dabeafb5a8afaaadb5a8b19abdb7bbb3b6f4b9b5b7">[email&#160;protected]</span></a><br></p>
     <h3>Податкова інформація</h3>
     <p>Umsatzsteuer-Identifikationsnummer (USt-IdNr.): DE459347074<br>
     Steuernummer: 02287403502</p>
@@ -1103,7 +1085,7 @@ if (document.fonts && document.fonts.ready) {
     <h3>1. Відповідальна особа (Verantwortlicher)</h3>
     <p>Teplenko Mykhailo<br>
     Mühltorweg 9, 63450 Hanau, Deutschland<br>
-    Email: <a href="mailto:duorupwork@gmail.com">duorupwork@gmail.com</a></p>
+    Email: <a href="/cdn-cgi/l/email-protection#0266776d707772756d706942656f636b6e2c616d6f"><span class="__cf_email__" data-cfemail="debaabb1acabaea9b1acb59eb9b3bfb7b2f0bdb1b3">[email&#160;protected]</span></a></p>
     <h3>2. Які дані ми збираємо</h3>
     <ul>
       <li>Дані форм зворотного зв'язку (ім'я, Telegram / Instagram) — тільки якщо ви самі їх вводите</li>
@@ -1124,7 +1106,7 @@ if (document.fonts && document.fonts.ready) {
       <li>Право на перенесення даних (Art. 20 DSGVO)</li>
       <li>Право на заперечення проти обробки (Art. 21 DSGVO)</li>
     </ul>
-    <p>Для реалізації прав звертайтесь: <a href="mailto:duorupwork@gmail.com">duorupwork@gmail.com</a></p>
+    <p>Для реалізації прав звертайтесь: <a href="/cdn-cgi/l/email-protection#2044554f525550574f524b60474d41494c0e434f4d"><span class="__cf_email__" data-cfemail="5236273d202722253d203912353f333b3e7c313d3f">[email&#160;protected]</span></a></p>
     <h3>7. Право на скаргу</h3>
     <p>Ви маєте право подати скаргу до наглядового органу із захисту даних. Компетентний орган для землі Гессен: Der Hessische Beauftragte für Datenschutz und Informationsfreiheit, Postfach 3163, 65021 Wiesbaden.</p>
     <h3>8. Cookies</h3>
@@ -1289,15 +1271,23 @@ if (document.fonts && document.fonts.ready) {
   </div>
 <div class="belt-wrap" style="margin-top:40px;">
     <div class="belt" id="casesBelt">
-      <div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%BF%D1%80%D0%BE_%D1%80%D0%B5%D0%BC%D0%B5%D1%81%D0%BB%D0%BE_123_rqheu3.jpg" alt="ПроРемесло" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-tag">Кейс 01</div><div class="cc-name">ПроРемесло</div><div class="cc-niche">Автентичні ремесла України · Повне ведення</div><p class="cc-story">Прийшли без досвіду і без каналу. Після першої консультації запросили на повне ведення. Разом запустили канал, побудували структуру і формат. Досі в активній співпраці.</p><div class="cc-stats"><div class="cc-stat">0 → 175 000 переглядів за 10 відео</div><div class="cc-stat">Випуск "Чорнодимлена кераміка" напопулярніший на всьому ютубі</div><div class="cc-stat">Повністю органічно</div></div></div></div>
-      <div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%86%D0%BD%D0%BD%D0%B0_%D0%A8%D0%B5%D0%BC%D0%B5%D1%82_wn9lgo.jpg" alt="Інна Шемет" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-tag">Кейс 02</div><div class="cc-name">Інна Шемет</div><div class="cc-niche">Юридичні послуги · Португалія · Повне ведення</div><p class="cc-story">Канал не тримав глядача — утримання 2–3 хв. Розробили стиль, формат і контент-план що спрацював вже на другому відео.</p><div class="cc-stats"><div class="cc-stat">30 000 цільових переглядів за 5 місяців</div><div class="cc-stat">Утримання: 2–3 хв → 5–6 хв</div><div class="cc-stat">50–100 лідів з YouTube щомісяця</div></div></div></div>
-      <div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%BA%D1%83%D0%BB%D1%96%D0%BD%D0%B0%D1%80%D0%BA%D0%B0_mjgsa8.jpg" alt="Корисні рецепти Елли" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-tag">Кейс 03</div><div class="cc-name">Корисні рецепти Елли</div><div class="cc-niche">Кулінарія · Менторинг 6 місяців</div><p class="cc-story">Старт з нуля без розуміння платформи. За 6 місяців налаштували графік, знайшли формат, вивели формулу назв і обкладинок.</p><div class="cc-stats"><div class="cc-stat">0 → 121 000 підписників за 1 рік (отримали срібну кнопку)</div><div class="cc-stat">10 млн. органічних переглядів (довгих відео)</div><div class="cc-stat">1 200% окупність інвестиції</div></div></div></div>
-      <div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%B4%D0%B6%D0%B0%D1%81%D1%82_%D0%BF%D0%B0%D0%BA%D0%BD_%D1%96%D1%82_eyqfut.jpg" alt="Just Punk It Podcast" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-tag">Кейс 04</div><div class="cc-name">Just Punk It Podcast</div><div class="cc-niche">Подкаст · Повне ведення · Перезапуск</div><p class="cc-story">Минулий канал вбили рекламою. Потрібна нова стратегія, унікальний стиль і сценарій для гостей. Запустили під ключ.</p><div class="cc-stats"><div class="cc-stat">Повний перезапуск з нуля</div><div class="cc-stat">0 → 16 000 органічних переглядів за 8 відео</div><div class="cc-stat">Унікальний стиль з другого відео</div></div></div></div>
+      
+      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%BF%D1%80%D0%BE_%D1%80%D0%B5%D0%BC%D0%B5%D1%81%D0%BB%D0%BE_123_rqheu3.jpg" alt="ПроРемесло" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-tag">Кейс 01</div><div class="cc-name">ПроРемесло</div><div class="cc-niche">Автентичні ремесла України · Повне ведення</div><p class="cc-story">Прийшли без досвіду і без каналу. Після першої консультації запросили на повне ведення. Разом запустили канал, побудували структуру і формат. Досі в активній співпраці.</p><div class="cc-stats"><div class="cc-stat">0 → 175 000 переглядів за 10 відео</div><div class="cc-stat">Випуск "Чорнодимлена кераміка" напопулярніший на всьому ютубі</div><div class="cc-stat">Повністю органічно</div></div></div></div></div>
+      
+      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%86%D0%BD%D0%BD%D0%B0_%D0%A8%D0%B5%D0%BC%D0%B5%D1%82_wn9lgo.jpg" alt="Інна Шемет" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-tag">Кейс 02</div><div class="cc-name">Інна Шемет</div><div class="cc-niche">Юридичні послуги · Португалія · Повне ведення</div><p class="cc-story">Канал не тримав глядача — утримання 2–3 хв. Розробили стиль, формат і контент-план що спрацював вже на другому відео.</p><div class="cc-stats"><div class="cc-stat">30 000 цільових переглядів за 5 місяців</div><div class="cc-stat">Утримання: 2–3 хв → 5–6 хв</div><div class="cc-stat">50–100 лідів з YouTube щомісяця</div></div></div></div></div>
+      
+      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%BA%D1%83%D0%BB%D1%96%D0%BD%D0%B0%D1%80%D0%BA%D0%B0_mjgsa8.jpg" alt="Корисні рецепти Елли" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-tag">Кейс 03</div><div class="cc-name">Корисні рецепти Елли</div><div class="cc-niche">Кулінарія · Менторинг 6 місяців</div><p class="cc-story">Старт з нуля без розуміння платформи. За 6 місяців налаштували графік, знайшли формат, вивели формулу назв і обкладинок.</p><div class="cc-stats"><div class="cc-stat">0 → 121 000 підписників за 1 рік (отримали срібну кнопку)</div><div class="cc-stat">10 млн. органічних переглядів (довгих відео)</div><div class="cc-stat">1 200% окупність інвестиції</div></div></div></div></div>
+      
+      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%B4%D0%B6%D0%B0%D1%81%D1%82_%D0%BF%D0%B0%D0%BA%D0%BD_%D1%96%D1%82_eyqfut.jpg" alt="Just Punk It Podcast" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-tag">Кейс 04</div><div class="cc-name">Just Punk It Podcast</div><div class="cc-niche">Подкаст · Повне ведення · Перезапуск</div><p class="cc-story">Минулий канал вбили рекламою. Потрібна нова стратегія, унікальний стиль і сценарій для гостей. Запустили під ключ.</p><div class="cc-stats"><div class="cc-stat">Повний перезапуск з нуля</div><div class="cc-stat">0 → 16 000 органічних переглядів за 8 відео</div><div class="cc-stat">Унікальний стиль з другого відео</div></div></div></div></div>
       <!-- duplicate for seamless loop -->
-      <div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%BF%D1%80%D0%BE_%D1%80%D0%B5%D0%BC%D0%B5%D1%81%D0%BB%D0%BE_123_rqheu3.jpg" alt="ПроРемесло" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-tag">Кейс 01</div><div class="cc-name">ПроРемесло</div><div class="cc-niche">Автентичні ремесла України · Повне ведення</div><p class="cc-story">Прийшли без досвіду і без каналу. Після першої консультації запросили на повне ведення. Разом запустили канал, побудували структуру і формат. Досі в активній співпраці.</p><div class="cc-stats"><div class="cc-stat">0 → 175 000 переглядів за 10 відео</div><div class="cc-stat">Випуск "Чорнодимлена кераміка" напопулярніший на всьому ютубі</div><div class="cc-stat">Повністю органічно</div></div></div></div>
-      <div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%86%D0%BD%D0%BD%D0%B0_%D0%A8%D0%B5%D0%BC%D0%B5%D1%82_wn9lgo.jpg" alt="Інна Шемет" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-tag">Кейс 02</div><div class="cc-name">Інна Шемет</div><div class="cc-niche">Юридичні послуги · Португалія · Повне ведення</div><p class="cc-story">Канал не тримав глядача — утримання 2–3 хв. Розробили стиль, формат і контент-план що спрацював вже на другому відео.</p><div class="cc-stats"><div class="cc-stat">30 000 цільових переглядів за 5 місяців</div><div class="cc-stat">Утримання: 2–3 хв → 5–6 хв</div><div class="cc-stat">50–100 лідів з YouTube щомісяця</div></div></div></div>
-      <div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%BA%D1%83%D0%BB%D1%96%D0%BD%D0%B0%D1%80%D0%BA%D0%B0_mjgsa8.jpg" alt="Корисні рецепти Елли" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-tag">Кейс 03</div><div class="cc-name">Корисні рецепти Елли</div><div class="cc-niche">Кулінарія · Менторинг 6 місяців</div><p class="cc-story">Старт з нуля без розуміння платформи. За 6 місяців налаштували графік, знайшли формат, вивели формулу назв і обкладинок.</p><div class="cc-stats"><div class="cc-stat">0 → 121 000 підписників за 1 рік (отримали срібну кнопку)</div><div class="cc-stat">10 млн. органічних переглядів (довгих відео)</div><div class="cc-stat">1 200% окупність інвестиції</div></div></div></div>
-      <div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%B4%D0%B6%D0%B0%D1%81%D1%82_%D0%BF%D0%B0%D0%BA%D0%BD_%D1%96%D1%82_eyqfut.jpg" alt="Just Punk It Podcast" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-tag">Кейс 04</div><div class="cc-name">Just Punk It Podcast</div><div class="cc-niche">Подкаст · Повне ведення · Перезапуск</div><p class="cc-story">Минулий канал вбили рекламою. Потрібна нова стратегія, унікальний стиль і сценарій для гостей. Запустили під ключ.</p><div class="cc-stats"><div class="cc-stat">Повний перезапуск з нуля</div><div class="cc-stat">0 → 16 000 органічних переглядів за 8 відео</div><div class="cc-stat">Унікальний стиль з другого відео</div></div></div></div>
+      
+      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%BF%D1%80%D0%BE_%D1%80%D0%B5%D0%BC%D0%B5%D1%81%D0%BB%D0%BE_123_rqheu3.jpg" alt="ПроРемесло" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-tag">Кейс 01</div><div class="cc-name">ПроРемесло</div><div class="cc-niche">Автентичні ремесла України · Повне ведення</div><p class="cc-story">Прийшли без досвіду і без каналу. Після першої консультації запросили на повне ведення. Разом запустили канал, побудували структуру і формат. Досі в активній співпраці.</p><div class="cc-stats"><div class="cc-stat">0 → 175 000 переглядів за 10 відео</div><div class="cc-stat">Випуск "Чорнодимлена кераміка" напопулярніший на всьому ютубі</div><div class="cc-stat">Повністю органічно</div></div></div></div></div>
+      
+      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%86%D0%BD%D0%BD%D0%B0_%D0%A8%D0%B5%D0%BC%D0%B5%D1%82_wn9lgo.jpg" alt="Інна Шемет" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-tag">Кейс 02</div><div class="cc-name">Інна Шемет</div><div class="cc-niche">Юридичні послуги · Португалія · Повне ведення</div><p class="cc-story">Канал не тримав глядача — утримання 2–3 хв. Розробили стиль, формат і контент-план що спрацював вже на другому відео.</p><div class="cc-stats"><div class="cc-stat">30 000 цільових переглядів за 5 місяців</div><div class="cc-stat">Утримання: 2–3 хв → 5–6 хв</div><div class="cc-stat">50–100 лідів з YouTube щомісяця</div></div></div></div></div>
+      
+      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%BA%D1%83%D0%BB%D1%96%D0%BD%D0%B0%D1%80%D0%BA%D0%B0_mjgsa8.jpg" alt="Корисні рецепти Елли" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-tag">Кейс 03</div><div class="cc-name">Корисні рецепти Елли</div><div class="cc-niche">Кулінарія · Менторинг 6 місяців</div><p class="cc-story">Старт з нуля без розуміння платформи. За 6 місяців налаштували графік, знайшли формат, вивели формулу назв і обкладинок.</p><div class="cc-stats"><div class="cc-stat">0 → 121 000 підписників за 1 рік (отримали срібну кнопку)</div><div class="cc-stat">10 млн. органічних переглядів (довгих відео)</div><div class="cc-stat">1 200% окупність інвестиції</div></div></div></div></div>
+      
+      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%B4%D0%B6%D0%B0%D1%81%D1%82_%D0%BF%D0%B0%D0%BA%D0%BD_%D1%96%D1%82_eyqfut.jpg" alt="Just Punk It Podcast" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-tag">Кейс 04</div><div class="cc-name">Just Punk It Podcast</div><div class="cc-niche">Подкаст · Повне ведення · Перезапуск</div><p class="cc-story">Минулий канал вбили рекламою. Потрібна нова стратегія, унікальний стиль і сценарій для гостей. Запустили під ключ.</p><div class="cc-stats"><div class="cc-stat">Повний перезапуск з нуля</div><div class="cc-stat">0 → 16 000 органічних переглядів за 8 відео</div><div class="cc-stat">Унікальний стиль з другого відео</div></div></div></div></div>
     </div>
     <button class="belt-prev" onclick="shiftBelt('cases',-1)" aria-label="Назад"><div class="belt-btn-inner">←</div></button>
     <button class="belt-next" onclick="shiftBelt('cases',1)" aria-label="Вперед"><div class="belt-btn-inner">→</div></button>
@@ -1312,16 +1302,27 @@ if (document.fonts && document.fonts.ready) {
   </div>
   <div class="belt-wrap" style="margin-top:40px;">
 <div class="belt" id="reviewsBelt" style="animation-duration:36s;animation-direction:reverse;">
-      <div class="rv-card"><div class="rv-top"><div class="rv-av"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774467610/%D0%BC%D0%B8%D1%80%D0%BE%D1%81_iekkuf.jpg" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;"></div><div><div class="rv-name">Мирослава</div><div class="rv-meta">«ПроРемесло» · Повне ведення</div></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">Міша крутий, трохи строгий, але в міру. Завдяки цьому в нас є дисципліна, чітка структура і результат. Людина-структура. Людина-чесність. Людина-результат.</p></div>
-      <div class="rv-card"><div class="rv-top"><div class="rv-av"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774467610/%D0%92%D1%96%D1%82%D0%B0%D0%BB%D1%96%D0%B9_q09sqj.jpg" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;"></div><div><div class="rv-name">Віталій Маргалик</div><div class="rv-meta">Шоубіз · Експрес-аудит</div></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">Повернувся до своєї рубрики і зробив відео по-новому. Вже шостий день набирає — 15 тисяч. Найкращий результат на каналі. Реально допомогли повірити в себе.</p></div>
-      <div class="rv-card"><div class="rv-top"><div class="rv-av"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774467610/%D0%9D%D0%B0%D0%B4%D1%96%D1%8F_orygco.jpg" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;"></div><div><div class="rv-name">Надія</div><div class="rv-meta">«Easy Vending» · Креативний концепт</div></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">Креативний концепт — найкраще що я зробила для каналу бізнесу. Тепер просто передаю файл монтажеру і дизайнеру — вони знають що робити. Заощадила мінімум 6 місяців пошуку.</p></div>
-      <div class="rv-card"><div class="rv-top"><div class="rv-av"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774467610/%D0%9B%D0%B5%D0%BD%D0%B0_ehxnlt.jpg" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;"></div><div><div class="rv-name">Олена</div><div class="rv-meta">«Всього один шматочок» · Менторство</div></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">Спочатку сумнівалась: 500 євро на місяць — серйозні гроші. Але вже в перший місяць зрозуміла: це інвестиція, а не витрата. Маю чіткий план і реальний ріст.</p></div>
+      
+      <div class="carousel-item"><div class="rv-card"><div class="rv-top"><div class="rv-av"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774467610/%D0%BC%D0%B8%D1%80%D0%BE%D1%81_iekkuf.jpg" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;"></div><div><div class="rv-name">Мирослава</div><div class="rv-meta">«ПроРемесло» · Повне ведення</div></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">Міша крутий, трохи строгий, але в міру. Завдяки цьому в нас є дисципліна, чітка структура і результат. Людина-структура. Людина-чесність. Людина-результат.</p></div></div>
+      
+      <div class="carousel-item"><div class="rv-card"><div class="rv-top"><div class="rv-av"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774467610/%D0%92%D1%96%D1%82%D0%B0%D0%BB%D1%96%D0%B9_q09sqj.jpg" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;"></div><div><div class="rv-name">Віталій Маргалик</div><div class="rv-meta">Шоубіз · Експрес-аудит</div></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">Повернувся до своєї рубрики і зробив відео по-новому. Вже шостий день набирає — 15 тисяч. Найкращий результат на каналі. Реально допомогли повірити в себе.</p></div></div>
+      
+      <div class="carousel-item"><div class="rv-card"><div class="rv-top"><div class="rv-av"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774467610/%D0%9D%D0%B0%D0%B4%D1%96%D1%8F_orygco.jpg" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;"></div><div><div class="rv-name">Надія</div><div class="rv-meta">«Easy Vending» · Креативний концепт</div></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">Креативний концепт — найкраще що я зробила для каналу бізнесу. Тепер просто передаю файл монтажеру і дизайнеру — вони знають що робити. Заощадила мінімум 6 місяців пошуку.</p></div></div>
+      
+      <div class="carousel-item"><div class="rv-card"><div class="rv-top"><div class="rv-av"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774467610/%D0%9B%D0%B5%D0%BD%D0%B0_ehxnlt.jpg" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;"></div><div><div class="rv-name">Олена</div><div class="rv-meta">«Всього один шматочок» · Менторство</div></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">Спочатку сумнівалась: 500 євро на місяць — серйозні гроші. Але вже в перший місяць зрозуміла: це інвестиція, а не витрата. Маю чіткий план і реальний ріст.</p></div></div>
       <!-- duplicate -->
-      <div class="rv-card"><div class="rv-top"><div class="rv-av"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774467610/%D0%BC%D0%B8%D1%80%D0%BE%D1%81_iekkuf.jpg" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;"></div><div><div class="rv-name">Мирослава</div><div class="rv-meta">«ПроРемесло» · Повне ведення</div></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">Міша крутий, трохи строгий, але в міру. Завдяки цьому в нас є дисципліна, чітка структура і результат. Людина-структура. Людина-чесність. Людина-результат.</p></div>
-      <div class="rv-card"><div class="rv-top"><div class="rv-av"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774467610/%D0%92%D1%96%D1%82%D0%B0%D0%BB%D1%96%D0%B9_q09sqj.jpg" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;"></div><div><div class="rv-name">Віталій Маргалик</div><div class="rv-meta">Шоубіз · Експрес-аудит</div></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">Повернувся до своєї рубрики і зробив відео по-новому. Вже шостий день набирає — 15 тисяч. Найкращий результат на каналі. Реально допомогли повірити в себе.</p></div>
-      <div class="rv-card"><div class="rv-top"><div class="rv-av"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774467610/%D0%9D%D0%B0%D0%B4%D1%96%D1%8F_orygco.jpg" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;"></div><div><div class="rv-name">Надія</div><div class="rv-meta">«Easy Vending» · Креативний концепт</div></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">Креативний концепт — найкраще що я зробила для каналу бізнесу. Тепер просто передаю файл монтажеру і дизайнеру — вони знають що робити. Заощадила мінімум 6 місяців пошуку.</p></div>
-      <div class="rv-card"><div class="rv-top"><div class="rv-av"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774467610/%D0%9B%D0%B5%D0%BD%D0%B0_ehxnlt.jpg" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;"></div><div><div class="rv-name">Олена</div><div class="rv-meta">«Всього один шматочок» · Менторство</div></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">Спочатку сумнівалась: 500 євро на місяць — серйозні гроші. Але вже в перший місяць зрозуміла: це інвестиція, а не витрата. Маю чіткий план і реальний ріст.</p></div>
+      
+      <div class="carousel-item"><div class="rv-card"><div class="rv-top"><div class="rv-av"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774467610/%D0%BC%D0%B8%D1%80%D0%BE%D1%81_iekkuf.jpg" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;"></div><div><div class="rv-name">Мирослава</div><div class="rv-meta">«ПроРемесло» · Повне ведення</div></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">Міша крутий, трохи строгий, але в міру. Завдяки цьому в нас є дисципліна, чітка структура і результат. Людина-структура. Людина-чесність. Людина-результат.</p></div></div>
+      
+      <div class="carousel-item"><div class="rv-card"><div class="rv-top"><div class="rv-av"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774467610/%D0%92%D1%96%D1%82%D0%B0%D0%BB%D1%96%D0%B9_q09sqj.jpg" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;"></div><div><div class="rv-name">Віталій Маргалик</div><div class="rv-meta">Шоубіз · Експрес-аудит</div></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">Повернувся до своєї рубрики і зробив відео по-новому. Вже шостий день набирає — 15 тисяч. Найкращий результат на каналі. Реально допомогли повірити в себе.</p></div></div>
+      
+      <div class="carousel-item"><div class="rv-card"><div class="rv-top"><div class="rv-av"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774467610/%D0%9D%D0%B0%D0%B4%D1%96%D1%8F_orygco.jpg" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;"></div><div><div class="rv-name">Надія</div><div class="rv-meta">«Easy Vending» · Креативний концепт</div></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">Креативний концепт — найкраще що я зробила для каналу бізнесу. Тепер просто передаю файл монтажеру і дизайнеру — вони знають що робити. Заощадила мінімум 6 місяців пошуку.</p></div></div>
+      
+      <div class="carousel-item"><div class="rv-card"><div class="rv-top"><div class="rv-av"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774467610/%D0%9B%D0%B5%D0%BD%D0%B0_ehxnlt.jpg" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;"></div><div><div class="rv-name">Олена</div><div class="rv-meta">«Всього один шматочок» · Менторство</div></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">Спочатку сумнівалась: 500 євро на місяць — серйозні гроші. Але вже в перший місяць зрозуміла: це інвестиція, а не витрата. Маю чіткий план і реальний ріст.</p></div></div>
     </div>
+    <button class="belt-prev" onclick="shiftBelt('reviews',-1)" aria-label="Назад"><div class="belt-btn-inner">←</div></button>
+    <button class="belt-next" onclick="shiftBelt('reviews',1)" aria-label="Вперед"><div class="belt-btn-inner">→</div></button>
+  </div>
 </section>
 
 <!-- NOT FOR -->
@@ -1602,7 +1603,7 @@ if (document.fonts && document.fonts.ready) {
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── PACKAGES hover/touch ── */
 function initPkgSet(set) {
   var items = Array.prototype.slice.call(set.querySelectorAll('.pkg-item, .pkg-inline'));
@@ -1626,18 +1627,74 @@ function initPkgSet(set) {
 document.querySelectorAll('.pkg-set').forEach(function(s) { initPkgSet(s); });
 
 /* ── BELT SCROLL ── */
-var beltState = { casesBelt:{delay:0,duration:44000}, reviewsBelt:{delay:0,duration:36000} };
+/* INFINITE CAROUSEL */
+var carouselLocked = {};
+
+function initCarousels() {
+  ['casesBelt','reviewsBelt'].forEach(function(beltId) {
+    var belt = document.getElementById(beltId);
+    if (!belt) return;
+    var originals = Array.prototype.slice.call(belt.querySelectorAll('.carousel-item'));
+    var n = originals.length;
+    if (!n) return;
+    var cc = Math.min(n, 3);
+    for (var i = 0; i < cc; i++) {
+      var ce = originals[n-1-i].cloneNode(true);
+      ce.setAttribute('data-clone','1');
+      belt.insertBefore(ce, belt.firstChild);
+    }
+    for (var j = 0; j < cc; j++) {
+      var cs = originals[j].cloneNode(true);
+      cs.setAttribute('data-clone','1');
+      belt.appendChild(cs);
+    }
+    belt.setAttribute('data-idx', cc);
+    belt.setAttribute('data-n', n);
+    belt.setAttribute('data-cc', cc);
+    carouselLocked[beltId] = false;
+    updateCarousel(belt, false);
+    var sx = 0;
+    belt.parentElement.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; }, {passive:true});
+    belt.parentElement.addEventListener('touchend', function(e){
+      var d = sx - e.changedTouches[0].clientX;
+      if (Math.abs(d) > 40) shiftBelt(beltId === 'casesBelt' ? 'cases' : 'reviews', d > 0 ? 1 : -1);
+    }, {passive:true});
+  });
+}
+
+function updateCarousel(belt, animate) {
+  var items = Array.prototype.slice.call(belt.querySelectorAll('.carousel-item'));
+  var idx = parseInt(belt.getAttribute('data-idx'));
+  var cardW = items[0] ? items[0].offsetWidth + 16 : 400;
+  var wrapW = belt.parentElement.offsetWidth;
+  var offset = idx * cardW - wrapW / 2 + cardW / 2;
+  belt.style.transition = animate === false ? 'none' : 'transform .42s cubic-bezier(.4,0,.2,1)';
+  belt.style.transform = 'translateX(-' + offset + 'px)';
+  items.forEach(function(item, i) { item.classList.toggle('active', i === idx); });
+}
+
 function shiftBelt(id, dir) {
   var beltId = id === 'cases' ? 'casesBelt' : 'reviewsBelt';
+  if (carouselLocked[beltId]) return;
+  carouselLocked[beltId] = true;
   var belt = document.getElementById(beltId);
   if (!belt) return;
-  var state = beltState[beltId];
-  var firstCard = belt.querySelector('.case-card, .rv-card');
-  var cardW = firstCard ? firstCard.offsetWidth + 2 : 320;
-  var totalW = belt.scrollWidth / 2;
-  state.delay -= dir * cardW * (state.duration / totalW);
-  belt.style.animationDelay = state.delay + 'ms';
+  var n = parseInt(belt.getAttribute('data-n'));
+  var cc = parseInt(belt.getAttribute('data-cc'));
+  var idx = parseInt(belt.getAttribute('data-idx')) + dir;
+  belt.setAttribute('data-idx', idx);
+  updateCarousel(belt, true);
+  setTimeout(function() {
+    var cur = parseInt(belt.getAttribute('data-idx'));
+    var jumped = false;
+    if (cur >= n + cc) { belt.setAttribute('data-idx', cc); jumped = true; }
+    else if (cur < cc) { belt.setAttribute('data-idx', n + cc - 1); jumped = true; }
+    if (jumped) updateCarousel(belt, false);
+    carouselLocked[beltId] = false;
+  }, 450);
 }
+
+window.addEventListener('load', initCarousels);
 
 /* ── CHECKLIST ── */
 function sendChecklist() {
@@ -2114,6 +2171,16 @@ function openHuntWin() {
   if (counter) counter.style.display = 'none';
   var win = document.getElementById('win-panel');
   if (win) { win.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  var wrap = document.getElementById('winVideoWrap');
+  if (wrap && wrap.getAttribute('data-vid') && !wrap.querySelector('iframe')) {
+    var vid = wrap.getAttribute('data-vid');
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube.com/embed/' + vid + '?autoplay=1&controls=1&modestbranding=1&rel=0';
+    iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:0;';
+    iframe.allow = 'autoplay; encrypted-media';
+    iframe.allowFullscreen = true;
+    wrap.appendChild(iframe);
+  }
   // Show "написати особисто" after 45 seconds
   var cta = document.getElementById('win-personal-cta');
   if (cta) {
@@ -2130,6 +2197,8 @@ function closeHuntWin() {
   if (win) { win.classList.remove('open'); document.body.style.overflow = ''; }
   var counter = document.getElementById('score-bar');
   if (counter) counter.style.display = 'none';
+  var wrap = document.getElementById('winVideoWrap');
+  if (wrap) { var iframe = wrap.querySelector('iframe'); if (iframe) iframe.remove(); }
 }
 
 // win-panel closes only via button
@@ -2378,12 +2447,4 @@ function closeHuntWin() {
         <div class="pkg-set cols3" id="pkg-plan-modal">
           <div class="pkg-item" data-link="#cta"><div class="pkg-num">START</div><div class="pkg-name">4 відео / міс</div><div class="pkg-price">300 €</div><div class="pkg-note">1 відео на тиждень. Ідеально для старту.</div><button class="pkg-order" onclick="setService('Контент-план — 4 відео (300 €)');closeSvcModal('plan');setTimeout(function(){document.getElementById('cta').scrollIntoView({behavior:'smooth'});},200)">Отримати →</button></div>
           <div class="pkg-item active" data-link="#cta"><div class="pkg-num">★ ACTIVE</div><div class="pkg-name">8 відео</div><div class="pkg-price">500 €</div><div class="pkg-note">Для швидкого росту. Найпопулярніший вибір.</div><button class="pkg-order" onclick="setService('Контент-план — 8 відео (500 €)');closeSvcModal('plan');setTimeout(function(){document.getElementById('cta').scrollIntoView({behavior:'smooth'});},200)">Отримати →</button></div>
-          <div class="pkg-item" data-link="#cta"><div class="pkg-num">PRO</div><div class="pkg-name">12 відео / 3 міс</div><div class="pkg-price">700 €</div><div class="pkg-note">Найвигідніша ціна за одиницю.</div><button class="pkg-order" onclick="setService('Контент-план — 12 відео (700 €)');closeSvcModal('plan');setTimeout(function(){document.getElementById('cta').scrollIntoView({behavior:'smooth'});},200)">Отримати →</button></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-</body>
-</html>
+          <div class="pkg-item" data-link="#cta"><div clas

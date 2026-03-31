@@ -1564,8 +1564,8 @@ if (document.fonts && document.fonts.ready) {
     <p style="font-size:11px;color:rgba(240,239,232,.3);text-align:left;">Заповни ім'я та контакт для зв'язку.</p>
     <button onclick="sendFinalLead()" class="btn-fire" style="border:none;cursor:pointer;width:100%;text-align:center;display:block;">Залишити заявку →</button>
   </div>
-  <div id="finalSuccess" style="display:none;margin-top:20px;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2);padding:20px 28px;max-width:400px;margin-left:auto;margin-right:auto;">
-    <p style="font-size:15px;font-weight:700;color:#4ADE80;margin-bottom:6px;">✓ Заявку отримано!</p>
+  <div id="finalSuccess" style="display:none;margin-top:20px;background:rgba(255,45,45,.07);border:1px solid rgba(255,45,45,.25);padding:20px 28px;max-width:400px;margin-left:auto;margin-right:auto;">
+    <p id="finalSuccessTitle" style="font-size:10px;font-weight:700;color:#FF2D2D;margin-bottom:8px;font-family:'Unbounded',sans-serif;letter-spacing:.1em;">ЗАЯВКУ ОТРИМАНО</p>
     <p style="font-size:13px;line-height:1.65;" id="finalSuccessText"></p>
   </div>
 </section>
@@ -1703,7 +1703,8 @@ function sendFinalLead() {
     if (formFields) formFields.style.display = 'none';
     if (success2 && text3) {
       if (data.reason === 'limit') {
-        text3.innerHTML = 'Усі 3 заявки відправлено. Михайло зв\'яжеться з вами найближчим часом 👋';
+        var t0=document.getElementById('finalSuccessTitle');if(t0)t0.textContent='МІСЦЯ ВИЧЕРПАНО';
+        text3.innerHTML = 'Ви вже надіслали 3 заявки — більше не потрібно. Михайло бачить їх і зв\'яжеться з вами особисто. Не хвилюйтесь. 🔒';
       } else {
         text3.innerHTML = 'Дякую, <strong>' + n + '</strong>!' + svcMsg + ' Напишу найближчим часом 👋';
         setTimeout(function() {

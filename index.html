@@ -8,7 +8,21 @@
 <link rel="manifest" href="./site.webmanifest" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title></title>
+<title>Ютубнутий | Михайло Тепленко — Креативний YouTube продюсер</title>
+<meta name="description" content="Михайло Тепленко — креативний YouTube продюсер з України. Ведення YouTube каналу, створення з нуля, просунення каналу, контент-план та органічне просування для бізнесу та авторів.">
+<meta name="keywords" content="ютубнутий, ютуб продюсер, креативний ютуб продюсер, ведення ютуб каналу, ютуб канал з нуля, створення ютуб каналу, ютуб канал для бізнесу, просунутись на ютубі, органічне просування ютуб, продюсування ютуб каналу, ютуб для бізнесу, контент-план ютуб, розкрутка ютуб каналу, ютуб для автора, відеомаркетинг, міхайло тепленко, україна">
+<meta name="author" content="Михайло Тепленко">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://youtubnutiy.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://youtubnutiy.com/">
+<meta property="og:title" content="Ютубнутий | Михайло Тепленко — Креативний YouTube продюсер">
+<meta property="og:description" content="Ведення YouTube каналу, створення з нуля, просунення каналу та органічне просування для бізнесу та авторів в Україні.">
+<meta property="og:locale" content="uk_UA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ютубнутий | Михайло Тепленко">
+<meta name="twitter:description" content="Креативний YouTube продюсер з України. Ведення каналу, контент-план, зрост з нуля.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Михайло Тепленко","url":"https://youtubnutiy.com","jobTitle":"Креативний YouTube продюсер","address":{"@type":"PostalAddress","addressCountry":"UA"},"sameAs":[],"description":"Ведення YouTube каналу, створення каналу з нуля, органічне просування для бізнесу та авторів в Україні"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Manrope:wght@400;500;600;700&display=swap">
@@ -70,7 +84,8 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:16px 40px; di
 .hero-glow2 { position:absolute; bottom:-15%; left:-5%; width:35vw; height:35vw; background:radial-gradient(ellipse,rgba(255,229,59,.07) 0%,transparent 70%); pointer-events:none; }
 .hero-badge { display:inline-flex; align-items:center; gap:10px; background:rgba(255,45,45,.09); border:1px solid rgba(255,45,45,.28); border-radius:100px; padding:7px 16px 7px 9px; margin-bottom:40px; width:fit-content; animation:fadeUp .7s both; }
 .badge-dot { display:none; }
-.badge-yt { opacity:1 !important; cursor:pointer; transition:transform .2s; display:inline-flex !important; }
+.badge-yt { opacity:1 !important; cursor:pointer; transition:transform .2s; display:inline-flex !important; width:20px !important; height:14px !important; min-width:20px; }
+.badge-yt svg { width:20px; height:14px; display:block; }
 .badge-yt:hover { transform:scale(1.15); }
 .hero-badge span { font-size:12px; font-weight:600; letter-spacing:.04em; }
 @keyframes pulse { 0%,100%{ box-shadow:0 0 0 0 rgba(255,45,45,.45); } 50%{ box-shadow:0 0 0 6px rgba(255,45,45,0); } }
@@ -1038,11 +1053,8 @@ if (document.fonts && document.fonts.ready) {
   <div class="win-inner">
     <div class="win-title">Ого<br><span>Ти знайшов всі 9</span></div>
     <div class="win-sub">Слухай, я сховав їх досить добре. Ти або дуже уважний, або дуже впертий — і те й інше мені подобається в людях з якими я працюю. Тримай відео і продовжуй творити</div>
-    <div class="media-wrap" id="winVideoWrap">
-      <div class="media-ph">
-        <svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg>
-        <p>Вставте посилання на YouTube відео в код (id="winVideoWrap")</p>
-      </div>
+    <div class="media-wrap" id="winVideoWrap" style="position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;">
+      <iframe src="https://www.youtube.com/embed/AA0xyXh5uPg?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
     <a id="win-personal-cta" href="https://t.me/teplenkomykhailo" target="_blank" rel="noopener" class="win-cta" style="display:none;opacity:0;transition:opacity .6s ease;">Напиши мені особисто →</a>
     <button class="win-close" onclick="closeHuntWin()" style="background:transparent;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.45);font-family:'Unbounded',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;padding:10px 24px;cursor:pointer;transition:all .2s;margin-top:4px;">Закрити</button>

@@ -542,6 +542,16 @@ footer { background:var(--dark); border-top:1px solid var(--border); padding:30p
 }
 .nav-logo.nav-pop { animation: fxBurst .55s ease both; }
 
+@keyframes logoShake1 {
+  0%,100% { transform: translateX(0); }
+  20%     { transform: translateX(-2px); }
+  40%     { transform: translateX(2px); }
+  60%     { transform: translateX(-2px); }
+  80%     { transform: translateX(2px); }
+}
+.nav-logo.logo-shake1 { animation: logoShake1 .3s ease both; }
+.nav-logo.logo-shake2 { animation: logoShake1 .3s ease both; }
+
 @keyframes logoGlow {
   0%,100% { text-shadow: 0 0 0px rgba(255,229,59,0); }
   50%     { text-shadow: 0 0 18px rgba(255,229,59,0.55), 0 0 6px rgba(255,92,46,0.3); }
@@ -625,6 +635,7 @@ footer { background:var(--dark); border-top:1px solid var(--border); padding:30p
 
 /* ─ HUNT COUNTER ─ */
 #score-bar {
+  position:relative;
   position: fixed; bottom: 24px; right: 24px; z-index: 9000;
   background: rgba(12,12,12,.95); border: 1px solid rgba(255,45,45,.3);
   padding: 10px 16px; display: none; align-items: center; gap: 10px;
@@ -1012,6 +1023,7 @@ if (document.fonts && document.fonts.ready) {
 
 <!-- HUNT COUNTER -->
 <div id="score-bar">
+  <button onclick="document.getElementById('score-bar').style.display='none';window._huntClosed=true;" style="position:absolute;top:6px;right:8px;background:none;border:none;color:rgba(255,255,255,.4);font-size:14px;cursor:pointer;line-height:1;padding:0;">×</button>
   <span class="hunt-icon" style="display:flex;align-items:center;">
     <svg width="28" height="20" viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg>
   </span>
@@ -1060,7 +1072,7 @@ if (document.fonts && document.fonts.ready) {
     Mühltorweg 9<br>
     63450 Hanau, Deutschland</p>
     <h3>Контакти</h3>
-    <p>Email: <a href="/cdn-cgi/l/email-protection#83e7f6ecf1f6f3f4ecf1e8c3e4eee2eaefade0ecee"><span class="__cf_email__" data-cfemail="1276677d606762657d607952757f737b7e3c717d7f">[email&#160;protected]</span></a><br></p>
+    <p>Email: <a href="mailto:duorupwork@gmail.com">duorupwork@gmail.com</a><br></p>
     <h3>Податкова інформація</h3>
     <p>Umsatzsteuer-Identifikationsnummer (USt-IdNr.): DE459347074<br>
     Steuernummer: 02287403502</p>
@@ -1079,7 +1091,7 @@ if (document.fonts && document.fonts.ready) {
     <h3>1. Відповідальна особа (Verantwortlicher)</h3>
     <p>Teplenko Mykhailo<br>
     Mühltorweg 9, 63450 Hanau, Deutschland<br>
-    Email: <a href="/cdn-cgi/l/email-protection#fe9a8b918c8b8e89918c95be99939f9792d09d9193"><span class="__cf_email__" data-cfemail="caaebfa5b8bfbabda5b8a18aada7aba3a6e4a9a5a7">[email&#160;protected]</span></a></p>
+    Email: <a href="mailto:duorupwork@gmail.com">duorupwork@gmail.com</a></p>
     <h3>2. Які дані ми збираємо</h3>
     <ul>
       <li>Дані форм зворотного зв'язку (ім'я, Telegram / Instagram) — тільки якщо ви самі їх вводите</li>
@@ -1100,7 +1112,7 @@ if (document.fonts && document.fonts.ready) {
       <li>Право на перенесення даних (Art. 20 DSGVO)</li>
       <li>Право на заперечення проти обробки (Art. 21 DSGVO)</li>
     </ul>
-    <p>Для реалізації прав звертайтесь: <a href="/cdn-cgi/l/email-protection#0a6e7f65787f7a7d6578614a6d676b636624696567"><span class="__cf_email__" data-cfemail="284c5d475a5d585f475a43684f45494144064b4745">[email&#160;protected]</span></a></p>
+    <p>Для реалізації прав звертайтесь: <a href="mailto:duorupwork@gmail.com">duorupwork@gmail.com</a></p>
     <h3>7. Право на скаргу</h3>
     <p>Ви маєте право подати скаргу до наглядового органу із захисту даних. Компетентний орган для землі Гессен: Der Hessische Beauftragte für Datenschutz und Informationsfreiheit, Postfach 3163, 65021 Wiesbaden.</p>
     <h3>8. Cookies</h3>
@@ -1134,7 +1146,7 @@ if (document.fonts && document.fonts.ready) {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-glow"></div><div class="hero-glow2"></div>
-  <div class="hero-badge"><span class="spark badge-yt" id="sp1" onclick="activateSpark(1)" style="width:20px;height:14px;flex-shrink:0;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span><span>Креативний YouTube продюсер</span></div>
+  <div class="hero-badge"><span class="spark badge-yt" id="sp1" onclick="activateSpark(1)" style="width:20px;height:14px;flex-shrink:0;display:inline-flex;align-items:center;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span><span>Креативний YouTube продюсер</span></div>
   <h1 class="hero-h">YOUTUBE<br><span class="g">ЩО РЕАЛЬНО</span><br><span class="dim">ПРАЦЮЄ</span></h1>
   <p class="hero-desc">Працюю з тими, хто хоче залишити слід, а не просто заповнювати стрічку.</p>
   <div class="hero-btns">
@@ -1326,7 +1338,7 @@ if (document.fonts && document.fonts.ready) {
 </section>
 
 <!-- ══ CHECKLIST ══ -->
-<section class="checklist-section">
+<section class="checklist-section" style="display:none;" id="checklistSection">
   <div class="wrap">
     <div class="cl-inner reveal">
       <div class="cl-left">
@@ -1979,26 +1991,29 @@ function logoPress() {
   logoPresss++;
   var logo = document.getElementById('navLogo');
 
-  if (logoPresss === 1) {
-    // Перший клік — починає пульсувати 30 секунд
-    logo.classList.remove('nav-hint');
+  function triggerShake() {
+    logo.classList.remove('logo-shake1','logo-shake2');
     void logo.offsetWidth;
+    logo.classList.add('logo-shake1');
+    setTimeout(function(){ logo.classList.remove('logo-shake1'); }, 350);
+  }
+
+    if (logoPresss === 1) {
+    triggerShake();
     logo.classList.add('nav-hint');
     clearTimeout(eggPulseTimer);
     eggPulseTimer = setTimeout(function() {
-      stopLogoPulse();
-      logoPresss = 0;
+      stopLogoPulse(); logoPresss = 0;
     }, 10000);
   } else if (logoPresss === 2) {
-    // Другий клік — пульс продовжується, нічого зайвого
+    triggerShake();
   } else if (logoPresss >= 3) {
-    // Третій клік — зупиняємо пульс, відкриваємо egg
     stopLogoPulse();
     logoPresss = 0;
-    logo.classList.remove('nav-pop');
+    logo.classList.remove('nav-pop','logo-shake1','logo-shake2','logo-flash');
     void logo.offsetWidth;
     logo.classList.add('nav-pop');
-    setTimeout(openEgg, 150);
+    setTimeout(openEgg, 200);
     return;
   }
 
@@ -2054,6 +2069,7 @@ var HUNT_TOTAL = 9;
 var huntActive = false;
 
 function activateSpark(n) {
+  var bar = document.getElementById('score-bar'); if(bar) bar.style.display='flex'; window._huntClosed=false;
   if (huntFound.indexOf(n) !== -1) return; // already found
   huntFound.push(n);
 
@@ -2173,7 +2189,7 @@ function closeHuntWin() {
         <div class="svc-price-val">30 €</div>
         <div class="svc-price-note">30 хвилин · живий діалог · без підготовки · просто ти і я</div>
       </div>
-      <a href="#cta" class="svc-price-btn gold" onclick="setService('YouTube Бро — 30 хв (30 €)');closeSvcModal('ytbro');setTimeout(function(){document.getElementById('cta').scrollIntoView({behavior:'smooth'});},200);return false;">Забронювати →</a>
+      <a href="https://buy.stripe.com/00w4gsgk17EU7Fh1iq38401" target="_blank" rel="noopener" class="svc-price-btn gold">Забронювати →</a>
     </div>
       </div>
     </div>

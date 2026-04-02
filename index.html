@@ -1849,7 +1849,7 @@ function sendFinalLead() {
   /* ── GTM dataLayer — подія відправки форми ── */
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
-    event: 'form_submit',
+    event: 'gtm.formSubmit',
     service: svc || 'не обрано',
     contact_type: selectedContactType
   });

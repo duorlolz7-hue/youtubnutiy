@@ -1003,6 +1003,16 @@ if (document.fonts && document.fonts.ready) {
 <div id="scroll-progress"></div>
 
 <!-- EASTER EGG OVERLAY (3x click on logo) -->
+<!-- LOGO EASTER EGG PANEL -->
+<div id="panel-logo" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.85);backdrop-filter:blur(8px);align-items:center;justify-content:center;">
+  <div style="background:#131313;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:40px 32px;max-width:380px;width:90%;text-align:center;position:relative;">
+    <button onclick="document.getElementById('panel-logo').style.display='none';document.body.style.overflow='';" style="position:absolute;top:14px;right:16px;background:none;border:none;color:rgba(255,255,255,.4);font-size:20px;cursor:pointer;line-height:1;">✕</button>
+    <div style="font-family:'Unbounded',sans-serif;font-size:20px;font-weight:900;color:#fff;line-height:1.25;margin-bottom:16px;">Ух, ти навіть<br>і сюди дійшов 👀</div>
+    <div style="font-size:15px;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:24px;">Ось твій значок — натисни на нього!</div>
+    <span class="spark" id="sp2logo" onclick="activateSpark(2)" style="width:40px;height:28px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;vertical-align:middle;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span>
+  </div>
+</div>
+
 <div id="panel-x">
   <div class="panel-inner">
     <div class="ring-fx">
@@ -2140,7 +2150,10 @@ function logoPress() {
   logo.classList.remove('nav-pop','logo-shake1','logo-shake2','logo-flash');
   void logo.offsetWidth;
   logo.classList.add('nav-pop');
-  setTimeout(openEgg, 200);
+  setTimeout(function(){
+    var p = document.getElementById('panel-logo');
+    if(p){ p.style.display='flex'; document.body.style.overflow='hidden'; }
+  }, 200);
 }
 
 function openEgg() {
@@ -2157,6 +2170,12 @@ function beginGame() {
   closeEgg();
   // Activate counter immediately to show the hunt has begun
   huntActive = true;
+  // Activate any spark that triggered the intro
+  if (window._pendingSpark) {
+    var ps = window._pendingSpark;
+    window._pendingSpark = null;
+    setTimeout(function(){ activateSpark(ps); }, 100);
+  }
   var counter = document.getElementById('score-bar');
   if (counter) {
     counter.style.display = 'flex';
@@ -2188,6 +2207,17 @@ var HUNT_TOTAL = 9;
 var huntActive = false;
 
 function activateSpark(n) {
+  // Show game intro on first ever spark click (not from logo panel)
+  if (!huntActive && huntFound.length === 0) {
+    var intro = document.getElementById('panel-x');
+    if (intro && !intro.classList.contains('open')) {
+      // store pending spark to activate after intro closes
+      window._pendingSpark = n;
+      intro.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      return;
+    }
+  }
   var bar = document.getElementById('score-bar'); if(bar) bar.style.display='flex'; window._huntClosed=false;
   if (huntFound.indexOf(n) !== -1) return; // already found
   huntFound.push(n);
@@ -2343,7 +2373,7 @@ function closeHuntWin() {
           <div class="ag"><div class="ag-n">01</div><div><strong>Аудит ситуації</strong><p>Чітко визначаємо що гальмує. І які наступні кроки принесуть результат.</p></div></div>
           <div class="ag"><div class="ag-n">02</div><div><strong>Генерація гіпотез</strong><p>2–3 вектори розвитку що спрацюють саме у твоїй ситуації.</p></div></div>
           <div class="ag"><div class="ag-n">03</div><div><strong>Валідація ідей</strong><p>Відмовлю від зйомки того, що ніхто не дивитиметься — це економить бюджет і час.</p></div></div>
-          <div class="ag"><div class="ag-n">🎯</div><div><strong>Виходиш з планом, а не натхненням</strong><p>Конкретний список кроків на наступний тиждень — не просто «подумай над цим».</p></div></div>
+          <div class="ag"><div class="ag-n">🎯</div><div><strong>Виходиш з планом, а не натхненням</strong><p>Конкретний список кроків на наступний тиждень — не просто «подумай над цим». <span class="spark" id="sp8" onclick="activateSpark(8)" style="width:14px;height:14px;vertical-align:middle;margin-left:4px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></p></div></div>
         </div>
         <div class="box-y" style="margin-top:16px;"><strong>🎁 Бонус:</strong> якщо після сесії замовляєш Креативний концепт — ці 150 € вираховуються з ціни. Діагностика стає безкоштовною.</div>
     <div class="svc-price-card">
@@ -2380,7 +2410,7 @@ function closeHuntWin() {
               <div class="fi"><div class="fi-icon y">💬</div><div><strong>Розпаковка (3–5 сесії)</strong><p>Витягуємо твої сенси, цілі та експертність. Хто твій глядач і чому він обере саме тебе.</p></div></div>
               <div class="fi"><div class="fi-icon y">🎯</div><div><strong>Позиціювання + Tone of Voice</strong><p>Як ти говориш, виглядаєш, чим відрізняєшся від інших.</p></div></div>
               <div class="fi"><div class="fi-icon y">🎬</div><div><strong>Візуальна стратегія</strong><p>Референси по світлу, локаціях, монтажу — готове ТЗ для команди.</p></div></div>
-              <div class="fi"><div class="fi-icon y">📋</div><div><strong>План запуску</strong><p>Теми для перших 10 відео з урахуванням концепції.</p></div></div>
+              <div class="fi"><div class="fi-icon y">📋</div><div><strong>План запуску</strong><p>Теми для перших 10 відео з урахуванням концепції. <span class="spark" id="sp9" onclick="activateSpark(9)" style="width:14px;height:14px;vertical-align:middle;margin-left:4px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></p></div></div>
             </div>
           </div>
           <div class="col dim">

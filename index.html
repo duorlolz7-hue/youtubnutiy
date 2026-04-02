@@ -1846,7 +1846,14 @@ function sendFinalLead() {
   }
   if (!soc) { if(social) { social.style.borderColor='rgba(255,45,45,.6)'; social.focus(); } return; }
 
-
+  /* ── GTM dataLayer — подія відправки форми ── */
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'gtm.formSubmit',
+    service: svc || 'не обрано',
+    contact_type: selectedContactType
+  });
+  
   /* ── ВІДПРАВКА ЧЕРЕЗ CLOUDFLARE WORKER ── */
   var now = new Date();
   var pad = function(x){ return x < 10 ? '0'+x : x; };
@@ -1915,15 +1922,7 @@ var fs=document.getElementById('finalSuccess');if(fs){fs.style.background='rgba(
   })
   .catch(function(e){ console.warn('Worker error:', e); });
 }
-
-  /* ── GTM dataLayer — подія відправки форми ── */
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    event: 'gtm.formSubmit',
-    service: svc || 'не обрано',
-    contact_type: selectedContactType
-  });
-  
+ 
 /* ── COOKIE BANNER ── */
 function closeCookie(accepted) {
   var banner = document.getElementById('cookie-banner');

@@ -2135,40 +2135,12 @@ function stopLogoPulse() {
 }
 
 function logoPress() {
-  logoPresss++;
   var logo = document.getElementById('navLogo');
-
-  function triggerShake() {
-    logo.classList.remove('logo-shake1','logo-shake2');
-    void logo.offsetWidth;
-    logo.classList.add('logo-shake1');
-    setTimeout(function(){ logo.classList.remove('logo-shake1'); }, 350);
-  }
-
-    if (logoPresss === 1) {
-    triggerShake();
-    logo.classList.add('nav-hint');
-    clearTimeout(eggPulseTimer);
-    eggPulseTimer = setTimeout(function() {
-      stopLogoPulse(); logoPresss = 0;
-    }, 10000);
-  } else if (logoPresss === 2) {
-    triggerShake();
-  } else if (logoPresss >= 3) {
-    stopLogoPulse();
-    logoPresss = 0;
-    logo.classList.remove('nav-pop','logo-shake1','logo-shake2','logo-flash');
-    void logo.offsetWidth;
-    logo.classList.add('nav-pop');
-    setTimeout(openEgg, 200);
-    return;
-  }
-
-  clearTimeout(eggTimer);
-  eggTimer = setTimeout(function() {
-    logoPresss = 0;
-    stopLogoPulse();
-  }, 10000);
+  stopLogoPulse();
+  logo.classList.remove('nav-pop','logo-shake1','logo-shake2','logo-flash');
+  void logo.offsetWidth;
+  logo.classList.add('nav-pop');
+  setTimeout(openEgg, 200);
 }
 
 function openEgg() {

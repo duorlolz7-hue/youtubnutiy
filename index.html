@@ -766,7 +766,7 @@ footer { background:var(--dark); border-top:1px solid var(--border); padding:30p
 
 /* ─ COOKIE BANNER ─ */
 #cookie-overlay {
-  position: fixed; inset: 0; z-index: 9998;
+  position: fixed; inset: 0; z-index: 19999;
   background: rgba(0,0,0,.72); backdrop-filter: blur(4px);
   display: none; align-items: center; justify-content: center;
   padding: 20px; opacity: 0; transition: opacity .35s ease;
@@ -774,7 +774,7 @@ footer { background:var(--dark); border-top:1px solid var(--border); padding:30p
 #cookie-overlay.show { display: flex; }
 #cookie-overlay.visible { opacity: 1; }
 #cookie-banner {
-  position: relative; z-index: 9999;
+  position: relative; z-index: 20000;
   background: #181818; border: 1px solid rgba(255,255,255,.1);
   border-top: 3px solid var(--y);
   max-width: 480px; width: 100%;
@@ -811,7 +811,7 @@ footer { background:var(--dark); border-top:1px solid var(--border); padding:30p
 
 /* ─ MODALS (Impressum / Datenschutz) ─ */
 .modal-overlay {
-  position: fixed; inset: 0; z-index: 8888;
+  position: fixed; inset: 0; z-index: 29999;
   background: rgba(0,0,0,.85); display: none;
   align-items: center; justify-content: center; padding: 20px;
 }
@@ -1148,7 +1148,7 @@ if (document.fonts && document.fonts.ready) {
     <div class="win-title">Юхуу<br><span>Ти знайшов всі 9</span></div>
     <div class="win-sub">Здається ти дуже уважний, або дуже впертий — і те й інше мені подобається, тож лови відео…</div>
     <div class="media-wrap" id="winVideoWrap" style="position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;" data-vid="tkweGgCMaus"></div>
-    <a id="win-personal-cta" href="https://t.me/teplenkomykhailo" target="_blank" rel="noopener" class="win-cta" style="display:none;opacity:0;transition:opacity .6s ease;">Напиши мені особисто →</a>
+    <a id="win-personal-cta" href="https://t.me/mikeduor" target="_blank" rel="noopener" class="win-cta" style="display:none;opacity:0;transition:opacity .6s ease;">Напиши мені особисто →</a>
     <button class="win-close" onclick="closeHuntWin()" style="background:transparent;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.45);font-family:'Unbounded',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;padding:10px 24px;cursor:pointer;transition:all .2s;margin-top:4px;">Закрити</button>
   </div>
 </div>
@@ -1161,7 +1161,7 @@ if (document.fonts && document.fonts.ready) {
   </div>
   <p>
     Цей сайт використовує cookies, щоб краще розуміти аудиторію і покращувати досвід відвідувачів.
-    <a href="javascript:void(0)" onclick="openModal('datenschutz')">Детальніше</a>.
+    <a href="javascript:void(0)" onclick="openModalAboveCookie('datenschutz')">Детальніше</a>.
   </p>
   <div class="cookie-btns">
     <button class="cookie-accept" onclick="closeCookie(true)">✓ Прийняти</button>
@@ -1180,7 +1180,7 @@ if (document.fonts && document.fonts.ready) {
     Mühltorweg 9<br>
     63450 Hanau, Deutschland</p>
     <h3>Контакти</h3>
-    <p>Email: <a href="/cdn-cgi/l/email-protection#89edfce6fbfcf9fee6fbe2c9eee4e8e0e5a7eae6e4"><span class="__cf_email__" data-cfemail="dabeafb5a8afaaadb5a8b19abdb7bbb3b6f4b9b5b7">[email&#160;protected]</span></a><br></p>
+    <p>Email: <a href="mailto:duorupwork@gmail.com">duorupwork@gmail.com</a><br></p>
     <h3>Податкова інформація</h3>
     <p>Umsatzsteuer-Identifikationsnummer (USt-IdNr.): DE459347074<br>
     Steuernummer: 02287403502</p>
@@ -1199,7 +1199,7 @@ if (document.fonts && document.fonts.ready) {
     <h3>1. Відповідальна особа (Verantwortlicher)</h3>
     <p>Teplenko Mykhailo<br>
     Mühltorweg 9, 63450 Hanau, Deutschland<br>
-    Email: <a href="/cdn-cgi/l/email-protection#0266776d707772756d706942656f636b6e2c616d6f"><span class="__cf_email__" data-cfemail="debaabb1acabaea9b1acb59eb9b3bfb7b2f0bdb1b3">[email&#160;protected]</span></a></p>
+    Email: <a href="mailto:duorupwork@gmail.com">duorupwork@gmail.com</a></p>
     <h3>2. Які дані ми збираємо</h3>
     <ul>
       <li>Дані форм зворотного зв'язку (ім'я, Telegram / Instagram) — тільки якщо ви самі їх вводите</li>
@@ -1220,11 +1220,11 @@ if (document.fonts && document.fonts.ready) {
       <li>Право на перенесення даних (Art. 20 DSGVO)</li>
       <li>Право на заперечення проти обробки (Art. 21 DSGVO)</li>
     </ul>
-    <p>Для реалізації прав звертайтесь: <a href="/cdn-cgi/l/email-protection#2044554f525550574f524b60474d41494c0e434f4d"><span class="__cf_email__" data-cfemail="5236273d202722253d203912353f333b3e7c313d3f">[email&#160;protected]</span></a></p>
+    <p>Для реалізації прав звертайтесь: <a href="mailto:duorupwork@gmail.com">duorupwork@gmail.com</a></p>
     <h3>7. Право на скаргу</h3>
     <p>Ви маєте право подати скаргу до наглядового органу із захисту даних. Компетентний орган для землі Гессен: Der Hessische Beauftragte für Datenschutz und Informationsfreiheit, Postfach 3163, 65021 Wiesbaden.</p>
     <h3>8. Cookies</h3>
-    <p>Сайт використовує лише технічно необхідні cookies для коректної роботи. Аналітичні, маркетингові або відстежувальні cookies не використовуються.</p>
+    <p>Цей сайт використовує аналітичні cookies через Google Analytics 4 для розуміння поведінки відвідувачів (сторінки, кліки, час перебування). Cookies завантажуються лише після вашої явної згоди. Без згоди жодні аналітичні cookies не встановлюються.</p>
     <h3>9. Хостинг</h3>
     <p>Технічне розміщення сайту здійснюється через зовнішнього хостинг-провайдера. При відвідуванні сайту провайдер автоматично збирає технічні дані (IP-адреса, браузер, час запиту). Детальніше — в політиці конфіденційності хостинг-провайдера.</p>
     <h3>10. Google Analytics</h3>
@@ -1749,11 +1749,12 @@ if (document.fonts && document.fonts.ready) {
   <span class="spark" id="sp7" onclick="activateSpark(7)" style="width:14px;height:14px;" title=""><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span>
   <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
     <a href="javascript:void(0)" onclick="openModal('impressum')" style="font-size:11px;color:rgba(240,239,232,.3);text-decoration:underline;">Правова інформація</a>
+    <a href="javascript:void(0)" onclick="openModal('impressum')" style="font-size:11px;color:rgba(240,239,232,.3);text-decoration:underline;">Правова інформація</a>
     <a href="javascript:void(0)" onclick="openModal('datenschutz')" style="font-size:11px;color:rgba(240,239,232,.3);text-decoration:underline;">Політика конфіденційності</a>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── VIEWS COUNTER ── */
 (function() {
   var START_VAL = 123956;
@@ -2207,6 +2208,24 @@ function closeCookie(accepted) {
   }
 })();
 
+function closeCookieOverlay() {
+  var overlay = document.getElementById('cookie-overlay');
+  if (overlay) { overlay.classList.remove('visible'); setTimeout(function(){ overlay.style.display='none'; }, 380); }
+}
+function resetCookieConsent() {
+  try { localStorage.removeItem('cookie_consent'); } catch(e) {}
+  var overlay = document.getElementById('cookie-overlay');
+  if (overlay) {
+    overlay.style.display = 'flex';
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){ overlay.classList.add('visible'); });
+    });
+  }
+}
+function openModalAboveCookie(name) {
+  var el = document.getElementById('modal-'+name);
+  if (el) { el.classList.add('open'); }
+}
 function openModal(name) { var el = document.getElementById('modal-'+name); if(el){ el.classList.add('open'); document.body.style.overflow='hidden'; } }
 function closeModal(name) { var el = document.getElementById('modal-'+name); if(el){ el.classList.remove('open'); document.body.style.overflow=''; } }
 document.querySelectorAll('.modal-overlay').forEach(function(o) {

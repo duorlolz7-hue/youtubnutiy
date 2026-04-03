@@ -1003,8 +1003,13 @@ details.svc-row summary { -webkit-tap-highlight-color: rgba(255,229,59,.1); }
 .yt-player-wrap { display:grid; grid-template-columns:1fr 340px; gap:2px; background:var(--card); }
 @media(max-width:900px){ .yt-player-wrap { grid-template-columns:1fr; } }
 .yt-player-main { background:var(--dark); min-width:0; }
-.yt-player-embed { position:relative; aspect-ratio:16/9; background:#000; width:100%; }
-.yt-player-embed iframe { position:absolute; inset:0; width:100%; height:100%; }
+.yt-player-embed { position:relative; aspect-ratio:16/9; background:#000; width:100%; cursor:pointer; overflow:hidden; }
+.yt-player-embed iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+.yt-thumb { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; transition:transform .3s; }
+.yt-player-embed:hover .yt-thumb { transform:scale(1.03); }
+.yt-play-btn { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
+.yt-play-btn svg { filter:drop-shadow(0 4px 20px rgba(0,0,0,.6)); transition:transform .2s; }
+.yt-player-embed:hover .yt-play-btn svg { transform:scale(1.1); }
 .yt-player-placeholder { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; background:rgba(0,0,0,.6); }
 .yt-play-big { opacity:.7; }
 .yt-placeholder-txt { font-family:'Unbounded',sans-serif; font-size:12px; font-weight:700; letter-spacing:.08em; color:rgba(240,239,232,.45); }
@@ -1636,17 +1641,7 @@ if (document.fonts && document.fonts.ready) {
     <div class="yt-player-wrap">
       <div class="yt-player-main">
         <div class="yt-player-embed" id="ytPlayerEmbed">
-          <iframe id="ytMainFrame" src="" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture" frameborder="0" style="width:100%;height:100%;display:block;position:absolute;inset:0;"></iframe>
-          <div class="yt-player-placeholder" id="ytPlaceholder">
-            <div class="yt-play-big">
-              <svg viewBox="0 0 90 63" fill="none" width="60" height="42"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg>
-            </div>
-            <p class="yt-placeholder-txt">Обери відео зі списку →</p>
-          </div>
-        </div>
-        <div class="yt-now-playing" id="ytNowPlaying" style="display:none;">
-          <span class="yt-now-dot"></span>
-          <span id="ytNowTitle">—</span>
+          <!-- filled by JS: thumbnail → click → iframe -->
         </div>
       </div>
 
@@ -1782,21 +1777,29 @@ if (document.fonts && document.fonts.ready) {
 
   function playVideo(idx, autoplay) {
     var v = videos[idx];
-    var frame = document.getElementById('ytMainFrame');
-    var placeholder = document.getElementById('ytPlaceholder');
-    if (frame) {
-      var ap = (autoplay === false) ? '0' : '1';
-      // Force iframe reload by removing and re-setting src
-      frame.src = '';
-      setTimeout(function() {
-        frame.src = 'https://www.youtube.com/embed/' + v.id + '?autoplay=' + ap + '&rel=0&modestbranding=1&enablejsapi=1';
-      }, 0);
+    var embed = document.getElementById('ytPlayerEmbed');
+    if (!embed) return;
+
+    if (autoplay) {
+      // Direct click — inject iframe immediately with autoplay=1
+      embed.innerHTML = '<iframe src="https://www.youtube.com/embed/' + v.id + '?autoplay=1&rel=0&modestbranding=1" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture" frameborder="0" style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>';
+    } else {
+      // Initial load — show high-quality thumbnail with play button
+      embed.innerHTML =
+        '<img class="yt-thumb" src="https://i.ytimg.com/vi/' + v.id + '/maxresdefault.jpg" ' +
+        'onerror="this.src=\'https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg\'" alt="' + v.title + '">' +
+        '<div class="yt-play-btn">' +
+          '<svg viewBox="0 0 90 63" fill="none" width="72" height="50"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg>' +
+        '</div>';
+      // Click on thumbnail → inject iframe with autoplay
+      embed.onclick = function() { playVideo(idx, true); };
     }
-    if (placeholder) placeholder.style.display = 'none';
+
     var items = document.querySelectorAll('.yt-item');
     items.forEach(function(it, i) {
       it.classList.toggle('active', i === idx);
     });
+    syncPlaylistHeight();
   }
 
   function syncPlaylistHeight() {

@@ -996,22 +996,22 @@ details.svc-row summary { -webkit-tap-highlight-color: rgba(255,229,59,.1); }
 .counter-dot-txt { font-size:10px; color:rgba(240,239,232,.3); font-family:'Unbounded',sans-serif; font-weight:700; letter-spacing:.04em; text-transform:uppercase; }
 
 /* ─ YOUTUBE CHANNEL ─ */
-.yt-section { padding:80px 0; border-top:1px solid var(--border); }
+.yt-section { padding:80px 0; border-top:1px solid var(--border); overflow:hidden; }
 .yt-header { display:flex; align-items:center; justify-content:space-between; gap:20px; margin-bottom:32px; flex-wrap:wrap; }
 .yt-channel-btn { display:inline-flex; align-items:center; gap:10px; background:var(--r); color:#fff; font-family:'Unbounded',sans-serif; font-size:11px; font-weight:700; padding:14px 24px; letter-spacing:.06em; white-space:nowrap; flex-shrink:0; transition:opacity .2s,transform .2s; clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,0 100%); }
 .yt-channel-btn:hover { opacity:.85; transform:translateY(-2px); }
 .yt-player-wrap { display:grid; grid-template-columns:1fr 340px; gap:2px; background:var(--card); }
 @media(max-width:900px){ .yt-player-wrap { grid-template-columns:1fr; } }
-.yt-player-main { background:var(--dark); }
-.yt-player-embed { position:relative; aspect-ratio:16/9; background:#000; }
-.yt-player-embed iframe { position:absolute; inset:0; }
+.yt-player-main { background:var(--dark); min-width:0; }
+.yt-player-embed { position:relative; aspect-ratio:16/9; background:#000; width:100%; }
+.yt-player-embed iframe { position:absolute; inset:0; width:100%; height:100%; }
 .yt-player-placeholder { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; background:rgba(0,0,0,.6); }
 .yt-play-big { opacity:.7; }
 .yt-placeholder-txt { font-family:'Unbounded',sans-serif; font-size:12px; font-weight:700; letter-spacing:.08em; color:rgba(240,239,232,.45); }
 .yt-now-playing { display:flex; align-items:center; gap:10px; padding:14px 20px; border-top:1px solid var(--border); background:var(--card2); }
 .yt-now-dot { display:inline-block; width:8px; height:8px; background:var(--r); border-radius:50%; animation:cdot 1.6s ease-in-out infinite; flex-shrink:0; }
 #ytNowTitle { font-size:12px; font-weight:600; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.yt-playlist { background:var(--card); overflow-y:auto; max-height:480px; display:flex; flex-direction:column; }
+.yt-playlist { background:var(--card); overflow-y:auto; display:flex; flex-direction:column; }
 .yt-item { display:flex; gap:12px; padding:14px 16px; cursor:pointer; border-bottom:1px solid var(--border); transition:background .18s; align-items:flex-start; }
 .yt-item:hover { background:var(--card2); }
 .yt-item.active { background:rgba(255,45,45,.07); border-left:3px solid var(--r); }
@@ -1023,7 +1023,15 @@ details.svc-row summary { -webkit-tap-highlight-color: rgba(255,229,59,.1); }
 .yt-item-title { font-size:12px; font-weight:600; line-height:1.45; color:var(--text); display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; margin-bottom:4px; }
 .yt-item.active .yt-item-title { color:var(--r); }
 .yt-item-num { font-family:'Unbounded',sans-serif; font-size:9px; font-weight:700; color:rgba(240,239,232,.25); letter-spacing:.06em; }
-@media(max-width:600px){ .yt-player-wrap { grid-template-columns:1fr; } .yt-playlist { max-height:300px; } }
+@media(max-width:600px){
+  .yt-section { padding:48px 0; }
+  .yt-player-wrap { grid-template-columns:1fr; margin:0 -16px; }
+  .yt-playlist { max-height:none; }
+  .yt-item { padding:10px 14px; gap:10px; }
+  .yt-item-thumb { width:72px; }
+  .yt-item-title { font-size:11px; }
+  .yt-header { margin-bottom:20px; }
+}
 
 /* ══ EXTRA LARGE (1920px+) ══ */
 @media(min-width:1920px) {
@@ -1772,23 +1780,34 @@ if (document.fonts && document.fonts.ready) {
     return 'https://i.ytimg.com/vi/' + id + '/mqdefault.jpg';
   }
 
-  function playVideo(idx) {
+  function playVideo(idx, autoplay) {
     var v = videos[idx];
     var frame = document.getElementById('ytMainFrame');
     var placeholder = document.getElementById('ytPlaceholder');
     var nowPlaying = document.getElementById('ytNowPlaying');
     var nowTitle = document.getElementById('ytNowTitle');
     if (frame) {
-      frame.src = 'https://www.youtube.com/embed/' + v.id + '?autoplay=1&rel=0&modestbranding=1';
+      var ap = (autoplay === false) ? '0' : '1';
+      frame.src = 'https://www.youtube.com/embed/' + v.id + '?autoplay=' + ap + '&rel=0&modestbranding=1';
     }
     if (placeholder) placeholder.style.display = 'none';
-    if (nowPlaying) nowPlaying.style.display = 'flex';
+    if (nowPlaying) { nowPlaying.style.display = 'flex'; setTimeout(syncPlaylistHeight, 50); }
     if (nowTitle) nowTitle.textContent = v.title;
-    // Update active state in playlist
     var items = document.querySelectorAll('.yt-item');
     items.forEach(function(it, i) {
       it.classList.toggle('active', i === idx);
     });
+  }
+
+  function syncPlaylistHeight() {
+    var embed = document.getElementById('ytPlayerEmbed');
+    var list = document.getElementById('ytPlaylist');
+    var nowPlaying = document.getElementById('ytNowPlaying');
+    if (!embed || !list) return;
+    var embedH = embed.offsetHeight;
+    var nowH = nowPlaying && nowPlaying.style.display !== 'none' ? nowPlaying.offsetHeight : 0;
+    var total = embedH + nowH;
+    if (total > 60) list.style.maxHeight = total + 'px';
   }
 
   function buildPlaylist() {
@@ -1806,12 +1825,19 @@ if (document.fonts && document.fonts.ready) {
           '<div class="yt-item-title">' + v.title + '</div>' +
           '<div class="yt-item-num">' + String(i + 1).padStart(2, '0') + ' / ' + String(videos.length).padStart(2, '0') + '</div>' +
         '</div>';
-      item.addEventListener('click', function() { playVideo(i); });
+      item.addEventListener('click', function() { playVideo(i, true); });
       list.appendChild(item);
     });
   }
 
-  document.addEventListener('DOMContentLoaded', buildPlaylist);
+  document.addEventListener('DOMContentLoaded', function() {
+    buildPlaylist();
+    // load first video without autoplay
+    playVideo(0, false);
+    // sync height after layout settles
+    setTimeout(syncPlaylistHeight, 100);
+    window.addEventListener('resize', syncPlaylistHeight);
+  });
 
   // Expose so videos can be swapped easily later
   window._ytVideos = videos;

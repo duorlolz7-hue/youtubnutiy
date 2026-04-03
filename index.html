@@ -2191,9 +2191,10 @@ function closeCookie(accepted) {
 }
 (function() {
   var consent = null;
-  try { consent = localStorage.getItem('cookie_consent'); } catch(e) {}
+  var storageOk = false;
+  try { consent = localStorage.getItem('cookie_consent'); storageOk = true; } catch(e) {}
   if (consent === 'accepted') { loadGA(); }
-  else if (!consent) {
+  else if (!consent || !storageOk) {
     var overlay = document.getElementById('cookie-overlay');
     if (overlay) {
       setTimeout(function(){

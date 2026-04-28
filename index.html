@@ -48,7 +48,7 @@ function loadGA() {
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; overflow-x:hidden; }
+html { scroll-behavior:smooth; overflow-x:hidden; scroll-padding-top:80px; }
 body { background:var(--dark); color:var(--text); font-family:'Manrope',sans-serif; -webkit-font-smoothing:antialiased; visibility:hidden; }
 body.fonts-ready { visibility:visible; }
 a { color:inherit; text-decoration:none; }
@@ -1257,7 +1257,7 @@ if (document.fonts && document.fonts.ready) {
       <a href="https://www.instagram.com/mikeduor/" target="_blank" rel="noopener" class="soc-btn ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>Instagram</a>
       <a href="https://t.me/mikeduor" target="_blank" rel="noopener" class="soc-btn tg"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.93 3.22a1 1 0 0 0-1.03-.14L2.43 10.5a1 1 0 0 0 .07 1.87l4.3 1.43 1.98 5.95a1 1 0 0 0 1.73.35l2.73-2.73 4.24 3.12a1 1 0 0 0 1.57-.65l3-16a1 1 0 0 0-.12-.62z"/></svg>Telegram</a>
     </div>
-    <a href="#cta" class="nav-cta">залишити заявку →</a>
+    <a href="#cta" class="nav-cta" onclick="event.preventDefault();setService('Діагностика каналу — безкоштовно');document.getElementById('cta').scrollIntoView({behavior:'smooth'})">безкоштовна діагностика →</a>
   </div>
 </nav>
 
@@ -1265,7 +1265,7 @@ if (document.fonts && document.fonts.ready) {
 <section class="hero">
   <div class="hero-glow"></div><div class="hero-glow2"></div>
   <div class="hero-badge"><span class="spark badge-yt" id="sp1" onclick="activateSpark(1)" style="width:20px;height:20px;flex-shrink:0;display:-webkit-inline-flex;display:inline-flex;-webkit-align-items:center;align-items:center;visibility:visible;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span><span>Креативний YouTube продюсер</span></div>
-  <h1 class="hero-h">YOUTUBE<br><span class="g">ЩО ЗМІНЮЄ</span><br><span class="dim">ЖИТТЯ</span></h1>
+  <h1 class="hero-h">КОНТЕНТ<br><span class="g">ЩО ЗМІНЮЄ</span><br><span class="dim">ЖИТТЯ</span></h1>
   <p class="hero-desc">Для тих, кому важливо залишати сенси, а не просто створювати контентний шум.</p>
   <div class="hero-btns">
     <a href="#navigator" class="btn-fire" onclick="event.preventDefault();document.getElementById('navigator').scrollIntoView({behavior:'smooth'})">Обрати послугу →</a>
@@ -1290,27 +1290,31 @@ if (document.fonts && document.fonts.ready) {
         <div class="photo-sm"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774474488/%D0%BC%D0%B9%D1%86%D0%B2%D0%B9%D1%86%D0%B2%D0%B9%D1%86_gulzat.jpg" alt="Михайло Тепленко" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
       </div>
       <div class="about-text reveal">
-        <span class="eye">Хто я</span>
-        <h2 class="about-h">Я будую канали<br><span class="g">що запам'ятовуються</span></h2>
+        <span class="eye">Моя місія</span>
+        <h2 class="about-h">Створювати контент<br><span class="g">який змінює життя</span></h2>
 
-        <p class="about-p">Привіт, я <strong>Михайло Тепленко</strong>. Мій шлях у YouTube почався у 2014-му. Звичайне село, старий телефон і час, коли слово "блогер" викликало лише скептичні посмішки.  Так я отримав свої <strong>перші 10 000 переглядів</strong>, трохи впізнаваності і зрозумів: відео - це те чим я хочу займатися!</p>
+        <p class="about-p">У 2014-му я знімав у селі на старий телефон, поки інші сміялися. Перші 10 000 переглядів дали впевненості і зміни, що я роблю все правильно, наступний канал отримав <strong>500 000 підписників</strong>. Тепер я — <strong>Михайло Тепленко</strong>, і як креативний продюсер я не просто роблю контент, а будую канали, що ламають систему та перевертають життя. Досить просто споживати — час діяти!</p>
 
         <div class="tl">
           <div class="tl-row">
-            <div class="tl-y">2024 →</div>
-            <div class="tl-b"><strong>📺 YouTube — і більше не відпускає</strong> <p>«ПроРемесло», «Ютубнутий», «Ella's healthy recipes», «Just Punk It», «Бізнес на Easy» та інші — кожен зі своїм характером. Будую не просто контент, а медіа-особистості що впізнають з першого кадру.</p></div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-y">2022–2024</div>
-            <div class="tl-b"><strong>🏢 Студія Duor Production</strong> <p>Власна моушн-анімаційна студія. Одна з робіт — на <strong style="color:var(--y)">найбільшому екрані України</strong> (ТРЦ Гулівер). Більшість проєктів для зарубіжного ринку — навчився думати як підприємець: ціль, ресурс, мінімальні кроки.</p></div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-y">2017–2022</div>
-            <div class="tl-b"><strong>🎬 Кіно, мода, реклама</strong> <p>Режисура, монтаж, оператор. Покази UFW, фешн-відео для брендів, кліпи, короткометражки — тут я вчився будувати історії, утримувати увагу і створювати контент що впливає.</p></div>
+            <div class="tl-y">2014</div>
+            <div class="tl-b"><strong>Свій перший ютуб канал</strong> <p>Персональний блог "Просто Теплий". Село, старий телефон, просте бажання робити, що подобається, хоч і багато хто насміхався з мене. Але саме цей канал дав мені перші <strong style="color:var(--y)">20 000 переглядів</strong>, впізнаваність у рідному селі і головне переконання: ніхто не знає як треба! просто слідуй серцю.</p></div>
           </div>
           <div class="tl-row">
             <div class="tl-y">2015–2019</div>
-            <div class="tl-b"><strong>🎮 Gameost — перший YouTube успіх</strong> <p>Запустили з нуля — без бюджету, без досвіду, тільки на органіці. За 4 роки: <strong style="color:var(--y)">500 000 підписників · 200 млн переглядів</strong>. Тоді переконався: система будується. <span class="spark" id="sp3" onclick="activateSpark(3)" style="width:13px;height:13px;vertical-align:middle;margin-left:4px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></p></div>
+            <div class="tl-b"><strong>Gameost — перший великий успіх</strong> <p>Запустили з нуля — без бюджету, без досвіду, тільки на органіці. За 4 роки: <strong style="color:var(--y)">500 000 підписників · 200 млн переглядів</strong>. Тоді переконався: ютуб може забезпечувати. <span class="spark" id="sp3" onclick="activateSpark(3)" style="width:13px;height:13px;vertical-align:middle;margin-left:4px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></p></div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-y">2017–2022</div>
+            <div class="tl-b"><strong>Кіно, мода, реклама</strong> <p>Режисура, монтаж, оператор. Покази UFW, фешн-відео для брендів, кліпи, короткометражки — тут я вчився будувати історії, утримувати увагу і створювати контент що впливає.</p></div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-y">2022–2024</div>
+            <div class="tl-b"><strong>Студія Duor Production</strong> <p>Власна моушн-анімаційна студія. Одна з робіт — на <strong style="color:var(--y)">найбільшому екрані України</strong> (ТРЦ Гулівер). Більшість проєктів для зарубіжного ринку — навчився думати як підприємець: ціль, ресурс, мінімальні кроки.</p></div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-y">2024 → сьогодні</div>
+            <div class="tl-b"><strong>Повний фокус на ЮТУБ</strong> <p> <strong style="color:var(--y)">«ПроРемесло», «Ютубнутий», «Ella's healthy recipes», «Just Punk It», «Бізнес на Easy»</strong> та інші — кожен зі своїм характером. Будую не просто контент, а медіа-особистості що впізнають з першого кадру.</p></div>
           </div>
         </div>
 
@@ -1336,11 +1340,11 @@ if (document.fonts && document.fonts.ready) {
     </div>
 
     <div class="svc-grid">
-      <!-- 30€ · creator -->
-      <a href="javascript:void(0)" onclick="openSvcModal('ytbro')" class="snc reveal" data-audience="creator">
-        <div class="snc-title">YouTube Бро</div>
-        <p class="snc-desc">30 хвилин живої розмови. Питай про що завгодно: канал, концепцію, формат, сценарій.</p>
-        <div class="snc-price">30 €<small>30-хв слот</small></div>
+      <!-- free · biz+creator -->
+      <a href="javascript:void(0)" onclick="openSvcModal('diag')" class="snc reveal" data-audience="both">
+        <div class="snc-title">Діагностика каналу</div>
+        <p class="snc-desc">Коротка розмова про твій канал. Разом розберемось що зараз найефективніше для твоєї ситуації.</p>
+        <div class="snc-price" style="color:var(--y);">Безкоштовно</div>
         <div class="snc-more">Дізнатися більше →</div>
         <span class="snc-arrow">→</span>
       </a>
@@ -1650,46 +1654,10 @@ if (document.fonts && document.fonts.ready) {
 
   </div>
 </section>
-<!-- YOUTUBE CHANNEL SECTION -->
-<section class="yt-section" id="youtube-channel">
-  <div class="wrap">
-    <div class="yt-header">
-      <div>
-        <span class="eye" style="color:var(--y);">@youtubnutiy</span>
-        <h2 class="sec-h">Корисний контент</h2>
-      </div>
-    </div>
-
-    <!-- VIDEO PLAYER -->
-    <div class="yt-player-wrap">
-      <div class="yt-player-main">
-        <div class="yt-player-embed" id="ytPlayerEmbed">
-          <iframe id="ytMainFrame" src="" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture" frameborder="0" style="width:100%;height:100%;display:block;position:absolute;inset:0;"></iframe>
-          <div class="yt-player-placeholder" id="ytPlaceholder">
-            <div class="yt-play-big">
-              <svg viewBox="0 0 90 63" fill="none" width="60" height="42"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg>
-            </div>
-            <p class="yt-placeholder-txt">Обери відео зі списку →</p>
-          </div>
-        </div>
-        <div class="yt-now-playing" id="ytNowPlaying" style="display:none;">
-          <span class="yt-now-dot"></span>
-          <span id="ytNowTitle">—</span>
-        </div>
-      </div>
-
-      <!-- PLAYLIST -->
-      <div class="yt-playlist" id="ytPlaylist">
-        <!-- videos populated by JS -->
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FINAL CTA -->
 <section class="final" id="cta">
-  <h2 class="final-h">ЗАЛИШ ЗАЯВКУ<br><span class="g">Я НАПИШУ<br>ПЕРШИМ</span></h2>
-  <p class="final-p">Я допоможу визначити що саме тобі потрібно</p>
+  <h2 class="final-h">ДІАГНОСТИКА<br><span class="g">КАНАЛУ <br>БЕЗКОШТОВНО</span></h2>
+  <p class="final-p">Розберемось де саме губиш глядача або клієнта — і що з цим робити</p>
   <p class="final-note"> <strong>Відповідаю протягом 24 годин</strong></p>
   <div id="finalFormFields" style="display:flex;flex-direction:column;gap:10px;max-width:440px;margin:0 auto;position:relative;z-index:2;">
     <div style="position:relative;" id="serviceDropdownWrap">
@@ -1699,7 +1667,7 @@ if (document.fonts && document.fonts.ready) {
       </button>
       <input type="hidden" id="finalService" value="">
       <div id="serviceDropdownList" style="display:none;position:absolute;top:100%;left:0;right:0;z-index:200;background:#1A1A1A;border:1px solid rgba(255,255,255,.12);border-top:none;max-height:320px;overflow-y:auto;">
-        <div class="svc-opt" onclick="selectService('YouTube Бро — 30 хв · 30 €')">YouTube Бро — 30 хв <span>30 €</span></div>
+        <div class="svc-opt" onclick="selectService('Безкоштовна діагностика — 15 хв')">Діагностика каналу — 15 хв <span style="color:#4ADE80;">Безкоштовно</span></div>
         <div class="svc-opt" onclick="selectService('Консультація — 60 хв Zoom · 150 €')">Консультація — 60 хв Zoom <span>150 €</span></div>
         <div class="svc-opt" onclick="selectService('Контент-план — 4 відео/міс · 300 €')">Контент-план — 4 відео/міс <span>300 €</span></div>
         <div class="svc-opt" onclick="selectService('Контент-план — 8 відео · 500 €')">Контент-план — 8 відео <span>500 €</span></div>
@@ -1736,7 +1704,7 @@ if (document.fonts && document.fonts.ready) {
         style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:var(--text);font-family:'Manrope',sans-serif;font-size:16px;padding:14px 18px;outline:none;transition:all .18s;width:100%;opacity:.5;cursor:not-allowed;"/>
     </div>
     <p style="font-size:11px;color:rgba(240,239,232,.3);text-align:left;">Заповни ім'я та контакт для зв'язку.</p>
-    <button onclick="sendFinalLead()" class="btn-fire" style="border:none;cursor:pointer;width:100%;text-align:center;display:block;">Залишити заявку →</button>
+    <button onclick="sendFinalLead()" class="btn-fire" style="border:none;cursor:pointer;width:100%;text-align:center;display:block;">Залишити заявку</button>
   </div>
   <div id="finalSuccess" style="display:none;margin-top:20px;background:rgba(74,222,128,.07);border:1px solid rgba(74,222,128,.22);padding:20px 28px;max-width:400px;margin-left:auto;margin-right:auto;">
     <p id="finalSuccessTitle" style="font-size:10px;font-weight:700;color:#4ADE80;margin-bottom:8px;font-family:'Unbounded',sans-serif;letter-spacing:.1em;">ЗАЯВКУ ОТРИМАНО</p>
@@ -2614,57 +2582,48 @@ function closeHuntWin() {
   </div>
 </div>
 
-<!-- MODAL: ytbro -->
-<div class="svc-modal-overlay" id="svcmodal-ytbro" style="display:none;">
+<!-- MODAL: diag -->
+<div class="svc-modal-overlay" id="svcmodal-diag" style="display:none;">
   <div class="svc-modal-box">
     <div class="svc-modal-close">
-      <span class="svc-modal-close-title">YouTube Бро — 30 хв</span>
-      <button class="svc-modal-close-btn" onclick="closeSvcModal('ytbro')">✕</button>
+      <span class="svc-modal-close-title">Діагностика каналу</span>
+      <button class="svc-modal-close-btn" onclick="closeSvcModal('diag')">✕</button>
     </div>
     <div class="svc-modal-body">
       <div style="padding:0 32px 32px;">
-        <div class="svc-eyebrow" style="margin-top:24px;"><span class="svc-num">00</span><span class="svc-badge red">НОВИНКА</span></div>
-        <h2 class="svc-h">YouTube Бро —<br>30 хвилин зі мною</h2>
-        <p class="svc-desc" style="margin-bottom:20px;">Просто поговорити зі мною. Питай що хочеш — про канал, ідеї, або що тримаєш в голові. Я тут і я слухаю.</p>
+        <div class="svc-eyebrow" style="margin-top:24px;"><span class="svc-num">00</span></div>
+        <h2 class="svc-h">Діагностика каналу</h2>
+        <p class="svc-desc" style="margin-bottom:20px;">Проста розмова про твій канал і ситуацію. Я слухаю, задаю питання, роблю мінімальний аналіз — і разом ми розбираємося що зараз буде найефективніше саме для тебе.</p>
         <div class="two">
           <div class="col">
-            <div class="col-eye">Що ти отримуєш</div>
+            <div class="col-eye">Як це відбувається</div>
             <div class="flist">
-              <div class="fi"><div class="fi-icon y">🧠</div><div><strong>Будь-яке питання</strong><p>Про канал, стратегію, дисципліну, творчість — все ок. Тут немає тупих питань.</p></div></div>
-              <div class="fi"><div class="fi-icon r">🎯</div><div><strong>Чесна розмова</strong><p>Я можу бути різким і навіть не приємним, але якщо я кажу, я щиро вважаю що тобі це потрібно.</p></div></div>
-              <div class="fi"><div class="fi-icon y">⚡</div><div><strong>Готуєш питання (або ні)</strong><p>Можеш прийти з конкретною проблемою, а можеш просто — поговорити. Обидва варіанти абсолютно ок.</p></div></div>
-              <div class="fi"><div class="fi-icon g">🔐</div><div><strong>Тільки ти і я</strong><p>Ніхто більше не знає що ти питаєш. Це абсолютно твій простір.</p></div></div>
+              <div class="fi"><div class="fi-icon" style="background:rgba(74,222,128,.12);color:#4ADE80;font-size:18px;">🎙</div><div><strong>Розповідаєш про канал</strong><p>Де зараз знаходишся, що вже пробував, де відчуваєш що щось не так. Без підготовки — просто як є.</p></div></div>
+              <div class="fi"><div class="fi-icon" style="background:rgba(74,222,128,.12);color:#4ADE80;font-size:18px;">🔎</div><div><strong>Мінімальний аналіз ситуації</strong><p>Я задаю питання щоб зрозуміти картину. Вже в процесі розмови часто стає видно де вузьке місце.</p></div></div>
+              <div class="fi"><div class="fi-icon" style="background:rgba(74,222,128,.12);color:#4ADE80;font-size:18px;">💡</div><div><strong>Можу дати користь одразу</strong><p>Якщо бачу щось конкретне — скажу. За 15 хвилин реально можна отримати інсайт який змінить підхід.</p></div></div>
+              <div class="fi"><div class="fi-icon" style="background:rgba(74,222,128,.12);color:#4ADE80;font-size:18px;">🗺</div><div><strong>Підкажу що підійде саме тобі</strong><p>В кінці скажу яка послуга найефективніше вирішить твою задачу — або що зробити якщо допомога поки не потрібна.</p></div></div>
             </div>
-            <div class="box-r" style="margin-top:16px;">
-              <strong>💡 Чим відрізняється від консультації?</strong><br>
-              Консультація (150 €) — я готуюсь заздалегідь: аналізую канал, метрики, складаю план. YouTube Бро — жива розмова без підготовки. Дешево, швидко, конкретно.
+            <div style="margin-top:16px;padding:16px 18px;background:rgba(74,222,128,.06);border:1px solid rgba(74,222,128,.2);border-left:3px solid #4ADE80;">
+              <strong style="color:#4ADE80;">Ідеально якщо</strong><br>
+              <span style="font-size:13px;line-height:1.65;color:var(--soft);">Ти не знаєш з чого почати, або вже маєш канал але не розумієш що саме потрібно змінити — і яку послугу брати.</span>
             </div>
           </div>
           <div class="col dim">
-            <div class="col-eye">Що питають інші?</div>
-            <div class="q-grid">
-              <div class="q-pill pr">Як монетизувати YouTube з нуля?</div>
-              <div class="q-pill py">Де брати ідеї для відео?</div>
-              <div class="q-pill py">Це ок сценарій?</div>
-              <div class="q-pill pr">Як не здатись коли 0 переглядів</div>
-              <div class="q-pill py">Мене ніхто не дивиться</div>
-              <div class="q-pill pr">Як розібратися в аналітиці?</div>
-              <div class="q-pill">В мене низький СТР?</div>
-              <div class="q-pill">Мій бренд — це взагалі що?</div>
-              <div class="q-pill pr">Що робити якщо застряг</div>
-              <div class="q-pill">Чи паритися над монтажем?</div>
-              <div class="q-pill pr">Як зрозуміти аудиторію</div>
-              <div class="q-pill">Чому не виходить</div>
+            <div class="col-eye">Три кроки</div>
+            <div class="agenda" style="margin-bottom:16px;">
+              <div class="ag"><div class="ag-n" style="background:rgba(74,222,128,.15);color:#4ADE80;">01</div><div><strong>Залишаєш заявку</strong><p>Ім'я і контакт — я напишу протягом 24 годин і домовимось про час.</p></div></div>
+              <div class="ag"><div class="ag-n" style="background:rgba(74,222,128,.15);color:#4ADE80;">02</div><div><strong>15 хвилин живої розмови</strong><p>Розповідаєш — я слухаю і розбираюся в ситуації.</p></div></div>
+              <div class="ag"><div class="ag-n" style="background:rgba(74,222,128,.15);color:#4ADE80;">03</div><div><strong>Ясність що робити далі</strong><p>Виходиш з розумінням що зараз буде найефективніше — і чому.</p></div></div>
             </div>
-            <p style="margin-top:14px;font-size:13px;line-height:1.75;">Якщо коротко: це як подзвонити другу, який не засудить і реально хоче допомогти — і ще й розуміється на темі. 😄</p>
+            <p style="font-size:13px;line-height:1.75;color:var(--soft);">Це найкраща точка входу якщо не знаєш що саме тобі потрібно. Безкоштовно, без зобов'язань.</p>
           </div>
         </div>
-    <div class="svc-price-card">
+    <div class="svc-price-card" style="border-top-color:#4ADE80;">
       <div>
-        <div class="svc-price-val">30 €</div>
-        <div class="svc-price-note">30 хвилин · живий діалог · без підготовки · просто ти і я</div>
+        <div class="svc-price-val" style="color:#4ADE80;">Безкоштовно</div>
+        <div class="svc-price-note">Живий дзвінок · мінімальний аналіз ситуації</div>
       </div>
-      <a href="#cta" class="svc-price-btn gold" onclick="setService('YouTube Бро — 30 хв (30 €)');closeSvcModal('ytbro');setTimeout(function(){document.getElementById('cta').scrollIntoView({behavior:'smooth'});},200);return false;">Забронювати →</a>
+      <a href="#cta" class="svc-price-btn" style="background:#4ADE80;color:#0C0C0C;" onclick="setService('Діагностика каналу — безкоштовно');closeSvcModal('diag');setTimeout(function(){document.getElementById('cta').scrollIntoView({behavior:'smooth'});},200);return false;">Записатись на діагностику →</a>
     </div>
       </div>
     </div>

@@ -106,6 +106,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:16px 40px; di
 .snc { display:flex; flex-direction:column; background:var(--card); padding:28px; position:relative; color:var(--text); transition:background .22s, box-shadow .22s, transform .22s; border-bottom:3px solid transparent; cursor:pointer; font-family:'Manrope',sans-serif; text-decoration:none; }
 .snc-num { font-family:'Unbounded',sans-serif; font-size:10px; font-weight:700; letter-spacing:.16em; color:var(--y); margin-bottom:10px; }
 .snc-new { display:inline-block; background:rgba(255,45,45,.12); color:var(--r); border:1px solid rgba(255,45,45,.3); font-family:'Unbounded',sans-serif; font-size:7px; font-weight:700; letter-spacing:.1em; padding:2px 7px; margin-left:4px; vertical-align:middle; box-shadow:0 0 8px rgba(255,45,45,.2); }
+.snc-new-y { display:inline-block; background:rgba(255,229,59,.12); color:var(--y); border:1px solid rgba(255,229,59,.35); font-family:'Unbounded',sans-serif; font-size:7px; font-weight:700; letter-spacing:.1em; padding:2px 7px; margin-left:4px; vertical-align:middle; }
 .snc-title { font-family:'Unbounded',sans-serif; font-size:15px; font-weight:900; margin-bottom:8px; line-height:1.2; }
 .snc-desc { font-size:12px; line-height:1.6; color:var(--soft); margin-bottom:0; flex:1; }
 .snc-price { font-family:'Unbounded',sans-serif; font-size:18px; font-weight:900; color:var(--y); white-space:nowrap; margin-top:20px; }
@@ -113,12 +114,16 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:16px 40px; di
 .snc-arrow { display:none; }
 
 /* hover — нейтральне підняття без кольору */
-.snc:hover { background:var(--card2); border-bottom-color:rgba(255,255,255,.1); box-shadow:0 8px 32px rgba(0,0,0,.35); transform:translateY(-2px); }
-.snc:hover .snc-arrow { color:rgba(255,255,255,.3); transform:translate(2px,-2px); }
+.snc:hover { background:var(--card2); border-bottom-color:var(--y); box-shadow:0 8px 32px rgba(255,229,59,.08); transform:translateY(-2px); }
+.snc:hover .snc-arrow { color:rgba(255,229,59,.4); transform:translate(2px,-2px); }
 
 /* "дізнатися більше" — підсвічується при ховері */
 .snc-more { display:inline-flex; align-items:center; gap:5px; margin-top:12px; font-size:10px; font-weight:700; font-family:'Unbounded',sans-serif; letter-spacing:.06em; color:rgba(240,239,232,.3); border:1px solid rgba(255,255,255,.07); padding:5px 10px; transition:color .2s,border-color .2s,background .2s; align-self:flex-start; }
-.snc:hover .snc-more { color:var(--text); border-color:rgba(255,255,255,.25); background:rgba(255,255,255,.05); }
+.snc:hover .snc-more { color:var(--y); border-color:rgba(255,229,59,.4); background:rgba(255,229,59,.05); }
+
+/* gradient "дізнатися більше" for diag card */
+.snc-more-grad { color:var(--y); border-color:rgba(255,229,59,.35); }
+.snc:hover .snc-more-grad { color:var(--y); border-color:rgba(255,229,59,.6); background:rgba(255,229,59,.06); }
 
 /* VIP — жовта смужка зліва, трохи тепліший фон */
 .snc.vip { border-left:2px solid rgba(255,229,59,.28); background:#141410; }
@@ -414,6 +419,7 @@ footer { background:var(--dark); border-top:1px solid var(--border); padding:30p
   nav { padding:12px 16px; gap:8px; }
   .nav-logo { font-size:11px; }
   .nav-cta { padding:8px 14px; font-size:10px; letter-spacing:.04em; flex-shrink:0; }
+  .snc-price-free { font-size:13px; white-space:normal; }
 
   /* HERO */
   .hero { padding:80px 16px 44px; }
@@ -1257,7 +1263,7 @@ if (document.fonts && document.fonts.ready) {
       <a href="https://www.instagram.com/mikeduor/" target="_blank" rel="noopener" class="soc-btn ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>Instagram</a>
       <a href="https://t.me/mikeduor" target="_blank" rel="noopener" class="soc-btn tg"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.93 3.22a1 1 0 0 0-1.03-.14L2.43 10.5a1 1 0 0 0 .07 1.87l4.3 1.43 1.98 5.95a1 1 0 0 0 1.73.35l2.73-2.73 4.24 3.12a1 1 0 0 0 1.57-.65l3-16a1 1 0 0 0-.12-.62z"/></svg>Telegram</a>
     </div>
-    <a href="#cta" class="nav-cta" onclick="event.preventDefault();setService('Діагностика каналу — безкоштовно');document.getElementById('cta').scrollIntoView({behavior:'smooth'})">безкоштовна діагностика →</a>
+    <a href="#cta" class="nav-cta" onclick="event.preventDefault();setService('Діагностика каналу — безкоштовно');document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Діагностика каналу →</a>
   </div>
 </nav>
 
@@ -1344,7 +1350,6 @@ if (document.fonts && document.fonts.ready) {
       <a href="javascript:void(0)" onclick="openSvcModal('diag')" class="snc reveal" data-audience="both">
         <div class="snc-title">Діагностика каналу</div>
         <p class="snc-desc">Коротка розмова про твій канал. Разом розберемось що зараз найефективніше для твоєї ситуації.</p>
-        <div class="snc-price" style="color:var(--y);">Безкоштовно</div>
         <div class="snc-more">Дізнатися більше →</div>
         <span class="snc-arrow">→</span>
       </a>

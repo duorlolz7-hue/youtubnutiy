@@ -101,7 +101,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:16px 40px; di
 
 /* ─ NAVIGATOR / CARD GRID ─ */
 .nav-section { padding:72px 0; }
-.svc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:40px; }
+.svc-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; margin-top:40px; }
 .snc { display:flex; flex-direction:column; background:var(--card); padding:28px; position:relative; color:var(--text); transition:background .22s, box-shadow .22s, transform .22s; border-bottom:3px solid transparent; cursor:pointer; font-family:'Manrope',sans-serif; text-decoration:none; }
 .snc-num { font-family:'Unbounded',sans-serif; font-size:10px; font-weight:700; letter-spacing:.16em; color:var(--y); margin-bottom:10px; }
 .snc-new { display:inline-block; background:rgba(255,45,45,.12); color:var(--r); border:1px solid rgba(255,45,45,.3); font-family:'Unbounded',sans-serif; font-size:7px; font-weight:700; letter-spacing:.1em; padding:2px 7px; margin-left:4px; vertical-align:middle; box-shadow:0 0 8px rgba(255,45,45,.2); }
@@ -150,7 +150,15 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:16px 40px; di
 .snc.svc-hidden {
   display:none;
 }
-@media(max-width:600px){ .svc-filter { font-size:9px; padding:9px 14px; } }
+@media(max-width:600px){
+  .snc { padding:16px; }
+  .snc-title { font-size:12px; }
+  .snc-desc { font-size:10px; line-height:1.4; }
+  .snc-price { font-size:14px; margin-top:10px; }
+  .snc-price small { font-size:8px; }
+  .snc-more { font-size:8px; margin-top:8px; padding:4px 8px; }
+  .snc [onclick*="Обговорити"] { display:none; }
+ .svc-filter { font-size:9px; padding:9px 14px; } }
 
 /* ─ CALCULATOR ─ */
 .calc-section { padding:80px 0; border-top:1px solid var(--border); background:var(--card); }
@@ -277,7 +285,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:16px 40px; di
 .box-r strong { color:var(--r); }
 
 /* roadmap — #5 hover on month */
-.roadmap { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:8px; }
+.roadmap { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; margin-top:8px; }
 .rm { background:var(--card); padding:28px; transition:background .2s,border-top .2s; border-top:3px solid transparent; cursor:default; }
 .rm:hover { background:var(--card2); border-top-color:var(--y); }
 .rm-head { display:flex; align-items:center; gap:10px; margin-bottom:18px; }
@@ -291,7 +299,8 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:16px 40px; di
 
 /* ─ PACKAGES — #7 fix: only hovered is active, middle default ─ */
 .pkg-set { display:grid; gap:2px; margin-top:8px; }
-.pkg-set.cols3 { grid-template-columns:repeat(3,1fr); }
+.pkg-set.cols3 { grid-template-columns:repeat(2,1fr); }
+.pkg-set.cols2 { grid-template-columns:repeat(2,1fr); }
 .pkg-set.inline { grid-template-columns:1fr; }
 .pkg-item { background:var(--card); padding:24px; cursor:pointer; position:relative; border-bottom:3px solid transparent; transition:background .18s,border-color .18s; }
 .pkg-item.active { background:var(--card2); border-bottom-color:var(--y); }
@@ -394,11 +403,11 @@ footer { background:var(--dark); border-top:1px solid var(--border); padding:30p
   .hero { padding:84px 20px 48px; min-height:auto; }
   .svc-grid { grid-template-columns:1fr 1fr; }
   .about-layout { grid-template-columns:1fr; gap:28px; }
-  .about-photos { grid-template-columns:repeat(3,1fr); }
+  .about-photos { grid-template-columns:repeat(2,1fr); }
   .photo-main { grid-column:auto; aspect-ratio:1; }
   
   
-  .two, .cmp, .slim, .nf-grid, .pkg-set.cols3, .roadmap { grid-template-columns:1fr; }
+  .two, .cmp, .slim, .nf-grid, .pkg-set.cols3, .pkg-set.cols2, .roadmap { grid-template-columns:1fr; }
   .case-card { width:320px; }
   .rv-card { width:320px; }
   footer { padding:22px 20px; flex-direction:column; align-items:flex-start; }
@@ -406,7 +415,7 @@ footer { background:var(--dark); border-top:1px solid var(--border); padding:30p
   .belt-wrap::before, .belt-wrap::after { width:36px; }
   .belt-prev, .belt-next { width:36px; }
   .cl-inner { display:flex; flex-direction:column; gap:0; }
-  .cl-stats { grid-template-columns:repeat(3,1fr); }
+  .cl-stats { grid-template-columns:repeat(2,1fr); }
   .svc { padding:52px 0; }
   
   .about-section { padding:52px 0; }
@@ -495,7 +504,7 @@ footer { background:var(--dark); border-top:1px solid var(--border); padding:30p
   .rm { padding:20px 18px; }
 
   /* PACKAGES */
-  .pkg-set.cols3 { grid-template-columns:1fr; }
+  .pkg-set.cols3, .pkg-set.cols2 { grid-template-columns:1fr; }
   .pkg-item { padding:20px 18px; }
   .pkg-price { font-size:22px; }
 
@@ -519,7 +528,7 @@ footer { background:var(--dark); border-top:1px solid var(--border); padding:30p
   .cl-preview { width:100%; display:flex !important; flex-direction:column; }
   .cl-item { font-size:12px; word-break:break-word; white-space:normal; display:flex !important; }
   .cl-h { font-size:clamp(20px,6vw,28px); }
-  .cl-stats { grid-template-columns:repeat(3,1fr); gap:2px; }
+  .cl-stats { grid-template-columns:repeat(2,1fr); gap:2px; }
   .cl-stat { padding:12px 8px; }
   .cl-stat-num { font-size:16px; }
   .cl-stat-lbl { font-size:9px; }
@@ -751,7 +760,7 @@ footer { background:var(--dark); border-top:1px solid var(--border); padding:30p
 .cl-submit:hover { opacity:.85; }
 .cl-note { font-size:11px; color:rgba(240,239,232,.25); margin-top:4px; }
 /* stats row */
-.cl-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-bottom:24px; }
+.cl-stats { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; margin-bottom:24px; }
 .cl-stat { background:var(--card); padding:16px; }
 .cl-stat-num { font-family:'Unbounded',sans-serif; font-size:20px; font-weight:900; color:#4ADE80; line-height:1; margin-bottom:4px; }
 .cl-stat-lbl { font-size:10px; color:var(--soft); line-height:1.4; }
@@ -930,8 +939,8 @@ footer { background:var(--dark); border-top:1px solid var(--border); padding:30p
 }
 .svc-price-btn {
   display: inline-block;
-  background: var(--r);
-  color: #fff;
+  background: var(--y);
+  color: var(--dark);
   font-family: 'Unbounded', sans-serif;
   font-size: 12px;
   font-weight: 700;
@@ -988,7 +997,7 @@ details.svc-row summary { -webkit-tap-highlight-color: rgba(255,229,59,.1); }
   .wrap { padding:0 80px; }
   nav { padding:20px 80px; }
   .hero { padding:clamp(100px,12vh,160px) 80px clamp(80px,10vh,120px); }
-  .svc-grid { grid-template-columns:repeat(3,1fr); }
+  .svc-grid { grid-template-columns:repeat(2,1fr); }
   .snc { padding:36px; }
   .snc-title { font-size:17px; }
   .snc-price { font-size:22px; }
@@ -1032,7 +1041,9 @@ details.svc-row summary { -webkit-tap-highlight-color: rgba(255,229,59,.1); }
 .yt-channel-btn { display:inline-flex; align-items:center; gap:10px; background:var(--r); color:#fff; font-family:'Unbounded',sans-serif; font-size:11px; font-weight:700; padding:14px 24px; letter-spacing:.06em; white-space:nowrap; flex-shrink:0; transition:opacity .2s,transform .2s; clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,0 100%); }
 .yt-channel-btn:hover { opacity:.85; transform:translateY(-2px); }
 .yt-player-wrap { display:grid; grid-template-columns:1fr 340px; gap:2px; background:var(--card); }
-@media(max-width:900px){ .yt-player-wrap { grid-template-columns:1fr; } }
+@media(max-width:900px){
+  .snc { padding:20px; }
+ .yt-player-wrap { grid-template-columns:1fr; } }
 .yt-player-main { background:var(--dark); min-width:0; }
 .yt-player-embed { position:relative; aspect-ratio:16/9; background:#000; width:100%; }
 .yt-player-embed iframe { position:absolute; inset:0; width:100%; height:100%; }
@@ -1082,6 +1093,87 @@ details.svc-row summary { -webkit-tap-highlight-color: rgba(255,229,59,.1); }
   .rm { padding:36px; }
   .nf-col { padding:44px; }
   .col { padding:44px; }
+}
+
+/* ══ SERVICE ROWS ══ */
+.svc-grid{display:block !important;margin:48px 0 0;border-top:1px solid rgba(255,255,255,.08);}
+.svc-row{
+  display:grid;grid-template-columns:1fr auto;align-items:start;
+  gap:clamp(20px,4vw,48px);padding:clamp(16px,2.5vw,28px) 8px;
+  border-bottom:1px solid rgba(255,255,255,.08);cursor:pointer;
+  text-decoration:none;color:var(--text);position:relative;
+  transition:background .3s,transform .3s;
+}
+.svc-row:hover{background:rgba(255,229,59,.015);transform:translateY(-6px);box-shadow:0 12px 32px rgba(0,0,0,.35);}
+.svc-row::after{content:'';position:absolute;bottom:-1px;left:0;height:2px;width:0;background:var(--y);transition:width .4s cubic-bezier(.4,0,.2,1);}
+.svc-row:hover::after{width:100%;}
+.svc-row-num{font-family:'Unbounded',sans-serif;font-size:clamp(9px,1vw,11px);font-weight:700;color:rgba(240,239,232,.3);letter-spacing:.15em;margin-bottom:6px;display:block;}
+.svc-row-title{font-family:'Unbounded',sans-serif;font-size:clamp(22px,3.5vw,44px);font-weight:900;letter-spacing:-.02em;line-height:1.08;text-transform:uppercase;white-space:nowrap;transition:color .3s;}
+.svc-row:hover .svc-row-title{color:var(--y);}
+.svc-row-desc{font-size:clamp(13px,1.6vw,16px);line-height:1.6;color:rgba(240,239,232,.5);margin-top:clamp(8px,1.5vw,16px);max-width:520px;}
+.svc-row-right{text-align:right;padding-top:4px;}
+.svc-row-price{font-family:'Unbounded',sans-serif;font-size:clamp(24px,3.5vw,44px);font-weight:900;color:var(--y);line-height:1;white-space:nowrap;}
+.svc-row-price del{font-size:50%;color:var(--o);font-weight:700;opacity:.8;margin-right:6px;}
+.svc-row-meta{font-size:clamp(10px,1.2vw,13px);color:rgba(240,239,232,.5);margin-top:8px;white-space:nowrap;}
+.svc-row-arrow{grid-column:1/-1;display:flex;align-items:center;gap:8px;justify-content:flex-end;font-size:clamp(11px,1.4vw,14px);font-family:'Unbounded',sans-serif;font-weight:700;letter-spacing:.04em;color:var(--y);opacity:.5;transition:all .3s;padding-top:clamp(8px,1.5vw,16px);}
+.svc-row:hover .svc-row-arrow{opacity:1;transform:translateX(6px);}
+@media(max-width:640px){
+  .svc-row{grid-template-columns:1fr auto;gap:10px;padding:18px 4px;}
+  .svc-row-num{font-size:8px;margin-bottom:4px;}
+  .svc-row-title{font-size:16px;white-space:normal;}
+  .svc-row-desc{font-size:12px;line-height:1.5;margin-top:4px;}
+  .svc-row-right{text-align:right;padding-top:0;}
+  .svc-row-price{font-size:20px;}
+  .svc-row-price del{font-size:50%;}
+  .svc-row-meta{font-size:9px;margin-top:4px;}
+  .svc-row-arrow{font-size:10px;padding-top:6px;}
+  .svc-row:hover{transform:none;}
+
+  /* Match the desktop services treatment */
+  #navigator .sec-h{display:none;}
+  #navigator .eye{font-size:18px;margin-bottom:0;}
+  #navigator .svc-sub{display:none;}
+  .svc-grid{margin-top:20px;border-top:none;}
+  #navigator .svc-row{padding:14px;gap:10px;background:rgba(255,255,255,.025);border-radius:14px;border-bottom:none;margin-bottom:8px;}
+  #navigator .svc-row:last-child{margin-bottom:0;}
+  #navigator .svc-row-title{font-size:18px;}
+  #navigator .svc-row-desc{font-size:12px;line-height:1.4;margin-top:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+  #navigator .svc-row-price{font-size:26px;}
+  #navigator .svc-row-price del{font-size:65%;}
+  #navigator .svc-row-meta{display:none;}
+  #navigator .svc-row-arrow{display:none;}
+  #navigator .svc-row-right::after{content:"детальніше →";display:block;margin-top:6px;font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--y);opacity:.6;}
+}
+@media(max-width:380px){
+  .svc-row-title{font-size:14px;}
+  .svc-row-price{font-size:18px;}
+  .svc-row-desc{font-size:11px;}
+  #navigator .svc-row-title{font-size:16px;}
+  #navigator .svc-row-price{font-size:22px;}
+}
+/* Desktop: compact services so all 4 fit on one screen without scrolling */
+@media(min-width:641px){
+  #navigator{padding:32px 0;}
+  #navigator .sec-h{display:none;}
+  #navigator .eye{font-size:clamp(15px,1.65vw,24px);margin-bottom:0;}
+  #navigator .svc-row-price del{font-size:65%;}
+  #navigator .svc-sub{display:none;}
+  .svc-grid{margin-top:24px;border-top:none;}
+  #navigator .svc-row{padding:clamp(14px,1.4vw,20px) clamp(14px,1.3vw,20px);gap:clamp(16px,3vw,40px);background:rgba(255,255,255,.025);border-radius:14px;border-bottom:none;margin-bottom:8px;}
+  #navigator .svc-row:last-child{margin-bottom:0;}
+  #navigator .svc-row-num{font-size:clamp(10px,1.1vw,12px);margin-bottom:3px;}
+  #navigator .svc-row-title{font-size:clamp(19px,2.1vw,29px);white-space:nowrap;}
+  #navigator .svc-row-desc{font-size:clamp(12px,1.1vw,14px);line-height:1.4;margin-top:4px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+  #navigator .svc-row-right{padding-top:17px;}
+  #navigator .svc-row-price{font-size:clamp(24px,2.6vw,37px);}
+  #navigator .svc-row-meta{display:none;}
+  #navigator .svc-row-meta{margin-top:4px;}
+  #navigator .svc-row-arrow{display:none;}
+  #navigator .svc-row-right::after{content:"детальніше →";display:block;margin-top:6px;font-family:'Unbounded',sans-serif;font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:.04em;color:var(--y);opacity:.5;transition:opacity .3s;}
+  #navigator .svc-row:hover .svc-row-right::after{opacity:1;}
+  #about .about-h{font-size:clamp(22px,2.4vw,40px);white-space:nowrap;}
+  #about .about-h br{display:none;}
+  #about .about-h .g{margin-left:.3em;}
 }
 </style>
 <script type="application/ld+json">
@@ -1160,7 +1252,7 @@ if (document.fonts && document.fonts.ready) {
     <div class="win-title">Юхуу<br><span>Ти знайшов всі 9</span></div>
     <div class="win-sub">Здається ти дуже уважний, або дуже впертий — і те й інше мені подобається, тож лови відео…</div>
     <div class="media-wrap" id="winVideoWrap" style="position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;" data-vid="tkweGgCMaus"></div>
-    <a id="win-personal-cta" href="https://t.me/mikeduor" target="_blank" rel="noopener" class="win-cta" style="display:none;opacity:0;transition:opacity .6s ease;">Напиши мені особисто →</a>
+    <a id="win-personal-cta" href="https://t.me/teplenko_yt" target="_blank" rel="noopener" class="win-cta" style="display:none;opacity:0;transition:opacity .6s ease;">Напиши мені особисто →</a>
     <button class="win-close" onclick="closeHuntWin()" style="background:transparent;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.45);font-family:'Unbounded',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;padding:10px 24px;cursor:pointer;transition:all .2s;margin-top:4px;">Закрити</button>
   </div>
 </div>
@@ -1305,7 +1397,7 @@ if (document.fonts && document.fonts.ready) {
   <div style="display:flex;align-items:center;gap:12px;flex-shrink:0;">
     <div class="social-links" id="nav-social">
       <a href="https://www.instagram.com/mikeduor/" target="_blank" rel="noopener" class="soc-btn ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>Instagram</a>
-      <a href="https://t.me/mikeduor" target="_blank" rel="noopener" class="soc-btn tg"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.93 3.22a1 1 0 0 0-1.03-.14L2.43 10.5a1 1 0 0 0 .07 1.87l4.3 1.43 1.98 5.95a1 1 0 0 0 1.73.35l2.73-2.73 4.24 3.12a1 1 0 0 0 1.57-.65l3-16a1 1 0 0 0-.12-.62z"/></svg>Telegram</a>
+      <a href="https://t.me/teplenko_yt" target="_blank" rel="noopener" class="soc-btn tg"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.93 3.22a1 1 0 0 0-1.03-.14L2.43 10.5a1 1 0 0 0 .07 1.87l4.3 1.43 1.98 5.95a1 1 0 0 0 1.73.35l2.73-2.73 4.24 3.12a1 1 0 0 0 1.57-.65l3-16a1 1 0 0 0-.12-.62z"/></svg>Telegram</a>
     </div>
     <a href="#cta" class="nav-cta" onclick="event.preventDefault();setService('Діагностика каналу — безкоштовно');document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Діагностика каналу →</a>
   </div>
@@ -1315,11 +1407,11 @@ if (document.fonts && document.fonts.ready) {
 <section class="hero">
   <div class="hero-glow"></div><div class="hero-glow2"></div>
   <div class="hero-badge"><span class="spark badge-yt" id="sp1" onclick="activateSpark(1)" style="width:20px;height:20px;flex-shrink:0;display:-webkit-inline-flex;display:inline-flex;-webkit-align-items:center;align-items:center;visibility:visible;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span><span>Креативний YouTube продюсер</span></div>
-  <h1 class="hero-h">КОНТЕНТ<br><span class="g">ЩО ЗМІНЮЄ</span><br><span class="dim">ЖИТТЯ</span></h1>
-  <p class="hero-desc">Будую преміум бізнес канали. Щоб вас обирали за сенси й упізнавали з першого кадру — а не за найнижчу ціну.</p>
+  <h1 class="hero-h">YOUTUBE<br><span class="g">ЩО ЗМІНЮЄ</span><br><span class="dim">ЖИТТЯ</span></h1>
+  <p class="hero-desc">Будую преміум-бізнес канали яким довіряють. Вас обирають ще до того, як ви називаєте ціну.</p>
   <div class="hero-btns">
-    <a href="#navigator" class="btn-fire" onclick="event.preventDefault();document.getElementById('navigator').scrollIntoView({behavior:'smooth'})">Обрати послугу →</a>
-    <a href="#about" class="btn-ghost" onclick="event.preventDefault();document.getElementById('about').scrollIntoView({behavior:'smooth'})">Моя місія</a>
+    <a href="#cta" class="btn-fire" onclick="event.preventDefault();setService('Безкоштовна діагностика — 15 хв');document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Розібрати мій бренд→</a>
+    <a href="#cases" class="btn-ghost" onclick="event.preventDefault();document.getElementById('cases').scrollIntoView({behavior:'smooth'})">Подивитися кейси</a>
   </div>
 </section>
 
@@ -1343,24 +1435,24 @@ if (document.fonts && document.fonts.ready) {
         <span class="eye">Моя місія</span>
         <h2 class="about-h">Створювати контент<br><span class="g">який змінює життя</span></h2>
 
-        <p class="about-p">Привіт я <strong>Михайло Тепленко</strong> креативний ютуб продюсер. У 2014-му я знімав блог у селі на старий телефон, поки інші сміялися. Перші 10 000 переглядів дали впевненості, що я роблю все правильно і вже наступний канал отримав <strong>500 000 підписників</strong>. Як креативний продюсер я не просто роблю контент, а будую канали, що ламають систему та змінюють життя на краще і не бояться що їх замінить ШІ. Досить спостерігати — почни створювати!</p>
+        <p class="about-p">Привіт я <strong>Михайло Тепленко</strong> креативний ютуб продюсер. Дванадцять років я вчився перетворювати увагу на результат — спершу для себе, потім для брендів, тепер для бізнесу. Кожен етап додавав по інструменту: органіка, розуміння відео контенту, підприємництво. Сьогодні все це працює на одне — щоб ваш канал приводив клієнтів і будував довіру.</p>
 
         <div class="tl">
           <div class="tl-row">
             <div class="tl-y">2014</div>
-            <div class="tl-b"><strong>Свій перший ютуб канал</strong> <p>Персональний блог "Просто Теплий". Село, старий телефон, просте бажання робити, що подобається, хоч і багато хто насміхався з мене. Але саме цей канал дав мені перші <strong style="color:var(--y)">20 000 переглядів</strong>, впізнаваність у рідному селі і головне переконання: ніхто не знає як треба! просто слідуй серцю.</p></div>
+            <div class="tl-b"><strong>Свій перший ютуб канал</strong> <p>персональний блог "Просто Теплий". Село, старий телефон, бажання робити, що подобається, хоч і багато хто насміхався з мене. Але саме цей канал дав мені перші <strong style="color:var(--y)">20 000 переглядів</strong>, впізнаваність у рідному селі і головне переконання: люди лишаються там, де є щирість. Усе почалося звідси.</p></div>
           </div>
           <div class="tl-row">
             <div class="tl-y">2015–2019</div>
-            <div class="tl-b"><strong>Gameost — перший великий успіх</strong> <p>Запустили з нуля — без бюджету, без досвіду, тільки на органіці. За 4 роки: <strong style="color:var(--y)">500 000 підписників · 200 млн переглядів</strong>. Тоді переконався: ютуб може забезпечувати. <span class="spark" id="sp3" onclick="activateSpark(3)" style="width:13px;height:13px;vertical-align:middle;margin-left:4px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></p></div>
+            <div class="tl-b"><strong>Gameost — перший великий масштаб </strong> <p>Запустили на чистій органіці й за чотири роки зібрали <strong style="color:var(--y)">500 000 підписників і 200 млн переглядів.</strong>. Тут я переконався: правильно збудований канал може забезпечувати. <span class="spark" id="sp3" onclick="activateSpark(3)" style="width:13px;height:13px;vertical-align:middle;margin-left:4px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></p></div>
           </div>
           <div class="tl-row">
             <div class="tl-y">2017–2022</div>
-            <div class="tl-b"><strong>Кіно, мода, реклама</strong> <p>Режисура, монтаж, оператор. Покази UFW, фешн-відео для брендів, кліпи, короткометражки — тут я вчився будувати історії, утримувати увагу і створювати контент що впливає.</p></div>
+            <div class="tl-b"><strong>Кіно, мода, реклама</strong> <p>режисура, монтаж, оператор. Покази Ukrainian Fashion Week, відео для брендів, кліпи, короткометражки — це те що мене виділяє серед багатьох продюсерів, я знаю не лише одну нішу, я опанував і покращую головні принципи відео: будування історій, утримуння уваги і створення контенту, що впливає на рішення глядача.</p></div>
           </div>
           <div class="tl-row">
             <div class="tl-y">2022–2024</div>
-            <div class="tl-b"><strong>Студія Duor Production</strong> <p>Власна моушн-анімаційна студія. Одна з робіт — на <strong style="color:var(--y)">найбільшому екрані України</strong> (ТРЦ Гулівер). Більшість проєктів для зарубіжного ринку — навчився думати як підприємець: ціль, ресурс, мінімальні кроки.</p></div>
+            <div class="tl-b"><strong>Власна анімаційна студія і мислення підприємця</strong> <p>заснував моушн-анімаційну студію Duor Production. Одна з робіт світилася на <strong style="color:var(--y)">найбільшому екрані України</strong> (ТРЦ «Гулівер»). Більшість проєктів ішли на закордонний ринок. Саме тут я навчився думати як підприємець: ціль, ресурс, мінімальні кроки до результату. Тому з бізнесом ми говоримо однією мовою.</p></div>
           </div>
           <div class="tl-row">
             <div class="tl-y">2024 → сьогодні</div>
@@ -1382,60 +1474,28 @@ if (document.fonts && document.fonts.ready) {
     <span class="eye">Послуги</span>
     <h2 class="sec-h">Знайди своє —<br><span class="ty">і тисни.</span></h2>
 
-    <!-- FILTER BUTTONS -->
-    <div class="svc-filters">
-      <button class="svc-filter active" onclick="filterSvc('all', this)">Всі послуги</button>
-      <button class="svc-filter" onclick="filterSvc('biz', this)">Послуги для бізнесу</button>
-      <button class="svc-filter" onclick="filterSvc('creator', this)">Послуги для кріейтора</button>
-    </div>
+    <p class="svc-sub" style="color:var(--soft);font-size:clamp(14px,1.2vw,17px);line-height:1.6;max-width:620px;margin:14px 0 0;"></p>
 
-    <div class="svc-grid">
-      <!-- free · biz+creator -->
-      <a href="javascript:void(0)" onclick="openSvcModal('diag')" class="snc reveal" data-audience="both">
-        <div class="snc-title">Діагностика каналу</div>
-        <p class="snc-desc">Коротка розмова про твій канал. Разом розберемось що зараз найефективніше для твоєї ситуації.</p>
-        <div class="snc-more">Дізнатися більше →</div>
-        <span class="snc-arrow">→</span>
+            <div class="svc-grid">
+      <a href="javascript:void(0)" onclick="openSvcModal('consult')" class="svc-row reveal">
+        <div><div class="svc-row-num">01</div><div class="svc-row-title">Консультація</div><p class="svc-row-desc">Одна година — і ви точно знаєте, що робити далі. Індивідуальне вирішення нагальних проблем і питань.</p></div>
+        <div class="svc-row-right"><div class="svc-row-price"><del>250€</del> 150€</div><div class="svc-row-meta">60-хв Zoom · з підготовкою</div></div>
+        <div class="svc-row-arrow">детальніше →</div>
       </a>
-      <!-- 150€ · both -->
-      <a href="javascript:void(0)" onclick="openSvcModal('consult')" class="snc reveal" data-audience="both">
-        <div class="snc-title">Консультація</div>
-        <p class="snc-desc">60 хвилин в Zoom. Готуюсь до дзвінка — аналізую твій канал чи запит заздалегідь.</p>
-        <div class="snc-price">150 €<small>60-хв Zoom · з підготовкою</small></div>
-        <div class="snc-more">Дізнатися більше →</div>
-        <span class="snc-arrow">→</span>
+      <a href="javascript:void(0)" onclick="openSvcModal('start')" class="svc-row reveal">
+        <div><div class="svc-row-num">02</div><div class="svc-row-title">YouTube Start</div><p class="svc-row-desc">Підготовка до запуску ютуб каналу з НУЛЯ. Разом з оператором JPD.Production ми створюємо стратегію, і готуємо ваш простір для зйомки.</p></div>
+        <div class="svc-row-right"><div class="svc-row-price">800€</div><div class="svc-row-meta">3 мої консультації + оператор</div></div>
+        <div class="svc-row-arrow">детальніше →</div>
       </a>
-      <!-- від 300€ · biz -->
-      <a href="javascript:void(0)" onclick="openSvcModal('plan')" class="snc reveal" data-audience="biz">
-        <div class="snc-title">Контент-план</div>
-        <p class="snc-desc">Теми і заголовки що відрізняються від конкурентів. Більше не думаєш що знімати.</p>
-        <div class="snc-price">від 300 €<small>4–12 відео</small></div>
-        <div class="snc-more">Дізнатися більше →</div>
-        <span class="snc-arrow">→</span>
+      <a href="javascript:void(0)" onclick="openSvcModal('concept')" class="svc-row reveal">
+        <div><div class="svc-row-num">03</div><div class="svc-row-title">Креативна концепція</div><p class="svc-row-desc">Щоб вас упізнавали й обирали ще до того, як ви назвали ціну. Ідентичність, позиціонування і візуальна мова — фундамент на роки.</p></div>
+        <div class="svc-row-right"><div class="svc-row-price">2 500€</div><div class="svc-row-meta">повний пакет · фундамент бренду</div></div>
+        <div class="svc-row-arrow">детальніше →</div>
       </a>
-      <!-- 500€/міс · creator -->
-      <a href="javascript:void(0)" onclick="openSvcModal('mentor')" class="snc vip reveal" data-audience="creator">
-        <div class="snc-title">Менторство <span style="color:var(--y);font-size:12px;">👑</span></div>
-        <p class="snc-desc">Особистий продюсер для авторів. Передам весь свій досвід.</p>
-        <div class="snc-price">500 € / міс<small>мін. 3 місяці</small></div>
-        <div class="snc-more">Дізнатися більше →</div>
-        <span class="snc-arrow">→</span>
-      </a>
-      <!-- від 1400€ · biz -->
-      <a href="javascript:void(0)" onclick="openSvcModal('full')" class="snc vip reveal" data-audience="biz">
-        <div class="snc-title">Повне ведення <span style="color:var(--y);font-size:12px;">👑</span></div>
-        <p class="snc-desc">Повністю веду канал — стратегія, концепція, контент. Твоє завдання — прийти на зйомку.</p>
-        <div class="snc-price">від 1 400 €<small>за 4 відео</small></div>
-        <div class="snc-more">Дізнатися більше →</div>
-        <span class="snc-arrow">→</span>
-      </a>
-      <!-- 2000€ · biz -->
-      <a href="javascript:void(0)" onclick="openSvcModal('concept')" class="snc vip reveal" data-audience="biz">
-        <div class="snc-title">Креативний концепт <span class="snc-new">НОВИНКА</span> <span style="color:var(--y);font-size:12px;">👑</span></div>
-        <p class="snc-desc">Розробляю унікальну концепцію каналу — характер, стиль, формат. Щоб тебе впізнавали з першого кадру.</p>
-        <div class="snc-price">2 500 €<small>повний пакет</small></div>
-        <div class="snc-more">Дізнатися більше →</div>
-        <span class="snc-arrow">→</span>
+      <a href="javascript:void(0)" onclick="openSvcModal('full')" class="svc-row reveal">
+        <div><div class="svc-row-num">04</div><div class="svc-row-title">Ютуб під ключ</div><p class="svc-row-desc">Ваш YouTube-відділ на аутсорсі. Стратегія, контент і команда — на мені. Ваше завдання — прийти на зйомку.</p></div>
+        <div class="svc-row-right"><div class="svc-row-price">від 2 500€</div><div class="svc-row-meta">за 8 відео</div></div>
+        <div class="svc-row-arrow">детальніше →</div>
       </a>
     </div>
   </div>
@@ -1448,23 +1508,11 @@ if (document.fonts && document.fonts.ready) {
   </div>
 <div class="belt-wrap" style="margin-top:40px;">
     <div class="belt" id="casesBelt">
-      
-      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%BF%D1%80%D0%BE_%D1%80%D0%B5%D0%BC%D0%B5%D1%81%D0%BB%D0%BE_123_rqheu3.jpg" alt="ПроРемесло" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-name">ПроРемесло</div><div class="cc-niche">Автентичні ремесла України · Повне ведення</div><p class="cc-story">Прийшли без досвіду і без каналу. Після першої консультації запросили на повне ведення. Разом запустили канал, побудували структуру і формат. Досі в активній співпраці.</p><div class="cc-stats"><div class="cc-stat">0 → 175 000 переглядів за 10 відео</div><div class="cc-stat">Випуск "Чорнодимлена кераміка" напопулярніший на всьому ютубі</div><div class="cc-stat">Повністю органічно</div></div></div></div></div>
-      
-      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%86%D0%BD%D0%BD%D0%B0_%D0%A8%D0%B5%D0%BC%D0%B5%D1%82_wn9lgo.jpg" alt="Інна Шемет" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-name">Інна Шемет</div><div class="cc-niche">Юридичні послуги · Португалія · Повне ведення</div><p class="cc-story">Канал не тримав глядача — утримання 2–3 хв. Розробили стиль, формат і контент-план що спрацював вже на другому відео.</p><div class="cc-stats"><div class="cc-stat">30 000 цільових переглядів за 5 місяців</div><div class="cc-stat">Утримання: 2–3 хв → 5–6 хв</div><div class="cc-stat">50–100 лідів з YouTube щомісяця</div></div></div></div></div>
-      
-      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%BA%D1%83%D0%BB%D1%96%D0%BD%D0%B0%D1%80%D0%BA%D0%B0_mjgsa8.jpg" alt="Корисні рецепти Елли" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-name">Корисні рецепти Елли</div><div class="cc-niche">Кулінарія · Менторинг 6 місяців</div><p class="cc-story">Старт з нуля без розуміння платформи. За 6 місяців налаштували графік, знайшли формат, вивели формулу назв і обкладинок.</p><div class="cc-stats"><div class="cc-stat">0 → 121 000 підписників за 1 рік (отримали срібну кнопку)</div><div class="cc-stat">10 млн. органічних переглядів (довгих відео)</div><div class="cc-stat">1 200% окупність інвестиції</div></div></div></div></div>
-      
-      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%B4%D0%B6%D0%B0%D1%81%D1%82_%D0%BF%D0%B0%D0%BA%D0%BD_%D1%96%D1%82_eyqfut.jpg" alt="Just Punk It Podcast" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-name">Just Punk It Podcast</div><div class="cc-niche">Подкаст · Повне ведення · Перезапуск</div><p class="cc-story">Минулий канал вбили рекламою. Потрібна нова стратегія, унікальний стиль і сценарій для гостей. Запустили під ключ.</p><div class="cc-stats"><div class="cc-stat">Повний перезапуск з нуля</div><div class="cc-stat">0 → 16 000 органічних переглядів за 8 відео</div><div class="cc-stat">Унікальний стиль з другого відео</div></div></div></div></div>
-      <!-- duplicate for seamless loop -->
-      
-      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%BF%D1%80%D0%BE_%D1%80%D0%B5%D0%BC%D0%B5%D1%81%D0%BB%D0%BE_123_rqheu3.jpg" alt="ПроРемесло" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-name">ПроРемесло</div><div class="cc-niche">Автентичні ремесла України · Повне ведення</div><p class="cc-story">Прийшли без досвіду і без каналу. Після першої консультації запросили на повне ведення. Разом запустили канал, побудували структуру і формат. Досі в активній співпраці.</p><div class="cc-stats"><div class="cc-stat">0 → 175 000 переглядів за 10 відео</div><div class="cc-stat">Випуск "Чорнодимлена кераміка" напопулярніший на всьому ютубі</div><div class="cc-stat">Повністю органічно</div></div></div></div></div>
-      
-      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%86%D0%BD%D0%BD%D0%B0_%D0%A8%D0%B5%D0%BC%D0%B5%D1%82_wn9lgo.jpg" alt="Інна Шемет" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-name">Інна Шемет</div><div class="cc-niche">Юридичні послуги · Португалія · Повне ведення</div><p class="cc-story">Канал не тримав глядача — утримання 2–3 хв. Розробили стиль, формат і контент-план що спрацював вже на другому відео.</p><div class="cc-stats"><div class="cc-stat">30 000 цільових переглядів за 5 місяців</div><div class="cc-stat">Утримання: 2–3 хв → 5–6 хв</div><div class="cc-stat">50–100 лідів з YouTube щомісяця</div></div></div></div></div>
-      
-      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%BA%D1%83%D0%BB%D1%96%D0%BD%D0%B0%D1%80%D0%BA%D0%B0_mjgsa8.jpg" alt="Корисні рецепти Елли" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-name">Корисні рецепти Елли</div><div class="cc-niche">Кулінарія · Менторинг 6 місяців</div><p class="cc-story">Старт з нуля без розуміння платформи. За 6 місяців налаштували графік, знайшли формат, вивели формулу назв і обкладинок.</p><div class="cc-stats"><div class="cc-stat">0 → 121 000 підписників за 1 рік (отримали срібну кнопку)</div><div class="cc-stat">10 млн. органічних переглядів (довгих відео)</div><div class="cc-stat">1 200% окупність інвестиції</div></div></div></div></div>
-      
-      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%B4%D0%B6%D0%B0%D1%81%D1%82_%D0%BF%D0%B0%D0%BA%D0%BD_%D1%96%D1%82_eyqfut.jpg" alt="Just Punk It Podcast" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-name">Just Punk It Podcast</div><div class="cc-niche">Подкаст · Повне ведення · Перезапуск</div><p class="cc-story">Минулий канал вбили рекламою. Потрібна нова стратегія, унікальний стиль і сценарій для гостей. Запустили під ключ.</p><div class="cc-stats"><div class="cc-stat">Повний перезапуск з нуля</div><div class="cc-stat">0 → 16 000 органічних переглядів за 8 відео</div><div class="cc-stat">Унікальний стиль з другого відео</div></div></div></div></div>
+      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%86%D0%BD%D0%BD%D0%B0_%D0%A8%D0%B5%D0%BC%D0%B5%D1%82_wn9lgo.jpg" alt="Інна Шемет" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-name">Інна Шемет</div><div class="cc-niche">Юридичні послуги · Португалія · Повне ведення</div><p class="cc-story">Створення каналу з нуля, для прокачки персонального бренду і залучення лідів. Розробили стиль і формат, що спрацював уже на другому відео.</p><div class="cc-stats"><div class="cc-stat">14 000 переглядів вже на другому відео</div><div class="cc-stat">Стабільні 50+ лідів з YouTube на 3-тьому місяці</div><div class="cc-stat">30 000 цільових переглядів за 5 міс. роботи</div></div></div></div></div>
+      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1781451217/%D1%8E%D1%82%D1%83%D0%B1%D0%BD%D1%83%D1%82%D0%B8%D0%B9_2_ozofta.jpg" alt="Ютубнутий" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-name">Ютубнутий</div><div class="cc-niche">Мій канал · експертна-вузька ніша</div><p class="cc-story">Експертний ютуб канал для авторів чи бізнесу, який тільки починає свій шлях на ютубі. Публікація всього 2 відео в місяць.</p><div class="cc-stats"><div class="cc-stat">50 цільових відвідувачів на сайт щомісяця - лише з 2 відео</div><div class="cc-stat">3–4 тис. переглядів на довгих відео в місяць</div><div class="cc-stat">Мій власний бізнес працює через YouTube — я не раджу те, чого не роблю сам</div></div></div></div></div>
+      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%BF%D1%80%D0%BE_%D1%80%D0%B5%D0%BC%D0%B5%D1%81%D0%BB%D0%BE_123_rqheu3.jpg" alt="ПроРемесло" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-name">ПроРемесло</div><div class="cc-niche">Автентичні ремесла України · Партнерство</div><p class="cc-story">Прийшли на консультацію — залишились на повне ведення. З нуля зібрали команду, побудували стратегію. Отримали 200 000 переглядів без жодного євро на рекламу.</p><div class="cc-stats"><div class="cc-stat">200 000 переглядів за 12 відео</div><div class="cc-stat">Випуск "Чорнодимлена кераміка" найпопулярніший на всьому ютубі</div><div class="cc-stat" style="color:#FF6B35;--hide-arrow:1;"><style>.cc-stat[style*="hide-arrow"]::before{display:none!important;}</style><span style="font-size:13px;">↓</span> Поки просідаємо в стабільності!</div></div></div></div></div>
+      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%B4%D0%B6%D0%B0%D1%81%D1%82_%D0%BF%D0%B0%D0%BA%D0%BD_%D1%96%D1%82_eyqfut.jpg" alt="Just Punk It Podcast" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-name">Just Punk It Podcast</div><div class="cc-niche">Подкаст · Повне ведення · Перезапуск</div><p class="cc-story">Запустили під ключ: нова стратегія, унікальний стиль і сценарій для гостей.</p><div class="cc-stats"><div class="cc-stat">Повний перезапуск з нуля</div><div class="cc-stat">0 → 16 000 органічних переглядів за 8 відео</div><div class="cc-stat">Розробка Унікального впізнаваного стилю</div></div></div></div></div>
+      <div class="carousel-item"><div class="case-card"><div class="cc-img"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774475513/%D0%BA%D1%83%D0%BB%D1%96%D0%BD%D0%B0%D1%80%D0%BA%D0%B0_mjgsa8.jpg" alt="Корисні рецепти Елли" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="cc-body"><div class="cc-name">Корисні рецепти Елли</div><div class="cc-niche">Кулінарія · Менторинг 6 місяців</div><p class="cc-story">Старт з нуля. За 6 місяців налаштували графік, знайшли формат, вивели формулу назв і обкладинок.</p><div class="cc-stats"><div class="cc-stat">0 → 121 000 підписників за 1 рік (срібна кнопка)</div><div class="cc-stat">10 млн органічних переглядів</div><div class="cc-stat">1 200% окупність інвестиції</div></div></div></div></div>
     </div>
     <button class="belt-prev" onclick="shiftBelt('cases',-1)" aria-label="Назад"><div class="belt-btn-inner">←</div></button>
     <button class="belt-next" onclick="shiftBelt('cases',1)" aria-label="Вперед"><div class="belt-btn-inner">→</div></button>
@@ -1483,7 +1531,6 @@ if (document.fonts && document.fonts.ready) {
       <div class="carousel-item"><div class="rv-card"><div class="rv-top"><div class="rv-av"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774467610/%D0%BC%D0%B8%D1%80%D0%BE%D1%81_iekkuf.jpg" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;"></div><div><div class="rv-name">Мирослава</div><div class="rv-meta">«ПроРемесло» · Повне ведення</div></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">Міша крутий, трохи строгий, але в міру. Завдяки цьому в нас є дисципліна, чітка структура і результат. Людина-структура. Людина-чесність. Людина-результат.</p></div></div>
       <div class="carousel-item"><div class="rv-card"><div class="rv-top"><div class="rv-av"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774467610/%D0%92%D1%96%D1%82%D0%B0%D0%BB%D1%96%D0%B9_q09sqj.jpg" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;"></div><div><div class="rv-name">Віталій Маргалик</div><div class="rv-meta">Шоубіз · Експрес-аудит</div></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">Повернувся до своєї рубрики і зробив відео по-новому. Вже шостий день набирає — 15 тисяч. Найкращий результат на каналі. Реально допомогли повірити в себе.</p></div></div>
       <div class="carousel-item"><div class="rv-card"><div class="rv-top"><div class="rv-av"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774467610/%D0%9D%D0%B0%D0%B4%D1%96%D1%8F_orygco.jpg" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;"></div><div><div class="rv-name">Надія</div><div class="rv-meta">«Easy Vending» · Креативний концепт</div></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">Креативний концепт — найкраще що я зробила для каналу бізнесу. Тепер просто передаю файл монтажеру і дизайнеру — вони знають що робити. Заощадила мінімум 6 місяців пошуку.</p></div></div>
-      <div class="carousel-item"><div class="rv-card"><div class="rv-top"><div class="rv-av"><img src="https://res.cloudinary.com/dwyninrtq/image/upload/v1774467610/%D0%9B%D0%B5%D0%BD%D0%B0_ehxnlt.jpg" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;"></div><div><div class="rv-name">Олена</div><div class="rv-meta">«Всього один шматочок» · Менторство</div></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">Спочатку сумнівалась: 500 євро на місяць — серйозні гроші. Але вже в перший місяць зрозуміла: це інвестиція, а не витрата. Маю чіткий план і реальний ріст.</p></div></div>
     
 </div>
     <button class="belt-prev" onclick="shiftBelt('reviews',-1)" aria-label="Назад"><div class="belt-btn-inner">←</div></button>
@@ -1499,20 +1546,23 @@ if (document.fonts && document.fonts.ready) {
     <div class="nf-grid reveal">
       <div class="nf-col" style="border-top:3px solid var(--r);">
         <div class="nf-head r">Я не працюю з</div>
-        <div class="nf-row"><span style="color:var(--r);">✕</span><span>Проєктами що працюють російською мовою</span></div>
+        <div class="nf-row"><span style="color:var(--r);">✕</span><span>Бізнесами, що працюють російською мовою</span></div>
         <div class="nf-row"><span style="color:var(--r);">✕</span><span>Каналами з «сірими» або сумнівними рекламодавцями</span></div>
         <div class="nf-row"><span style="color:var(--r);">✕</span><span>Нішами казино, беттінгу та маніпулятивного інфобізу</span></div>
-        <div class="nf-row"><span style="color:var(--r);">✕</span><span>З тими хто «все знає» і готовий робити мою роботу</span></div>
+        <div class="nf-row"><span style="color:var(--r);">✕</span><span>З тим, хто «все знає» і готовий робити мою роботу</span></div>
+        <div class="nf-row"><span style="color:var(--r);">✕</span><span>Бізнесами, які очікують клієнтів із YouTube за перший місяць</span></div>
       </div>
       <!-- #11 — yellow header -->
       <div class="nf-col" style="border-top:3px solid #4ADE80;">
-        <div class="nf-head g2">Я обожнюю ✨</div>
-        <div class="nf-row"><span style="color:#4ADE80;font-size:16px;">✓</span><span>Амбітних і відкритих людей</span></div>
-        <div class="nf-row"><span style="color:#4ADE80;font-size:16px;">✓</span><span>Бізнеси що готові експериментувати і створювати</span></div>
-        <div class="nf-row"><span style="color:#4ADE80;font-size:16px;">✓</span><span>Тих хто хоче будувати медіа-актив — а не просто «спробувати»</span></div>
-        <div class="nf-row"><span style="color:#4ADE80;font-size:16px;">✓</span><span>Людей що розуміють: якість — це марафон, а не спринт <span class="spark" id="sp4" onclick="activateSpark(4)" style="width:13px;height:10px;vertical-align:middle;margin-left:4px;display:inline-flex;align-items:center;opacity:0.12;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></span></div>
+        <div class="nf-head g2">Працюю з</div>
+        <div class="nf-row"><span style="color:#4ADE80;font-size:16px;">✓</span><span>Преміум-бізнес із дорогими послугами, де клієнти обирають через довіру</span></div>
+        <div class="nf-row"><span style="color:#4ADE80;font-size:16px;">✓</span><span>Експерти які мають унікальні знання — але про яких ще мало хто знає</span></div>
+        <div class="nf-row"><span style="color:#4ADE80;font-size:16px;">✓</span><span>Тих, хто хоче будувати бренд, а не просто «спробувати YouTube»</span></div>
+        <div class="nf-row"><span style="color:#4ADE80;font-size:16px;">✓</span><span>Бізнес, готовий до 6–12 місяців системної роботи — бо розуміє, що ютубу потрібен час</span></div>
+</div>
       </div>
     </div>
+    <p style="text-align:center;font-size:14px;color:var(--soft);margin-top:24px;line-height:1.6;">Якщо впізнали себе праворуч — <a href="#cta" style="color:var(--y);text-decoration:underline;" onclick="event.preventDefault();document.getElementById('cta').scrollIntoView({behavior:'smooth'});">напишіть</a>. Якщо ліворуч — ми обидва заощадимо час.</p>
   </div>
 </section>
 
@@ -1741,7 +1791,7 @@ if (document.fonts && document.fonts.ready) {
 <!-- FINAL CTA -->
 <section class="final" id="cta">
   <h2 class="final-h">ДІАГНОСТИКА<br><span class="g">КАНАЛУ <br>БЕЗКОШТОВНО</span></h2>
-  <p class="final-p">Розберемось де саме губиш глядача або клієнта — і що з цим робити</p>
+  <p class="final-p">За 15 хвилин розберу, де ваш бренд втрачає клієнтів — і чи здатен YouTube окупитися у вашій ніші. Розберемось чи варто сюди заходити і яка послуга буде найбільш актуальна для вас.</p>
   <p class="final-note"> <strong>Відповідаю протягом 24 годин</strong></p>
   <div id="finalFormFields" style="display:flex;flex-direction:column;gap:10px;max-width:440px;margin:0 auto;position:relative;z-index:2;">
     <div style="position:relative;" id="serviceDropdownWrap">
@@ -1751,20 +1801,13 @@ if (document.fonts && document.fonts.ready) {
       </button>
       <input type="hidden" id="finalService" value="">
       <div id="serviceDropdownList" style="display:none;position:absolute;top:100%;left:0;right:0;z-index:200;background:#1A1A1A;border:1px solid rgba(255,255,255,.12);border-top:none;max-height:320px;overflow-y:auto;">
-        <div class="svc-opt" onclick="selectService('Безкоштовна діагностика — 15 хв')">Діагностика каналу — 15 хв <span style="color:#4ADE80;">Безкоштовно</span></div>
-        <div class="svc-opt" onclick="selectService('Консультація — 60 хв Zoom · 150 €')">Консультація — 60 хв Zoom <span>150 €</span></div>
-        <div class="svc-opt" onclick="selectService('Контент-план — 4 відео/міс · 300 €')">Контент-план — 4 відео/міс <span>300 €</span></div>
-        <div class="svc-opt" onclick="selectService('Контент-план — 8 відео · 500 €')">Контент-план — 8 відео <span>500 €</span></div>
-        <div class="svc-opt" onclick="selectService('Контент-план — 12 відео/3 міс · 700 €')">Контент-план — 12 відео/3 міс <span>700 €</span></div>
-        <div class="svc-opt svc-opt-vip" onclick="selectService('Менторство — 3 місяці · 500 €/міс')">Менторство — 3 місяці <span>500 €/міс</span></div>
-        <div class="svc-opt svc-opt-vip" onclick="selectService('Повне ведення — 4 відео · 1 400 €')">Повне ведення — 4 відео <span>1 400 €</span></div>
-        <div class="svc-opt svc-opt-vip" onclick="selectService('Повне ведення — 8 відео · 2 500 €')">Повне ведення — 8 відео <span>2 500 €</span></div>
-        <div class="svc-opt svc-opt-vip" onclick="selectService('Повне ведення — 16 відео · 4 400 €')">Повне ведення — 16 відео <span>4 400 €</span></div>
-        <div class="svc-opt svc-opt-vip" onclick="selectService('Креативний концепт + Стратегія · 2 500 €')">Креативний концепт + Стратегія <span>2 500 €</span></div>
-        <div class="svc-opt svc-opt-other" onclick="selectService('Просто поговорити — не знаю з чого почати')">Просто поговорити / не знаю з чого почати <span>→</span></div>
+        <div class="svc-opt svc-opt-vip" style="border-left-color:#4ADE80;" onclick="selectService('Безкоштовна діагностика — 15 хв')">Безкоштовна діагностика — 15 хв <span style="color:#4ADE80;">Безкоштовно</span></div>
+        <div class="svc-opt svc-opt-vip" style="border-left-color:var(--y);" onclick="selectService('Консультація — 60 хв Zoom · 150 €')">Консультація — 60 хв Zoom <span style="color:var(--y);"><del style="opacity:.5;">250</del> 150 €</span></div>
+        <div class="svc-opt svc-opt-vip" style="border-left-color:var(--y);" onclick="selectService('Креативна концепція')">Креативна концепція <span style="color:var(--y);">Дізнатись</span></div>
+        <div class="svc-opt svc-opt-vip" style="border-left-color:var(--y);" onclick="selectService('Ютуб під ключ')">Ютуб під ключ <span style="color:var(--y);">Дізнатись</span></div>
       </div>
     </div>
-    <input class="cl-input" type="text" placeholder="Твоє ім'я" id="finalName" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:var(--text);font-family:'Manrope',sans-serif;font-size:16px;padding:14px 18px;outline:none;transition:border-color .18s;"/>
+    <input class="cl-input" type="text" placeholder="Ваше ім'я" id="finalName" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:var(--text);font-family:'Manrope',sans-serif;font-size:16px;padding:14px 18px;outline:none;transition:border-color .18s;"/>
     <div id="contactTypeWrap">
       <div style="display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;">
         <button type="button" class="contact-type-btn" data-type="telegram" data-placeholder="@username" data-prefix="Telegram" data-color="#29B6F6" data-bg="rgba(41,182,246,.12)" data-border="rgba(41,182,246,.45)" onclick="selectContactType(this)" style="flex:1;min-width:80px;padding:9px 10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:rgba(240,239,232,.55);font-family:'Manrope',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .18s;letter-spacing:.02em;display:flex;align-items:center;justify-content:center;gap:6px;">
@@ -1787,7 +1830,7 @@ if (document.fonts && document.fonts.ready) {
       <input class="cl-input" type="text" id="finalSocial" placeholder="Оберіть спосіб зв'язку вище" disabled
         style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:var(--text);font-family:'Manrope',sans-serif;font-size:16px;padding:14px 18px;outline:none;transition:all .18s;width:100%;opacity:.5;cursor:not-allowed;"/>
     </div>
-    <p style="font-size:11px;color:rgba(240,239,232,.3);text-align:left;">Заповни ім'я та контакт для зв'язку.</p>
+    <p style="font-size:11px;color:rgba(240,239,232,.35);text-align:left;line-height:1.5;">⚠️ Вкажіть реальний контакт — інакше не зможу зв'язатися</p>
     <button onclick="sendFinalLead()" class="btn-fire" style="border:none;cursor:pointer;width:100%;text-align:center;display:block;">Залишити заявку</button>
   </div>
   <div id="finalSuccess" style="display:none;margin-top:20px;background:rgba(74,222,128,.07);border:1px solid rgba(74,222,128,.22);padding:20px 28px;max-width:400px;margin-left:auto;margin-right:auto;">
@@ -2690,16 +2733,16 @@ function closeHuntWin() {
     <div class="svc-modal-body">
       <div style="padding:0 32px 32px;">
         <div class="svc-eyebrow" style="margin-top:24px;"><span class="svc-num">00</span></div>
-        <h2 class="svc-h">Діагностика каналу</h2>
-        <p class="svc-desc" style="margin-bottom:20px;">Проста розмова про твій канал і ситуацію. Я слухаю, задаю питання, роблю мінімальний аналіз — і разом ми розбираємося що зараз буде найефективніше саме для тебе.</p>
+        <h2 class="svc-h">Безкоштовна діагностика</h2>
+        <p class="svc-desc" style="margin-bottom:20px;">За 15 хвилин я розберу, де саме ваш бренд втрачає клієнтів — і чи здатен YouTube окупитися саме у вашій ніші. Без води: підете з конкретним розумінням, варта гра свічок чи ні, і з якими цифрами до неї заходити.</p>
         <div class="two">
           <div class="col">
             <div class="col-eye">Як це відбувається</div>
             <div class="flist">
-              <div class="fi"><div class="fi-icon" style="background:rgba(74,222,128,.12);color:#4ADE80;font-size:18px;">🎙</div><div><strong>Розповідаєш про канал</strong><p>Де зараз знаходишся, що вже пробував, де відчуваєш що щось не так. Без підготовки — просто як є.</p></div></div>
-              <div class="fi"><div class="fi-icon" style="background:rgba(74,222,128,.12);color:#4ADE80;font-size:18px;">🔎</div><div><strong>Мінімальний аналіз ситуації</strong><p>Я задаю питання щоб зрозуміти картину. Вже в процесі розмови часто стає видно де вузьке місце.</p></div></div>
-              <div class="fi"><div class="fi-icon" style="background:rgba(74,222,128,.12);color:#4ADE80;font-size:18px;">💡</div><div><strong>Можу дати користь одразу</strong><p>Якщо бачу щось конкретне — скажу. За 15 хвилин реально можна отримати інсайт який змінить підхід.</p></div></div>
-              <div class="fi"><div class="fi-icon" style="background:rgba(74,222,128,.12);color:#4ADE80;font-size:18px;">🗺</div><div><strong>Підкажу що підійде саме тобі</strong><p>В кінці скажу яка послуга найефективніше вирішить твою задачу — або що зробити якщо допомога поки не потрібна.</p></div></div>
+              <div class="fi"><div class="fi-icon" style="background:rgba(74,222,128,.12);color:#4ADE80;font-size:18px;">🎙</div><div><strong>Розповідаєте про бізнес</strong><p>Яка послуга, який чек, де берете клієнтів зараз. Без підготовки — просто як є.</p></div></div>
+              <div class="fi"><div class="fi-icon" style="background:rgba(74,222,128,.12);color:#4ADE80;font-size:18px;">🔎</div><div><strong>Розбір вашої ніші</strong><p>Дивлюся, чи окупиться канал саме у вас: вартість клієнта, конкуренти, точка, де ви зливаєтесь із ринком.</p></div></div>
+              <div class="fi"><div class="fi-icon" style="background:rgba(74,222,128,.12);color:#4ADE80;font-size:18px;">💡</div><div><strong>Конкретний інсайт одразу</strong><p>За 15 хвилин ви отримаєте розуміння, де вузьке місце і що з ним робити — не загальні поради.</p></div></div>
+              <div class="fi"><div class="fi-icon" style="background:rgba(74,222,128,.12);color:#4ADE80;font-size:18px;">🗺</div><div><strong>Чесна відповідь: варто чи ні</strong><p>Скажу прямо, чи YouTube — ваш шлях, чи краще інший канал. І якщо так — з чого починати.</p></div></div>
             </div>
             <div style="margin-top:16px;padding:16px 18px;background:rgba(74,222,128,.06);border:1px solid rgba(74,222,128,.2);border-left:3px solid #4ADE80;">
               <strong style="color:#4ADE80;">Ідеально якщо</strong><br>
@@ -2719,7 +2762,7 @@ function closeHuntWin() {
     <div class="svc-price-card" style="border-top-color:#4ADE80;">
       <div>
         <div class="svc-price-val" style="color:#4ADE80;">Безкоштовно</div>
-        <div class="svc-price-note">Живий дзвінок · мінімальний аналіз ситуації</div>
+        <div class="svc-price-note">Живий дзвінок · розбір вашої ніші та точок росту</div>
       </div>
       <a href="#cta" class="svc-price-btn" style="background:#4ADE80;color:#0C0C0C;" onclick="setService('Діагностика каналу — безкоштовно');closeSvcModal('diag');setTimeout(function(){document.getElementById('cta').scrollIntoView({behavior:'smooth'});},200);return false;">Записатись на діагностику →</a>
     </div>
@@ -2738,19 +2781,23 @@ function closeHuntWin() {
       <div style="padding:0 32px 32px;">
         <div class="svc-eyebrow" style="margin-top:24px;"><span class="svc-num">01</span></div>
         <h2 class="svc-h">Консультація</h2>
-        <p style="font-size:15px;line-height:1.75;margin-top:12px;margin-bottom:20px;">Zoom-сесія 60 хвилин. Але є деталь: я <strong style="color:var(--y);">готуюсь до дзвінка заздалегідь</strong> — аналізую твій канал, метрики і нішу ще до зустрічі. Ти приходиш — а я вже знаю де у тебе болить.</p>
-        <div class="agenda">
-          <div class="ag"><div class="ag-n">ДО</div><div><strong>Я готуюсь до тебе</strong><p>Аналізую канал, метрики, конкурентів і нішу — перед дзвінком.</p></div></div>
-          <div class="ag"><div class="ag-n">01</div><div><strong>Аудит ситуації</strong><p>Чітко визначаємо що гальмує. І які наступні кроки принесуть результат.</p></div></div>
-          <div class="ag"><div class="ag-n">02</div><div><strong>Генерація гіпотез</strong><p>2–3 вектори розвитку що спрацюють саме у твоїй ситуації.</p></div></div>
-          <div class="ag"><div class="ag-n">03</div><div><strong>Валідація ідей</strong><p>Відмовлю від зйомки того, що ніхто не дивитиметься — це економить бюджет і час.</p></div></div>
-          <div class="ag"><div class="ag-n">🎯</div><div><strong>Виходиш з планом, а не натхненням</strong><p>Конкретний список кроків на наступний тиждень — не просто «подумай над цим». <span class="spark" id="sp8" onclick="activateSpark(8)" style="width:14px;height:14px;vertical-align:middle;margin-left:4px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></p></div></div>
+        <p class="svc-desc" style="margin-top:12px;margin-bottom:20px;">Дзвінок 60 хвилин. Я <strong style="color:var(--y);">готуюсь до дзвінка заздалегідь</strong> — аналізую ваш канал, метрики, контент і нішу. На Консультації ви отримуєте індивідуальні рішення чи гіпотези</p>
+        <div style="background:var(--card);padding:20px 24px;margin-bottom:20px;border-left:3px solid #4ADE80;">
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#4ADE80;margin-bottom:10px;">Для кого це</div>
+          <div style="font-size:13px;line-height:1.7;color:var(--light);">✓ Вже є канал, але він не дає результату — і ви хочете зрозуміти чому<br>✓ Плануєте запуск і хочете почати правильно, а не переробляти через пів року<br>✓ Маєте дорогі послуги і хочете зрозуміти, чи YouTube окупиться саме у вашій ніші</div>
         </div>
-        <div class="box-y" style="margin-top:16px;"><strong>🎁 Бонус:</strong> якщо після сесії замовляєш Креативний концепт — ці 150 € вираховуються з ціни. Діагностика стає безкоштовною.</div>
+        <div class="agenda">
+          <div class="ag"><div class="ag-n">ДО</div><div><strong>Валідація</strong><p>Заповнення спеціальної форми, щоб зрозуміти ваші цілі, проблеми і як я можу допомогти.</p></div></div>
+          <div class="ag"><div class="ag-n">01</div><div><strong>Початок роботи</strong><p>Передача доступу до аналітики, щоб бути в курсі, в якому стані ваш канал.</p></div></div>
+          <div class="ag"><div class="ag-n">02</div><div><strong>Розбір контенту</strong><p>Розбираю, що працює, а що гальмує: позиціонування, формат, подача, теми. Показую конкретно, де канал втрачає увагу і чому глядач йде і як це можна покращити.</p></div></div>
+          <div class="ag"><div class="ag-n">03</div><div><strong>Напрямки росту</strong><p>2–3 вектори, які спрацюють саме у вашій ситуації: що змінити в контенті, як подавати експертизу, де найшвидша точка росту. Також передача актуальних промтів для ШІ, які можуть пришвидшити деякі процеси.</p></div></div>
+          <div class="ag"><div class="ag-n">🎯</div><div><strong>Виходите з чітким планом дій</strong><p>Конкретний список: що зняти, що змінити, в якому порядку. <span class="spark" id="sp8" onclick="activateSpark(8)" style="width:14px;height:14px;vertical-align:middle;margin-left:4px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></p></div></div>
+        </div>
+        <div class="box-y" style="margin-top:16px;"><strong>🎁 Бонус:</strong> якщо після консультації замовляєте Креативну концепцію — вартість консультації вираховується з ціни концепції. </div>
     <div class="svc-price-card">
       <div>
-        <div class="svc-price-val">150 €</div>
-        <div class="svc-price-note">60-хв Zoom · документ з порадами · запис</div>
+        <div class="svc-price-val"><del style="color:var(--soft);font-size:50%;font-weight:400;">250 €</del> 150 €</div>
+        <div class="svc-price-note">60-хв дзвінок + документ з порадами + запис</div>
       </div>
       <a href="#cta" class="svc-price-btn gold" onclick="setService('Консультація — 60 хв Zoom (150 €)');closeSvcModal('consult');setTimeout(function(){document.getElementById('cta').scrollIntoView({behavior:'smooth'});},200);return false;">Записатись →</a>
     </div>
@@ -2762,14 +2809,14 @@ function closeHuntWin() {
 <div class="svc-modal-overlay" id="svcmodal-concept" style="display:none;">
   <div class="svc-modal-box">
     <div class="svc-modal-close">
-      <span class="svc-modal-close-title">Креативний концепт + Стратегія</span>
+      <span class="svc-modal-close-title">Креативна концепція</span>
       <button class="svc-modal-close-btn" onclick="closeSvcModal('concept')">✕</button>
     </div>
     <div class="svc-modal-body">
       <div style="padding:0 32px 32px;">
-        <div class="svc-eyebrow" style="margin-top:24px;"><span class="svc-num">02</span><span class="svc-badge">НОВИНКА · VIP</span></div>
-        <h2 class="svc-h">Креативний концепт<br>+ Стратегія</h2>
-        <p class="svc-desc" style="margin-bottom:16px;">Для тих хто не хоче бути «ще одним каналом». Результат: «Стратегія каналу» — документ, який дає напрямок усій команді і економить 3–6 місяців хаотичних експериментів.</p>
+        <div class="svc-eyebrow" style="margin-top:24px;"><span class="svc-num">01</span><span class="svc-badge">★ ОСНОВНА ПОСЛУГА</span></div>
+        <h2 class="svc-h">Креативна концепція<br>каналу</h2>
+        <p class="svc-desc" style="margin-bottom:16px;">Щоб вас упізнавали й обирали ще до того, як ви назвали ціну. Це не вісім відео — це те, ким ви будете на ринку роками. Результат: документ-стратегія, що дає напрямок усій команді.</p>
         <div class="cmp">
           <div class="cmp-side bad"><div class="cmp-head r">✕ БЕЗ КОНЦЕПЦІЇ</div><div class="cmp-row no">Канал схожий на десятки інших</div><div class="cmp-row no">Глядач не розуміє навіщо підписуватись</div><div class="cmp-row no">Команда тягне у різні боки</div><div class="cmp-row no">Роки пошуку «свого стилю»</div><div class="cmp-row no">Хаотичні відео — хаотичні результати</div></div>
           <div class="cmp-side good"><div class="cmp-head y">✓ З УНІКАЛЬНОЮ КОНЦЕПЦІЄЮ</div><div class="cmp-row yes">Канал який одразу впізнають</div><div class="cmp-row yes">Чітка причина підписатись саме на тебе</div><div class="cmp-row yes">Команда розуміє напрямок без пояснень</div><div class="cmp-row yes">Одразу виходиш з унікальною ідентичністю</div><div class="cmp-row yes">Клієнти приходять тепліші</div></div>
@@ -2780,51 +2827,69 @@ function closeHuntWin() {
             <div class="flist">
               <div class="fi"><div class="fi-icon y">💬</div><div><strong>Розпаковка (3–5 сесії)</strong><p>Витягуємо твої сенси, цілі та експертність. Хто твій глядач і чому він обере саме тебе.</p></div></div>
               <div class="fi"><div class="fi-icon y">🎯</div><div><strong>Позиціювання + Tone of Voice</strong><p>Як ти говориш, виглядаєш, чим відрізняєшся від інших.</p></div></div>
-              <div class="fi"><div class="fi-icon y">🎬</div><div><strong>Візуальна стратегія</strong><p>Референси по світлу, локаціях, монтажу — готове ТЗ для команди.</p></div></div>
-              <div class="fi"><div class="fi-icon y">📋</div><div><strong>План запуску</strong><p>Теми для перших 10 відео з урахуванням концепції. <span class="spark" id="sp9" onclick="activateSpark(9)" style="width:14px;height:14px;vertical-align:middle;margin-left:4px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></p></div></div>
+              <div class="fi"><div class="fi-icon y">🎬</div><div><strong>Візуальна стратегія</strong><p>Референси по світлу, локаціях, техніці — готове ТЗ для команди від оператора JPD.Production.</p></div></div>
+              <div class="fi"><div class="fi-icon y">📋</div><div><strong>План запуску</strong><p>Теми для перших 8 відео з урахуванням концепції. <span class="spark" id="sp9" onclick="activateSpark(9)" style="width:14px;height:14px;vertical-align:middle;margin-left:4px;"><svg viewBox="0 0 90 63" fill="none"><path d="M88.1 9.9C87.1 6.3 84.2 3.5 80.5 2.5 73.5 0.5 45 0.5 45 0.5S16.5 0.5 9.5 2.5C5.8 3.5 2.9 6.3 1.9 9.9 0 16.7 0 31.5 0 31.5S0 46.3 1.9 53.1C2.9 56.7 5.8 59.5 9.5 60.5 16.5 62.5 45 62.5 45 62.5S73.5 62.5 80.5 60.5C84.2 59.5 87.1 56.7 88.1 53.1 90 46.3 90 31.5 90 31.5S90 16.7 88.1 9.9Z" fill="#FF2D2D"/><polygon points="36,20 36,43 59,31.5" fill="white"/></svg></span></p></div></div>
             </div>
           </div>
           <div class="col dim">
-            <div class="box-y"><strong>🛡 Гарантії:</strong> Після першої сесії — якщо розумієш що ми не підходимо один одному, зупиняємось і я повертаю кошти.</div>
-            <div style="margin-top:12px;background:rgba(255,229,59,.06);border:1px solid rgba(255,229,59,.12);padding:16px;font-size:12px;line-height:1.65;"><strong style="color:var(--y);">Відгук клієнта:</strong> «Заощадила купу часу для пошуку. Тепер просто передаю файл монтажеру і дизайнеру — вони знають що робити без пояснень.»<br><span style="color:var(--soft);font-size:11px;display:block;margin-top:4px;">— Надія, «Easy Vending»</span></div>
+            <div class="box-y"><strong>🛡 Гарантії:</strong> Після першої сесії — якщо розумієш що ми не підходимо один одному, зупиняємось і я повертаю кошти. + 14 днів підтримки і допомога чи відповіді на будь які запитання.</div>
+            <div style="margin-top:12px;background:rgba(74,222,128,.06);border:1px solid rgba(74,222,128,.2);border-left:3px solid #4ADE80;padding:16px;font-size:12px;line-height:1.65;"><strong style="color:#4ADE80;">📄 Приклад концепції</strong><br><span style="color:var(--soft);margin-top:6px;display:block;">Наші концепції зараз розробляються — скоро тут з'явиться приклад однієї з них, щоб ви могли побачити, як виглядає готовий документ.</span><a href="#" style="color:var(--y);font-size:11px;margin-top:8px;display:inline-block;text-decoration:underline;opacity:.5;pointer-events:none;">Подивитися приклад → (скоро)</a></div>
           </div>
         </div>
-    <div class="svc-price-card gold">
+            <div class="svc-price-card gold">
       <div>
         <div class="svc-price-val">2 500 €</div>
         <div class="svc-price-note">повний пакет · PDF 15+ стор. · 14 днів підтримки</div>
       </div>
-      <a href="#cta" class="svc-price-btn gold" onclick="setService('Креативний концепт + Стратегія (2500 €)');closeSvcModal('concept');setTimeout(function(){document.getElementById('cta').scrollIntoView({behavior:'smooth'});},200);return false;">Обговорити концепт →</a>
+      <a href="#cta" class="svc-price-btn gold" onclick="setService('Креативна концепція (2500 €)');closeSvcModal('concept');setTimeout(function(){document.getElementById('cta').scrollIntoView({behavior:'smooth'});},200);return false;">Хочу виділятися →</a>
     </div>
       </div>
     </div>
   </div>
 </div>
-<!-- MODAL: mentor -->
-<div class="svc-modal-overlay" id="svcmodal-mentor" style="display:none;">
+<!-- MODAL: start -->
+<div class="svc-modal-overlay" id="svcmodal-start" style="display:none;">
   <div class="svc-modal-box">
     <div class="svc-modal-close">
-      <span class="svc-modal-close-title">Менторство</span>
-      <button class="svc-modal-close-btn" onclick="closeSvcModal('mentor')">✕</button>
+      <span class="svc-modal-close-title">YouTube Start</span>
+      <button class="svc-modal-close-btn" onclick="closeSvcModal('start')">✕</button>
     </div>
     <div class="svc-modal-body">
       <div style="padding:0 32px 32px;">
-        <div class="svc-eyebrow" style="margin-top:24px;"><span class="svc-num">03</span><span class="svc-badge">VIP · ДЛЯ АВТОРІВ</span></div>
-        <h2 class="svc-h">Менторство —<br>особистий продюсер</h2>
-        <p class="svc-desc" style="margin-bottom:20px;">Я особисто вчу тебе створювати контент — дзвінки кожного тижня.Про твою харизму, твій сторітелінг і твою особисту систему. Мінімум 3 місяці — менше часу просто немає сенсу. (Також це підходить нинішним, або майбутнім продюсерам.)</p>
-        <div class="roadmap">
-          <div class="rm"><div class="rm-head"><div class="rm-icon">🚀</div><div><div class="rm-month">Місяць 1</div><div class="rm-goal">Швидкість та дія</div></div></div><div class="rm-weeks"><div class="rm-week"><strong>Тиждень 1</strong><p>Знайомство. Розпаковка особистості.</p></div><div class="rm-week"><strong>Тиждень 2</strong><p>Пошук формату. Шукаємо технічний мінімум — знімаємо на те що є.</p></div><div class="rm-week"><strong>Тиждень 3</strong><p>Зйомка. Монтаж і публікація першого відео.</p></div><div class="rm-week"><strong>Тиждень 4</strong><p>Розбір польотів. Аналіз перших метрик.</p></div></div></div>
-          <div class="rm"><div class="rm-head"><div class="rm-icon">🎨</div><div><div class="rm-month">Місяць 2</div><div class="rm-goal">Упаковка та глибина</div></div></div><div class="rm-weeks"><div class="rm-week"><strong>Тиждень 1</strong><p>Генератор ідей — як і де шукати теми, коли «нічого знімати».</p></div><div class="rm-week"><strong>Тиждень 2</strong><p>Психологія кліку. Секрети назв та обкладинок.</p></div><div class="rm-week"><strong>Тиждень 3</strong><p>Глибинний аналіз конкурентів. Вирішуємо з форматом.</p></div><div class="rm-week"><strong>Тиждень 4</strong><p>Фіналізація візуального стилю.</p></div></div></div>
-          <div class="rm"><div class="rm-head"><div class="rm-icon">💎</div><div><div class="rm-month">Місяць 3</div><div class="rm-goal">Структура та система</div></div></div><div class="rm-weeks"><div class="rm-week"><strong>Тиждень 1</strong><p>Сценарій що утримує глядача до кінця.</p></div><div class="rm-week"><strong>Тиждень 2</strong><p>Твоє УТП — у чому ти унікальний на ринку.</p></div><div class="rm-week"><strong>Тиждень 3</strong><p>Аналіз метрик і коригування курсу.</p></div><div class="rm-week"><strong>Тиждень 4</strong><p>Способи монетизації: спонсорство, цифрові продукти.</p></div></div></div>
+        <div class="svc-eyebrow" style="margin-top:24px;"><span class="svc-num">02</span><span class="svc-badge">ЗАПУСК З НУЛЯ · З ОПЕРАТОРОМ</span></div>
+        <h2 class="svc-h">YouTube Start —<br>запуск каналу під ключ</h2>
+        <p class="svc-desc" style="margin-bottom:16px;">Для бізнесу, що хоче стартувати на YouTube самостійно, але правильно з першого дня. Разом з оператором <strong style="color:var(--y);">JPD.Production</strong> ми створюємо стратегію, і готуємо ваш простір для зйомки.</p>
+        <div style="background:var(--card);padding:20px 24px;margin-bottom:20px;border-left:3px solid #4ADE80;">
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#4ADE80;margin-bottom:10px;">Ідеально підходить, якщо ви</div>
+          <div style="font-size:13px;line-height:1.7;color:var(--light);">✓ Хочете вести канал самостійно, але стартувати без хаотичних експериментів<br>✓ Розумієте, що YouTube — це довга гра, і хочете закласти фундамент правильно з першого дня<br>✓ Готові інвестувати в обладнання й простір — але хочете знати, у що саме, щоб не переплачувати</div>
+          <div style="margin-top:10px;font-size:12px;color:var(--soft);">Якщо вам потрібна не просто стратегія запуску, а унікальна ідентичність каналу — подивіться <a href="javascript:void(0)" onclick="closeSvcModal('start');setTimeout(function(){openSvcModal('concept');},300);" style="color:var(--y);text-decoration:underline;">Креативну концепцію →</a></div>
         </div>
-        <div class="box-y" style="margin-top:16px;"><strong>Менторство також можливо у форматі партнерства</strong> — замість фіксованої оплати ми обговорюємо відсоток від продажів, спонсорства або інших монетизаційних джерел каналу.
- </div>
+        <div class="two">
+          <div class="col">
+            <div class="col-eye green">✓ Зі мною — 3 консультації</div>
+            <div class="flist">
+              <div class="fi"><div class="fi-icon g">🎯</div><div><strong>Стратегія запуску з нуля</strong><p>Як стартувати так, щоб канал працював на ваш бізнес, а не на перегляди заради переглядів.</p></div></div>
+              <div class="fi"><div class="fi-icon g">🔎</div><div><strong>Розбір ніші</strong><p>Знаходимо вашу вузьку нішу, де ви можете виділитися і де є цільова аудиторія.</p></div></div>
+              <div class="fi"><div class="fi-icon g">📝</div><div><strong>Теми та назви</strong><p>Обираємо кілька найрелевантніших тем і придумуємо під них клікабельні назви.</p></div></div>
+              <div class="fi"><div class="fi-icon g">⚡</div><div><strong>Промти для контенту</strong><p>Готові промти від мене, що допоможуть генерувати контент швидше й ефективніше.</p></div></div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="col-eye">🎥 З оператором JPD.Production</div>
+            <div class="flist">
+              <div class="fi"><div class="fi-icon y">🎬</div><div><strong>Консультація оператора</strong><p>Окрема сесія з оператором, який ставить вам простір і техніку під зйомку.</p></div></div>
+              <div class="fi"><div class="fi-icon y">🏠</div><div><strong>Студія вдома</strong><p>Де саме у квартирі зробити зйомочний куток, щоб виглядало дорого — без оренди студії.</p></div></div>
+              <div class="fi"><div class="fi-icon y">💡</div><div><strong>Світло й техніка</strong><p>Яку техніку докупити, а що з наявного вже використати, щоб картинка була якісною.</p></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="box-y" style="margin-top:16px;"><strong>Результат:</strong> готова стратегія, теми, назви і налаштований простір для зйомки. Ви не витрачаєте декілька місяців для налаштування всіх процесів.</div>
     <div class="svc-price-card gold">
       <div>
-        <div class="svc-price-val">500 €</div>
-        <div class="svc-price-note">на місяць · мін. 3 місяці = 1 500 €</div>
+        <div class="svc-price-val">800 €</div>
+        <div class="svc-price-note">3 мої консультації + консультація оператора</div>
       </div>
-      <a href="#cta" class="svc-price-btn gold" onclick="setService('Менторство — 3 місяці (1500 €)');closeSvcModal('mentor');setTimeout(function(){document.getElementById('cta').scrollIntoView({behavior:'smooth'});},200);return false;">Отримати ментора →</a>
+      <a href="#cta" class="svc-price-btn gold" onclick="setService('YouTube Start — запуск під ключ (800 €)');closeSvcModal('start');setTimeout(function(){document.getElementById('cta').scrollIntoView({behavior:'smooth'});},200);return false;">Запустити канал →</a>
     </div>
       </div>
     </div>
@@ -2834,72 +2899,72 @@ function closeHuntWin() {
 <div class="svc-modal-overlay" id="svcmodal-full" style="display:none;">
   <div class="svc-modal-box">
     <div class="svc-modal-close">
-      <span class="svc-modal-close-title">Повне ведення</span>
+      <span class="svc-modal-close-title">Ютуб під ключ</span>
       <button class="svc-modal-close-btn" onclick="closeSvcModal('full')">✕</button>
     </div>
     <div class="svc-modal-body">
       <div style="padding:0 32px 32px;">
         <div class="svc-eyebrow" style="margin-top:24px;"><span class="svc-num">04</span><span class="svc-badge">VIP · ДЛЯ БІЗНЕСУ</span></div>
-        <h2 class="svc-h">Повне ведення —<br>YouTube-відділ на аутсорсі</h2>
-        <p class="svc-desc" style="margin-bottom:16px;">Реклама дорожчає щокварталу. YouTube — актив що накопичується: відео зняте сьогодні приводить клієнтів через рік. <strong style="color:var(--y);">Твоє завдання — прийти на зйомку. Все інше — на мені.</strong></p>
+        <h2 class="svc-h">Ютуб під ключ —<br>YouTube-відділ на аутсорсі</h2>
+        <p class="svc-desc" style="margin-bottom:16px;">Я беру на себе стратегію, контент і команду. <strong style="color:var(--y);">Ваше завдання — приходити на зйомки.</strong> Канал працює як система: щомісяця виходить контент, що будує довіру і приводить клієнтів, поки ви займаєтесь бізнесом.</p>
+        <div style="background:var(--card);padding:20px 24px;margin-bottom:20px;border-left:3px solid #4ADE80;">
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#4ADE80;margin-bottom:10px;">Для кого</div>
+          <div style="font-size:13px;line-height:1.7;color:var(--light);">✓ У вас дорогі послуги і клієнти у ніші обирають через довіру<br>✓ Ви хочете YouTube, але не маєте ні часу, ні команди, щоб робити це самостійно<br>✓ Ви хочете доносити важливі сенси, які підкріплють важливість вашого бренду<br>✓ Ви працюєте над зменшенням вартості клієнта для бізнесу<</div>
+        </div>
         <div class="two">
           <div class="col">
-            <div class="col-eye green">✓ Входить у вартість</div>
+            <div class="col-eye green">✓ Що ви отримуєте</div>
             <div class="flist">
-              <div class="fi"><div class="fi-icon g">📋</div><div><strong>Стратегія та контент-план</strong><p>Щомісячний план тем, заголовків і гачків — знаєш наперед що і навіщо знімаєш.</p></div></div>
-              <div class="fi"><div class="fi-icon g">🎯</div><div><strong>A/B тест заголовків</strong><p>Тестуємо що заходить краще — і одразу застосовуємо.</p></div></div>
-              <div class="fi"><div class="fi-icon g">🎨</div><div><strong>Дизайнер включений</strong><p>Обкладинки, шапка каналу, графіка — все закрито.</p></div></div>
-              <div class="fi"><div class="fi-icon g">📝</div><div><strong>Сценарна структура відео</strong><p>Гачок, утримання, заклик до дії — логіка що веде до покупки.</p></div></div>
-              <div class="fi"><div class="fi-icon g">🔗</div><div><strong>Комунікація з монтажером</strong><p>Постановка завдань, контроль якості — все на мені. Ти у процес не залучаєшся.</p></div></div>
-              <div class="fi"><div class="fi-icon g">📊</div><div><strong>SEO, публікація та звіт</strong><p>CTR, глибина перегляду, джерела заявок — завжди знаєш за що платиш.</p></div></div>
+              <div class="fi"><div class="fi-icon g">📋</div><div><strong>Стратегія і теми щомісяця</strong><p>Знаєте наперед, що знімаєте і навіщо. Кожне відео має ціль — від побудови довіри до конкретного заклику.</p></div></div>
+              <div class="fi"><div class="fi-icon g">📝</div><div><strong>Готові сценарії з гачками</strong><p>Структура кожного відео продумана: гачок, утримання, заклик до дії. Логіка, що веде глядача від перегляду до покупки.</p></div></div>
+              <div class="fi"><div class="fi-icon g">🎨</div><div><strong>Дизайн і упаковка каналу</strong><p>Обкладинки, шапка, графіка — все включено. Ваш канал виглядає як преміум-бренд, а не як домашнє відео.</p></div></div>
+              <div class="fi"><div class="fi-icon g">📊</div><div><strong>Аналітика і звіт</strong><p>Утримання, глибина перегляду, джерела заявок — ви розумієте, що працює і куди рухаємось. Прозоро, щомісяця.</p></div></div>
               <div class="fi"><div class="fi-icon g">📱</div><div><strong>3 Shorts на 1 довге відео</strong><p>Більше охоплення без додаткових зйомок.</p></div></div>
+              <div class="fi"><div class="fi-icon g">🔄</div><div><strong>Координація команди</strong><p>Все координую я — монтажер, дизайнер, оператор. Ви у процес не залучаєтесь.</p></div></div>
             </div>
           </div>
           <div class="col dim">
-            <div class="col-eye red">↗ Оплачується окремо</div>
-            <div class="flist" style="margin-bottom:16px;">
-              <div class="fi"><div class="fi-icon r">📹</div><div><strong>Зйомка</strong><p>Оператор, локація, реквізит — на стороні клієнта. Я надаю детальне ТЗ.</p></div></div>
-              <div class="fi"><div class="fi-icon r">✂️</div><div><strong>Монтаж</strong><p>Монтажер сплачується окремо — але всю комунікацію з ним беру на себе.</p></div></div>
-              <div class="fi"><div class="fi-icon r">✍️</div><div><strong>Сценарист (за бажанням)</strong><p> Якщо хочеться делегувати написання сценарія слово в слово. Я допоможу знайти і підібрати людину під проєкт.</p></div></div>
+            <div class="col-eye" style="color:var(--r);">Не входить у вартість</div>
+            <div class="flist" style="margin-top:8px;">
+              <div class="fi"><div class="fi-icon" style="background:rgba(255,255,255,.04);font-size:16px;">🎥</div><div><strong>Зйомка</strong><p>Оператор, локація, реквізит — забезпечує клієнт або наш партнер.</p></div></div>
+              <div class="fi"><div class="fi-icon" style="background:rgba(255,255,255,.04);font-size:16px;">✂️</div><div><strong>Монтаж</strong><p>На стороні клієнта або JPD.Production. Комунікацію з монтажером беру на себе.</p></div></div>
+              <div class="fi"><div class="fi-icon" style="background:rgba(255,255,255,.04);font-size:16px;">✍️</div><div><strong>Сценарист</strong><p>За бажанням — допоможу знайти і підібрати людину під проєкт.</p></div></div>
             </div>
-            <div class="box-y"><strong>YouTube — це інвестиція.</strong> Теплі клієнти приходять підготовленими. Твій канал стає медіа що зростає і генерує трафік роками, а не одни днем як інстаграм чи тік-ток.</div>
+            <div style="margin-top:16px;padding:16px;background:rgba(255,229,59,.04);border:1px solid rgba(255,229,59,.15);">
+              <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--y);margin-bottom:8px;">Закриємо все під ключ — розрахунок індивідуальний</div>
+              <div style="font-size:13px;line-height:1.6;color:var(--light);">Разом із <strong>JPD.Production</strong> беремо на себе повний цикл: техніка, оператор, монтаж, публікація. Вам лишається тільки прийти на зйомку.</div>
+              <div style="margin-top:10px;display:flex;justify-content:space-between;align-items:baseline;">
+                <span style="font-family:'Unbounded',sans-serif;font-size:16px;font-weight:700;color:var(--y);">від 700–800 € / відео</span>
+                
+              </div>
+              <div style="margin-top:4px;font-size:10px;color:var(--soft);">Залежно від складності ідеї, формату та обсягу. Поки тільки Київ.</div>
+            </div>
+
           </div>
+        </div></div>
         </div>
-        <span class="eye" style="margin-top:28px;display:block;">Пакети</span>
-        <div class="pkg-set cols3" id="pkg-full-modal">
-          <div class="pkg-item" data-link="#cta"><div class="pkg-num">🥉 START</div><div class="pkg-name">4 відео</div><div class="pkg-price">1 400 €</div><div class="pkg-note"> Стабільний органічний ріст. Ідеально для старту.</div><button class="pkg-order" onclick="setService('Повне ведення — 4 відео (1 400 €)');closeSvcModal('full');setTimeout(function(){document.getElementById('cta').scrollIntoView({behavior:'smooth'});},200)">Обговорити →</button></div>
-          <div class="pkg-item active" data-link="#cta"><div class="pkg-num">★ BUSINESS · РЕКОМЕНДОВАНО</div><div class="pkg-name">8 відео</div><div class="pkg-price">2 500 €</div><div class="pkg-note"> Оптимальний темп зростання. Найпопулярніший вибір.</div><button class="pkg-order" onclick="setService('Повне ведення — 8 відео (2 500 €)');closeSvcModal('full');setTimeout(function(){document.getElementById('cta').scrollIntoView({behavior:'smooth'});},200)">Обговорити →</button></div>
-          <div class="pkg-item" data-link="#cta"><div class="pkg-num">🥇 VIP</div><div class="pkg-name">16 відео</div><div class="pkg-price">4 400 €</div><div class="pkg-note"> Для тих хто хоче стати №1.</div><button class="pkg-order" onclick="setService('Повне ведення — 16 відео (4 400 €)');closeSvcModal('full');setTimeout(function(){document.getElementById('cta').scrollIntoView({behavior:'smooth'});},200)">Обговорити →</button></div>
-        </div>
+    <div id="pkg8" class="svc-price-card" style="margin-top:16px;border-top-color:transparent;transition:all .25s;opacity:.45;cursor:pointer;"
+      onclick="setService('Ютуб під ключ — 8 відео (2 500 €)');closeSvcModal('full');setTimeout(function(){document.getElementById('cta').scrollIntoView({behavior:'smooth'});},200);"
+      onmouseenter="this.style.borderTopColor='var(--y)';this.style.opacity='1';document.getElementById('pkg16').style.borderTopColor='transparent';document.getElementById('pkg16').style.opacity='.45'"
+      onmouseleave="this.style.borderTopColor='transparent';this.style.opacity='.45';document.getElementById('pkg16').style.borderTopColor='var(--y)';document.getElementById('pkg16').style.opacity='1'">
+      <div>
+        <div style="font-size:9px;font-family:'Unbounded',sans-serif;font-weight:700;letter-spacing:.12em;color:var(--y);margin-bottom:6px;">★ ПОПУЛЯРНО</div>
+        <div class="svc-price-val">2 500 €</div>
+        <div class="svc-price-note">8 відео · оптимальний темп зростання</div>
       </div>
+      <a href="#cta" class="svc-price-btn" onclick="setService('Ютуб під ключ — 8 відео (2 500 €)');closeSvcModal('full');setTimeout(function(){document.getElementById('cta').scrollIntoView({behavior:'smooth'});},200);return false;">Обговорити →</a>
     </div>
-  </div>
-</div>
-<!-- MODAL: plan -->
-<div class="svc-modal-overlay" id="svcmodal-plan" style="display:none;">
-  <div class="svc-modal-box">
-    <div class="svc-modal-close">
-      <span class="svc-modal-close-title">Контент-план</span>
-      <button class="svc-modal-close-btn" onclick="closeSvcModal('plan')">✕</button>
+    <div id="pkg16" class="svc-price-card gold" style="margin-top:2px;transition:all .25s;opacity:1;cursor:pointer;"
+      onclick="setService('Ютуб під ключ — 16 відео (4 400 €)');closeSvcModal('full');setTimeout(function(){document.getElementById('cta').scrollIntoView({behavior:'smooth'});},200);"
+      onmouseenter="this.style.borderTopColor='var(--y)';this.style.opacity='1';document.getElementById('pkg8').style.borderTopColor='transparent';document.getElementById('pkg8').style.opacity='.45'"
+      onmouseleave="this.style.borderTopColor='var(--y)';this.style.opacity='1';document.getElementById('pkg8').style.borderTopColor='transparent';document.getElementById('pkg8').style.opacity='.45'">
+      <div>
+        <div style="font-size:9px;font-family:'Unbounded',sans-serif;font-weight:700;letter-spacing:.12em;color:var(--y);margin-bottom:6px;">🥇 VIP · РЕКОМЕНДОВАНО</div>
+        <div class="svc-price-val">4 400 €</div>
+        <div class="svc-price-note">16 відео · максимальний темп і перші результати</div>
+      </div>
+      <a href="#cta" class="svc-price-btn" onclick="setService('Ютуб під ключ — 16 відео (4 400 €)');closeSvcModal('full');setTimeout(function(){document.getElementById('cta').scrollIntoView({behavior:'smooth'});},200);return false;">Обговорити →</a>
     </div>
-    <div class="svc-modal-body">
-      <div style="padding:0 32px 32px;">
-        <div class="svc-eyebrow" style="margin-top:24px;"><span class="svc-num">05</span></div>
-        <h2 class="svc-h">Контент-план</h2>
-        <p style="font-size:15px;line-height:1.75;margin-top:12px;margin-bottom:16px;">Більше не думаєш що знімати. Відкриваєш файл — і знаєш: що, навіщо, і як назвати.</p>
-        <div class="agenda" style="margin-bottom:16px;">
-          <div class="ag"><div class="ag-n">①</div><div><strong>Клікабельні заголовки</strong><p>2–3 варіанти: пошукові запити + психологія кліку.</p></div></div>
-          <div class="ag"><div class="ag-n">②</div><div><strong>Концепт обкладинки</strong><p>Ідея для обкладинки що продає клік ще до перегляду.</p></div></div>
-          <div class="ag"><div class="ag-n">③</div><div><strong>Текст гачка — дослівно</strong><p>Скрипт перших 30 секунд. Глядач не перемкне.</p></div></div>
-          <div class="ag"><div class="ag-n">④</div><div><strong>Тезисна структура</strong><p>Блоки оповіді: про що говорити, де пауза, де продаж.</p></div></div>
-        </div>
-        <div class="box-r"><strong>🔒 Важливо:</strong> доступно тільки після «концепт-буку» або «діагностики». Без правильного фундаменту — ця послуга не спрацює.</div>
-        <span class="eye" style="margin-top:28px;display:block;">Оберіть пакет</span>
-        <div class="pkg-set cols3" id="pkg-plan-modal">
-          <div class="pkg-item" data-link="#cta"><div class="pkg-num">START</div><div class="pkg-name">4 відео / міс</div><div class="pkg-price">300 €</div><div class="pkg-note">1 відео на тиждень. Ідеально для старту.</div><button class="pkg-order" onclick="setService('Контент-план — 4 відео (300 €)');closeSvcModal('plan');setTimeout(function(){document.getElementById('cta').scrollIntoView({behavior:'smooth'});},200)">Отримати →</button></div>
-          <div class="pkg-item active" data-link="#cta"><div class="pkg-num">★ ACTIVE</div><div class="pkg-name">8 відео</div><div class="pkg-price">500 €</div><div class="pkg-note">Для швидкого росту. Найпопулярніший вибір.</div><button class="pkg-order" onclick="setService('Контент-план — 8 відео (500 €)');closeSvcModal('plan');setTimeout(function(){document.getElementById('cta').scrollIntoView({behavior:'smooth'});},200)">Отримати →</button></div>
-          <div class="pkg-item" data-link="#cta"><div class="pkg-num">PRO</div><div class="pkg-name">12 відео / 3 міс</div><div class="pkg-price">700 €</div><div class="pkg-note">Найвигідніша ціна за одиницю.</div><button class="pkg-order" onclick="setService('Контент-план — 12 відео (700 €)');closeSvcModal('plan');setTimeout(function(){document.getElementById('cta').scrollIntoView({behavior:'smooth'});},200)">Отримати →</button></div>
-        </div>
       </div>
     </div>
   </div>

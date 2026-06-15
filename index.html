@@ -433,9 +433,9 @@ footer { background:var(--dark); border-top:1px solid var(--border); padding:30p
   .hero { padding:80px 16px 44px; }
   .hero-h { font-size:clamp(32px,9vw,48px); line-height:1.0; margin-bottom:24px; }
   .hero-desc { font-size:15px; margin-bottom:36px; }
-  .hero-btns { flex-direction:row; gap:10px; flex-wrap:wrap; }
-  .btn-fire { padding:13px 22px; font-size:11px; }
-  .btn-ghost { padding:12px 20px; font-size:11px; }
+  .hero-btns { flex-direction:row; gap:8px; flex-wrap:nowrap; }
+  .btn-fire { padding:11px 16px; font-size:10px; }
+  .btn-ghost { padding:10px 14px; font-size:10px; }
   .hero-badge { margin-bottom:28px; }
   .hero-badge span { font-size:11px; }
 
@@ -1151,6 +1151,9 @@ details.svc-row summary { -webkit-tap-highlight-color: rgba(255,229,59,.1); }
   .svc-row-desc{font-size:11px;}
   #navigator .svc-row-title{font-size:14px;}
   #navigator .svc-row-price{font-size:14px;}
+  .hero-btns{gap:6px;}
+  .btn-fire{padding:10px 12px;font-size:9px;}
+  .btn-ghost{padding:9px 11px;font-size:9px;}
 }
 /* Desktop: compact services so all 4 fit on one screen without scrolling */
 @media(min-width:641px){
